@@ -1,0 +1,15 @@
+<package>
+  <description brief="gait_capture">
+
+     gait_capture
+
+  </description>
+  <author>Vivian Chu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/gait_capture</url>
+  <depend package="rospy"/>
+
+</package>
+
+

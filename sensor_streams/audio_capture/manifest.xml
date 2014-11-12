@@ -1,0 +1,15 @@
+<package>
+  <description brief="audio_capture">
+
+     audio_capture
+
+  </description>
+  <author>Vivian Chu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/audio_capture</url>
+  <depend package="rospy"/>
+
+</package>
+
+
