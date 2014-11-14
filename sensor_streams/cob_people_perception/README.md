@@ -1,7 +1,7 @@
 Build Procedure
 ===============
 
-Make sure the `cob_perception_common` and `cob_people_perception` are in the ROS package path. Then go to the `cob_people_perception/cob_people_detection` folder, `rosmake`. 
+Make sure the `cob_perception_common` and `cob_people_perception` are in the ROS package path. Then go to the `cob_people_perception/cob_people_detection` folder, `rosmake cob_people_detection`. 
 
 
 To Run
