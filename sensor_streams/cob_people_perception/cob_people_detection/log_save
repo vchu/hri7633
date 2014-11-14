@@ -1,0 +1,1798 @@
+... logging to /home/xinyan/.ros/log/5bb547ee-6392-11e4-a32e-d43d7e947647/roslaunch-jarvis-9747.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch
+[1mstarted roslaunch server http://jarvis:51539/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cob_image_flip/kinect_image_flip/display_timing
+ * /cob_image_flip/kinect_image_flip/display_warnings
+ * /cob_image_flip/kinect_image_flip/flip_color_image
+ * /cob_image_flip/kinect_image_flip/flip_pointcloud
+ * /cob_image_flip/kinect_image_flip/pointcloud_data_format
+ * /cob_people_detection/coordinator/namespace_gateway
+ * /cob_people_detection/data_storage_directory
+ * /cob_people_detection/detection_tracker/debug
+ * /cob_people_detection/detection_tracker/detection_tracker/data_directory
+ * /cob_people_detection/detection_tracker/display_timing
+ * /cob_people_detection/detection_tracker/face_identification_score_decay_rate
+ * /cob_people_detection/detection_tracker/face_redetection_time
+ * /cob_people_detection/detection_tracker/fall_back_to_unknown_identification
+ * /cob_people_detection/detection_tracker/min_face_identification_score_to_publish
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_face
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_head
+ * /cob_people_detection/detection_tracker/publish_currently_not_visible_detections_timespan
+ * /cob_people_detection/detection_tracker/rosbag_mode
+ * /cob_people_detection/detection_tracker/tracking_range_m
+ * /cob_people_detection/detection_tracker/use_people_segmentation
+ * /cob_people_detection/face_capture/debug
+ * /cob_people_detection/face_capture/display_timing
+ * /cob_people_detection/face_capture/enable_face_recognition
+ * /cob_people_detection/face_capture/face_capture/data_directory
+ * /cob_people_detection/face_capture/feature_dimension
+ * /cob_people_detection/face_capture/metric
+ * /cob_people_detection/face_capture/norm_align
+ * /cob_people_detection/face_capture/norm_extreme_illumination
+ * /cob_people_detection/face_capture/norm_illumination
+ * /cob_people_detection/face_capture/norm_size
+ * /cob_people_detection/face_capture/recognition_method
+ * /cob_people_detection/face_capture/use_depth
+ * /cob_people_detection/face_capture/use_unknown_thresh
+ * /cob_people_detection/face_detector/debug
+ * /cob_people_detection/face_detector/display_timing
+ * /cob_people_detection/face_detector/face_detector/data_directory
+ * /cob_people_detection/face_detector/face_size_max_m
+ * /cob_people_detection/face_detector/face_size_min_m
+ * /cob_people_detection/face_detector/faces_drop_groups
+ * /cob_people_detection/face_detector/faces_increase_search_scale
+ * /cob_people_detection/face_detector/faces_min_search_scale_x
+ * /cob_people_detection/face_detector/faces_min_search_scale_y
+ * /cob_people_detection/face_detector/max_face_z_m
+ * /cob_people_detection/face_detector/reason_about_3dface_size
+ * /cob_people_detection/face_recognizer/debug
+ * /cob_people_detection/face_recognizer/display_timing
+ * /cob_people_detection/face_recognizer/enable_face_recognition
+ * /cob_people_detection/face_recognizer/feature_dimension
+ * /cob_people_detection/face_recognizer/metric
+ * /cob_people_detection/face_recognizer/norm_align
+ * /cob_people_detection/face_recognizer/norm_extreme_illumination
+ * /cob_people_detection/face_recognizer/norm_illumination
+ * /cob_people_detection/face_recognizer/norm_size
+ * /cob_people_detection/face_recognizer/recognition_method
+ * /cob_people_detection/face_recognizer/use_depth
+ * /cob_people_detection/face_recognizer/use_unknown_thresh
+ * /cob_people_detection/head_detection_display/display
+ * /cob_people_detection/head_detection_display/display_timing
+ * /cob_people_detection/head_detector/depth_drop_groups
+ * /cob_people_detection/head_detector/depth_increase_search_scale
+ * /cob_people_detection/head_detector/depth_min_search_scale_x
+ * /cob_people_detection/head_
+--------------------------
+Kinect Image Flip Parameters:
+--------------------------
+flip_color_image = 1
+flip_pointcloud = 1
+pointcloud_data_format = xyzrgb
+display_warnings = 0
+display_timing = 0
+robot = cob3-3
+CobKinectImageFlip: Robot number is cob3-3.
+
+--------------------------
+Head Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+fill_unassigned_depth_values = 1
+depth_increase_search_scale = 1.1
+depth_drop_groups = 40
+depth_min_search_scale_x = 20
+depth_min_search_scale_y = 20
+display_timing = 0
+HeadDetectorNode initialized.
+
+--------------------------
+Face Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+faces_increase_search_scale = 1.2
+faces_drop_groups = 2
+faces_min_search_scale_x = 30
+faces_min_search_scale_y = 30
+reason_about_3dface_size = 1
+face_size_max_m = 0.35
+face_size_min_m = 0.1
+max_face_z_m = 8
+debug = 0
+display_timing = 0
+FaceDetectorNode initialized.
+
+--------------------------
+Face Recognizer Parameters:
+--------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+enable_face_recognition = 1
+feature dimension = 15
+threshold_facespace = 10000
+threshold_unknown = 1000
+metric = 0
+debug = 0
+recognition method: 3
+ use use unknown thresh: 1
+ use depth: 1
+display_timing = 0
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 1
+identification_labels_to_recognize: 
+Error: FaceRecognizer::loadTrainingData: Can't open /home/xinyan/.ros/cob_people_detection/files/training_data/tdata.xml.
+
+FaceRecognizer1D::saveModel() to /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+OPENING at /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+INFO: FaceRecognizer::saveRecognitionModel: recognizer data saved.
+
+CobKinectImageFlip initilized.
+
+---------------------------
+People Detection Parameters:
+---------------------------
+debug = 0
+use rosbag mode:  1
+use_people_segmentation = 0
+face_redetection_time = 2.5
+publish_currently_not_visible_detections_timespan = 0.2
+min_segmented_people_ratio_face = 0.7
+min_segmented_people_ratio_head = 0.2
+tracking_range_m = 0.4
+face_identification_score_decay_rate = 0.9
+min_face_identification_score_to_publish = 4
+fall_back_to_unknown_identification = 0
+display_timing = 0
+DetectionTrackerNode initialized.
+
+---------------------------
+Face Capture Node Parameters:
+---------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 1
+Error: FaceRecognizer::loadTrainingData: Can't open /home/xinyan/.ros/cob_people_detection/files/training_data/tdata.xml.
+
+
+---------------------------
+Coordinator Node Parameters:
+---------------------------
+namespace_gateway = /cob_people_detection/sensor_message_gateway/sensor_message_gateway
+CoordinatorNode initialized.
+
+---------------------------
+People Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+PeopleDetectionDisplay initialized.
+FaceCaptureNode initialized. 0 color images and 0 depth images for training loaded.
+
+
+---------------------------
+Head Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+HeadDetectionDisplay initialized.
+
+--------------------------
+Sensor Message Gateway Parameters:
+--------------------------
+target_publishing_rate = 20
+display_timing = 0
+[0m[ INFO] [1415480233.174057755]: Reconfigure request accomplished. New target publishing rate: 100.000000[0m
+SensorMessageGatewayNode initialized.
+Detected: 1
+Try to make head box similar to selection box
+Head box: [70 x 79 from (358, 259)], selection box: [185 x 185 from (299, 207)]
+Final head_box:[185 x 185 from (301, 206)]
+Trackers: 0
+Number of head box to display: 1
+Recognition model trained or loaded for:
+[0m[ INFO] [1415480228.412341143]: FaceRecognizerNode initialized.[0m
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 83 from (337, 271)], selection box: [183 x 183 from (282, 213)]
+Final head_box:[183 x 183 from (287, 221)]
+Try to make head box similar to selection box
+Head box: [93 x 108 from (344, 258)], selection box: [185 x 185 from (299, 207)]
+Final head_box:[185 x 185 from (298, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 82 from (337, 272)], selection box: [184 x 184 from (279, 212)]
+Final head_box:[184 x 184 from (285, 221)]
+Try to make head box similar to selection box
+Head box: [96 x 96 from (329, 269)], selection box: [183 x 183 from (282, 213)]
+Final head_box:[183 x 183 from (286, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Newly detected face!
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 81 from (340, 273)], selection box: [178 x 178 from (283, 214)]
+Final head_box:[178 x 178 from (291, 224)]
+Try to make head box similar to selection box
+Head box: [88 x 91 from (333, 270)], selection box: [184 x 184 from (279, 212)]
+Final head_box:[184 x 184 from (285, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 298
+y: 235
+width: 104
+height: 104
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 83 from (340, 269)], selection box: [183 x 183 from (282, 213)]
+Final head_box:[183 x 183 from (289, 219)]
+Try to make head box similar to selection box
+Head box: [80 x 80 from (341, 274)], selection box: [178 x 178 from (283, 214)]
+Final head_box:[178 x 178 from (292, 225)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 304
+y: 246
+width: 87
+height: 87
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 82 from (338, 271)], selection box: [181 x 181 from (281, 213)]
+Final head_box:[181 x 181 from (288, 222)]
+Try to make head box similar to selection box
+Head box: [96 x 96 from (334, 267)], selection box: [183 x 183 from (282, 213)]
+Final head_box:[183 x 183 from (291, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 306
+y: 245
+width: 81
+height: 81
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [68 x 72 from (348, 273)], selection box: [181 x 181 from (282, 212)]
+Final head_box:[181 x 181 from (292, 219)]
+Try to make head box similar to selection box
+Head box: [86 x 89 from (339, 269)], selection box: [181 x 181 from (281, 213)]
+Final head_box:[181 x 181 from (292, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 300
+y: 238
+width: 98
+height: 98
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 81 from (340, 271)], selection box: [186 x 186 from (278, 213)]
+Final head_box:[186 x 186 from (287, 218)]
+Try to make head box similar to selection box
+Head box: [97 x 100 from (333, 265)], selection box: [181 x 181 from (282, 212)]
+Final head_box:[181 x 181 from (291, 225)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 295
+y: 238
+width: 104
+height: 104
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 84 from (337, 270)], selection box: [186 x 186 from (278, 211)]
+Final head_box:[186 x 186 from (285, 219)]
+Try to make head box similar to selection box
+Head box: [93 x 95 from (333, 269)], selection box: [186 x 186 from (278, 213)]
+Final head_box:[186 x 186 from (286, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 300
+y: 242
+width: 94
+height: 94
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 82 from (338, 272)], selection box: [186 x 186 from (279, 213)]
+Final head_box:[186 x 186 from (286, 220)]
+Try to make head box similar to selection box
+Head box: [93 x 90 from (334, 271)], selection box: [186 x 186 from (278, 211)]
+Final head_box:[186 x 186 from (287, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 299
+y: 236
+width: 102
+height: 102
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 82 from (338, 272)], selection box: [184 x 184 from (280, 213)]
+Final head_box:[184 x 184 from (287, 221)]
+Try to make head box similar to selection box
+Head box: [96 x 92 from (333, 271)], selection box: [186 x 186 from (279, 213)]
+Final head_box:[186 x 186 from (288, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 81 from (337, 272)], selection box: [184 x 184 from (277, 212)]
+Final head_box:[184 x 184 from (286, 220)]
+Try to make head box similar to selection box
+Head box: [88 x 85 from (337, 273)], selection box: [184 x 184 from (280, 213)]
+Final head_box:[184 x 184 from (289, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 304
+y: 243
+width: 87
+height: 87
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 80 from (338, 272)], selection box: [184 x 184 from (278, 213)]
+Final head_box:[184 x 184 from (286, 220)]
+Try to make head box similar to selection box
+Head box: [89 x 88 from (335, 271)], selection box: [184 x 184 from (277, 212)]
+Final head_box:[184 x 184 from (287, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 306
+y: 251
+width: 81
+height: 81
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 81 from (340, 269)], selection box: [185 x 185 from (277, 212)]
+Final head_box:[185 x 185 from (288, 217)]
+Try to make head box similar to selection box
+Head box: [96 x 93 from (332, 268)], selection box: [184 x 184 from (278, 213)]
+Final head_box:[184 x 184 from (288, 222)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [86 x 86 from (336, 271)], selection box: [191 x 191 from (275, 209)]
+Final head_box:[191 x 191 from (284, 219)]
+Try to make head box similar to selection box
+Head box: [90 x 87 from (336, 270)], selection box: [185 x 185 from (277, 212)]
+Final head_box:[185 x 185 from (289, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 289
+y: 234
+width: 117
+height: 117
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [85 x 85 from (335, 271)], selection box: [192 x 192 from (273, 208)]
+Final head_box:[192 x 192 from (281, 217)]
+Try to make head box similar to selection box
+Head box: [96 x 93 from (332, 270)], selection box: [191 x 191 from (275, 209)]
+Final head_box:[191 x 191 from (285, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 295
+y: 235
+width: 104
+height: 104
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [85 x 84 from (338, 273)], selection box: [189 x 189 from (276, 213)]
+Final head_box:[189 x 189 from (286, 221)]
+Try to make head box similar to selection box
+Head box: [98 x 97 from (330, 270)], selection box: [192 x 192 from (273, 208)]
+Final head_box:[192 x 192 from (283, 222)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 295
+y: 237
+width: 104
+height: 104
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 82 from (335, 274)], selection box: [186 x 186 from (277, 214)]
+Final head_box:[186 x 186 from (284, 222)]
+Try to make head box similar to selection box
+Head box: [95 x 92 from (333, 272)], selection box: [189 x 189 from (276, 213)]
+Final head_box:[189 x 189 from (286, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 84 from (338, 273)], selection box: [186 x 186 from (278, 212)]
+Final head_box:[186 x 186 from (287, 222)]
+Try to make head box similar to selection box
+Head box: [89 x 83 from (334, 276)], selection box: [186 x 186 from (277, 214)]
+Final head_box:[186 x 186 from (285, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 80 from (339, 273)], selection box: [186 x 186 from (279, 214)]
+Final head_box:[186 x 186 from (287, 220)]
+Try to make head box similar to selection box
+Head box: [95 x 88 from (331, 273)], selection box: [186 x 186 from (278, 212)]
+Final head_box:[186 x 186 from (285, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 295
+y: 238
+width: 108
+height: 108
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 82 from (338, 273)], selection box: [188 x 188 from (277, 211)]
+Final head_box:[188 x 188 from (286, 220)]
+Try to make head box similar to selection box
+Head box: [92 x 90 from (336, 272)], selection box: [186 x 186 from (279, 214)]
+Final head_box:[186 x 186 from (289, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 296
+y: 239
+width: 102
+height: 102
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 81 from (338, 271)], selection box: [189 x 189 from (276, 212)]
+Final head_box:[189 x 189 from (285, 217)]
+Try to make head box similar to selection box
+Head box: [94 x 92 from (333, 270)], selection box: [188 x 188 from (277, 211)]
+Final head_box:[188 x 188 from (286, 222)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 298
+y: 237
+width: 96
+height: 96
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 83 from (338, 272)], selection box: [189 x 189 from (276, 213)]
+Final head_box:[189 x 189 from (285, 219)]
+Try to make head box similar to selection box
+Head box: [91 x 89 from (334, 271)], selection box: [189 x 189 from (276, 212)]
+Final head_box:[189 x 189 from (285, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 293
+y: 236
+width: 108
+height: 108
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 82 from (340, 271)], selection box: [179 x 179 from (279, 216)]
+Final head_box:[179 x 179 from (291, 223)]
+Try to make head box similar to selection box
+Head box: [97 x 97 from (331, 269)], selection box: [189 x 189 from (276, 213)]
+Final head_box:[189 x 189 from (285, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [85 x 83 from (337, 271)], selection box: [185 x 185 from (278, 209)]
+Final head_box:[185 x 185 from (287, 220)]
+Try to make head box similar to selection box
+Head box: [93 x 92 from (336, 269)], selection box: [179 x 179 from (279, 216)]
+Final head_box:[179 x 179 from (293, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 81 from (344, 265)], selection box: [181 x 181 from (286, 208)]
+Final head_box:[181 x 181 from (294, 215)]
+Try to make head box similar to selection box
+Head box: [97 x 94 from (337, 264)], selection box: [185 x 185 from (278, 209)]
+Final head_box:[185 x 185 from (293, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 303
+y: 228
+width: 104
+height: 104
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 76 from (350, 267)], selection box: [179 x 179 from (294, 210)]
+Final head_box:[179 x 179 from (300, 216)]
+Try to make head box similar to selection box
+Head box: [94 x 92 from (342, 261)], selection box: [181 x 181 from (286, 208)]
+Final head_box:[181 x 181 from (299, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 317
+y: 236
+width: 87
+height: 87
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 76 from (359, 265)], selection box: [166 x 166 from (308, 217)]
+Final head_box:[166 x 166 from (315, 220)]
+Try to make head box similar to selection box
+Head box: [88 x 84 from (355, 264)], selection box: [179 x 179 from (294, 210)]
+Final head_box:[179 x 179 from (310, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 73 from (370, 265)], selection box: [164 x 164 from (320, 211)]
+Final head_box:[164 x 164 from (324, 219)]
+Try to make head box similar to selection box
+Head box: [83 x 78 from (364, 265)], selection box: [166 x 166 from (308, 217)]
+Final head_box:[166 x 166 from (322, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 335
+y: 231
+width: 94
+height: 94
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 81 from (375, 265)], selection box: [176 x 176 from (321, 203)]
+Final head_box:[176 x 176 from (328, 217)]
+Try to make head box similar to selection box
+Head box: [87 x 85 from (370, 265)], selection box: [164 x 164 from (320, 211)]
+Final head_box:[164 x 164 from (331, 225)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 342
+y: 231
+width: 99
+height: 99
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 79 from (385, 266)], selection box: [168 x 168 from (336, 208)]
+Final head_box:[168 x 168 from (340, 221)]
+Try to make head box similar to selection box
+Head box: [91 x 86 from (377, 265)], selection box: [176 x 176 from (321, 203)]
+Final head_box:[176 x 176 from (334, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 356
+y: 240
+width: 87
+height: 87
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 77 from (396, 269)], selection box: [181 x 181 from (335, 202)]
+Final head_box:[181 x 181 from (345, 217)]
+Try to make head box similar to selection box
+Head box: [87 x 84 from (390, 268)], selection box: [168 x 168 from (336, 208)]
+Final head_box:[168 x 168 from (349, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 358
+y: 233
+width: 100
+height: 100
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 76 from (401, 270)], selection box: [173 x 173 from (341, 207)]
+Final head_box:[173 x 173 from (354, 222)]
+Try to make head box similar to selection box
+Head box: [89 x 84 from (393, 268)], selection box: [181 x 181 from (335, 202)]
+Final head_box:[181 x 181 from (347, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 364
+y: 238
+width: 99
+height: 99
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 74 from (402, 272)], selection box: [180 x 180 from (341, 207)]
+Final head_box:[180 x 180 from (349, 219)]
+Try to make head box similar to selection box
+Head box: [87 x 83 from (396, 266)], selection box: [173 x 173 from (341, 207)]
+Final head_box:[173 x 173 from (353, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 366
+y: 237
+width: 98
+height: 98
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 77 from (409, 271)], selection box: [168 x 168 from (350, 211)]
+Final head_box:[168 x 168 from (364, 225)]
+Try to make head box similar to selection box
+Head box: [81 x 76 from (406, 276)], selection box: [180 x 180 from (341, 207)]
+Final head_box:[180 x 180 from (356, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 372
+y: 238
+width: 96
+height: 96
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 74 from (403, 238)], selection box: [167 x 167 from (360, 209)]
+Final head_box:[167 x 167 from (358, 192)]
+Try to make head box similar to selection box
+Head box: [94 x 92 from (401, 276)], selection box: [168 x 168 from (350, 211)]
+Final head_box:[168 x 168 from (364, 238)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [66 x 60 from (435, 247)], selection box: [162 x 162 from (377, 214)]
+Final head_box:[162 x 162 from (387, 196)]
+Try to make head box similar to selection box
+Head box: [104 x 93 from (425, 230)], selection box: [167 x 167 from (360, 209)]
+Final head_box:[167 x 167 from (394, 193)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [62 x 65 from (441, 246)], selection box: [171 x 171 from (385, 212)]
+Final head_box:[171 x 171 from (387, 193)]
+Try to make head box similar to selection box
+Head box: [104 x 110 from (451, 231)], selection box: [162 x 162 from (377, 214)]
+Final head_box:[162 x 162 from (422, 205)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 80 from (449, 239)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[166 x 166 from (403, 196)]
+Try to make head box similar to selection box
+Head box: [114 x 111 from (452, 222)], selection box: [171 x 171 from (385, 212)]
+Final head_box:[171 x 171 from (424, 192)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [105 x 108 from (463, 223)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[166 x 166 from (432, 194)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [106 x 121 from (500, 244)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[166 x 166 from (470, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [176 x 191 from (471, 225)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[164 x 166 from (476, 237)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [188 x 207 from (473, 227)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[156 x 166 from (484, 247)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [202 x 219 from (470, 230)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[152 x 166 from (488, 256)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [198 x 217 from (475, 232)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[149 x 166 from (491, 257)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [207 x 223 from (470, 228)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[150 x 166 from (490, 256)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [202 x 222 from (472, 231)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[150 x 166 from (490, 259)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [196 x 218 from (473, 233)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[152 x 166 from (488, 259)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [199 x 220 from (469, 231)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[155 x 166 from (485, 258)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [205 x 222 from (464, 230)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[157 x 166 from (483, 258)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [203 x 218 from (463, 232)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[159 x 166 from (481, 258)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [191 x 207 from (469, 236)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[159 x 166 from (481, 256)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [201 x 216 from (463, 232)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[160 x 166 from (480, 257)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [203 x 217 from (462, 231)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[160 x 166 from (480, 256)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [191 x 203 from (469, 239)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[159 x 166 from (481, 257)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [227 x 237 from (455, 224)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[155 x 166 from (485, 259)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [233 x 241 from (458, 225)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[149 x 166 from (491, 262)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [209 x 226 from (474, 241)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[145 x 166 from (495, 271)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [197 x 220 from (483, 246)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[142 x 166 from (498, 273)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [185 x 220 from (491, 249)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[140 x 166 from (500, 276)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [183 x 220 from (492, 246)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[140 x 166 from (500, 273)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [183 x 219 from (493, 243)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[139 x 166 from (501, 269)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [181 x 216 from (494, 243)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[139 x 166 from (501, 268)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [162 x 200 from (491, 240)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[151 x 166 from (489, 257)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [149 x 190 from (480, 240)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[166 x 166 from (471, 252)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [160 x 198 from (447, 223)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[166 x 166 from (444, 239)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [85 x 85 from (478, 250)], selection box: [189 x 189 from (419, 207)]
+Final head_box:[189 x 189 from (426, 198)]
+Try to make head box similar to selection box
+Head box: [165 x 206 from (429, 217)], selection box: [166 x 166 from (402, 214)]
+Final head_box:[166 x 166 from (428, 237)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 81 from (455, 251)], selection box: [186 x 186 from (387, 206)]
+Final head_box:[186 x 186 from (401, 198)]
+Try to make head box similar to selection box
+Head box: [110 x 104 from (457, 245)], selection box: [189 x 189 from (419, 207)]
+Final head_box:[189 x 189 from (418, 203)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [88 x 91 from (428, 246)], selection box: [191 x 191 from (369, 200)]
+Final head_box:[191 x 191 from (377, 196)]
+Try to make head box similar to selection box
+Head box: [120 x 126 from (414, 238)], selection box: [186 x 186 from (387, 206)]
+Final head_box:[186 x 186 from (381, 208)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [90 x 89 from (408, 259)], selection box: [193 x 193 from (354, 198)]
+Final head_box:[193 x 193 from (357, 207)]
+Try to make head box similar to selection box
+Head box: [83 x 90 from (417, 256)], selection box: [191 x 191 from (369, 200)]
+Final head_box:[191 x 191 from (363, 206)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 80 from (389, 264)], selection box: [177 x 177 from (333, 206)]
+Final head_box:[177 x 177 from (340, 216)]
+Try to make head box similar to selection box
+Head box: [105 x 103 from (376, 256)], selection box: [193 x 193 from (354, 198)]
+Final head_box:[193 x 193 from (332, 211)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 80 from (368, 260)], selection box: [171 x 171 from (320, 209)]
+Final head_box:[171 x 171 from (324, 215)]
+Try to make head box similar to selection box
+Head box: [100 x 101 from (363, 262)], selection box: [177 x 177 from (333, 206)]
+Final head_box:[177 x 177 from (325, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 80 from (362, 261)], selection box: [178 x 178 from (309, 205)]
+Final head_box:[178 x 178 from (312, 212)]
+Try to make head box similar to selection box
+Head box: [97 x 97 from (349, 257)], selection box: [171 x 171 from (320, 209)]
+Final head_box:[171 x 171 from (312, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 82 from (353, 260)], selection box: [178 x 178 from (300, 208)]
+Final head_box:[178 x 178 from (304, 212)]
+Try to make head box similar to selection box
+Head box: [85 x 84 from (351, 264)], selection box: [178 x 178 from (309, 205)]
+Final head_box:[178 x 178 from (304, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 76 from (356, 261)], selection box: [177 x 177 from (295, 203)]
+Final head_box:[177 x 177 from (306, 211)]
+Try to make head box similar to selection box
+Head box: [90 x 89 from (346, 259)], selection box: [178 x 178 from (300, 208)]
+Final head_box:[178 x 178 from (302, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 84 from (350, 262)], selection box: [180 x 180 from (291, 209)]
+Final head_box:[180 x 180 from (301, 214)]
+Try to make head box similar to selection box
+Head box: [90 x 89 from (349, 259)], selection box: [177 x 177 from (295, 203)]
+Final head_box:[177 x 177 from (306, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 80 from (352, 262)], selection box: [181 x 181 from (291, 210)]
+Final head_box:[181 x 181 from (301, 212)]
+Try to make head box similar to selection box
+Head box: [80 x 84 from (353, 265)], selection box: [180 x 180 from (291, 209)]
+Final head_box:[180 x 180 from (303, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 80 from (352, 263)], selection box: [178 x 178 from (293, 210)]
+Final head_box:[178 x 178 from (301, 214)]
+Try to make head box similar to selection box
+Head box: [77 x 83 from (353, 264)], selection box: [181 x 181 from (291, 210)]
+Final head_box:[181 x 181 from (301, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 82 from (346, 263)], selection box: [177 x 177 from (293, 214)]
+Final head_box:[177 x 177 from (298, 216)]
+Try to make head box similar to selection box
+Head box: [78 x 78 from (353, 269)], selection box: [178 x 178 from (293, 210)]
+Final head_box:[178 x 178 from (303, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 77 from (352, 262)], selection box: [180 x 180 from (292, 209)]
+Final head_box:[180 x 180 from (300, 210)]
+Try to make head box similar to selection box
+Head box: [90 x 92 from (341, 260)], selection box: [177 x 177 from (293, 214)]
+Final head_box:[177 x 177 from (298, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 79 from (346, 264)], selection box: [178 x 178 from (290, 212)]
+Final head_box:[178 x 178 from (296, 214)]
+Try to make head box similar to selection box
+Head box: [93 x 92 from (346, 259)], selection box: [180 x 180 from (292, 209)]
+Final head_box:[180 x 180 from (302, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 81 from (349, 262)], selection box: [180 x 180 from (291, 213)]
+Final head_box:[180 x 180 from (299, 212)]
+Try to make head box similar to selection box
+Head box: [88 x 90 from (342, 260)], selection box: [178 x 178 from (290, 212)]
+Final head_box:[178 x 178 from (297, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 80 from (348, 265)], selection box: [181 x 181 from (290, 211)]
+Final head_box:[181 x 181 from (297, 215)]
+Try to make head box similar to selection box
+Head box: [92 x 93 from (345, 259)], selection box: [180 x 180 from (291, 213)]
+Final head_box:[180 x 180 from (301, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 77 from (351, 263)], selection box: [178 x 178 from (291, 210)]
+Final head_box:[178 x 178 from (299, 212)]
+Try to make head box similar to selection box
+Head box: [100 x 99 from (338, 256)], selection box: [181 x 181 from (290, 211)]
+Final head_box:[181 x 181 from (298, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 77 from (349, 265)], selection box: [179 x 179 from (291, 209)]
+Final head_box:[179 x 179 from (298, 214)]
+Try to make head box similar to selection box
+Head box: [95 x 95 from (341, 259)], selection box: [178 x 178 from (291, 210)]
+Final head_box:[178 x 178 from (299, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 83 from (347, 262)], selection box: [180 x 180 from (289, 210)]
+Final head_box:[180 x 180 from (297, 213)]
+Try to make head box similar to selection box
+Head box: [103 x 103 from (337, 255)], selection box: [179 x 179 from (291, 209)]
+Final head_box:[179 x 179 from (299, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 80 from (341, 263)], selection box: [182 x 182 from (288, 209)]
+Final head_box:[182 x 182 from (290, 212)]
+Try to make head box similar to selection box
+Head box: [94 x 92 from (340, 259)], selection box: [180 x 180 from (289, 210)]
+Final head_box:[180 x 180 from (297, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 78 from (347, 263)], selection box: [176 x 176 from (291, 212)]
+Final head_box:[176 x 176 from (297, 214)]
+Try to make head box similar to selection box
+Head box: [88 x 87 from (339, 261)], selection box: [182 x 182 from (288, 209)]
+Final head_box:[182 x 182 from (292, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 77 from (346, 265)], selection box: [184 x 184 from (286, 213)]
+Final head_box:[184 x 184 from (291, 211)]
+Try to make head box similar to selection box
+Head box: [71 x 74 from (348, 268)], selection box: [176 x 176 from (291, 212)]
+Final head_box:[176 x 176 from (295, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [72 x 75 from (347, 265)], selection box: [181 x 181 from (288, 211)]
+Final head_box:[181 x 181 from (293, 212)]
+Try to make head box similar to selection box
+Head box: [105 x 106 from (332, 253)], selection box: [184 x 184 from (286, 213)]
+Final head_box:[184 x 184 from (292, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [57 x 61 from (354, 271)], selection box: [183 x 183 from (287, 213)]
+Final head_box:[183 x 183 from (291, 210)]
+Try to make head box similar to selection box
+Head box: [99 x 102 from (334, 255)], selection box: [181 x 181 from (288, 211)]
+Final head_box:[181 x 181 from (293, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [71 x 72 from (345, 267)], selection box: [183 x 183 from (288, 212)]
+Final head_box:[183 x 183 from (289, 212)]
+Try to make head box similar to selection box
+Head box: [107 x 106 from (331, 252)], selection box: [183 x 183 from (287, 213)]
+Final head_box:[183 x 183 from (293, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [59 x 58 from (356, 273)], selection box: [172 x 172 from (296, 216)]
+Final head_box:[172 x 172 from (299, 216)]
+Try to make head box similar to selection box
+Head box: [104 x 102 from (332, 255)], selection box: [183 x 183 from (288, 212)]
+Final head_box:[183 x 183 from (293, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 81 from (348, 263)], selection box: [176 x 176 from (298, 216)]
+Final head_box:[176 x 176 from (299, 215)]
+Try to make head box similar to selection box
+Head box: [107 x 105 from (340, 253)], selection box: [172 x 172 from (296, 216)]
+Final head_box:[172 x 172 from (307, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [67 x 65 from (364, 274)], selection box: [182 x 182 from (306, 213)]
+Final head_box:[182 x 182 from (306, 215)]
+Try to make head box similar to selection box
+Head box: [95 x 97 from (341, 260)], selection box: [176 x 176 from (298, 216)]
+Final head_box:[176 x 176 from (300, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [87 x 86 from (363, 271)], selection box: [189 x 189 from (307, 203)]
+Final head_box:[189 x 189 from (312, 220)]
+Try to make head box similar to selection box
+Head box: [104 x 99 from (349, 263)], selection box: [182 x 182 from (306, 213)]
+Final head_box:[182 x 182 from (310, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 71 from (379, 275)], selection box: [182 x 182 from (320, 208)]
+Final head_box:[182 x 182 from (325, 219)]
+Try to make head box similar to selection box
+Head box: [90 x 83 from (365, 274)], selection box: [189 x 189 from (307, 203)]
+Final head_box:[189 x 189 from (316, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 75 from (380, 274)], selection box: [177 x 177 from (324, 208)]
+Final head_box:[177 x 177 from (330, 223)]
+Try to make head box similar to selection box
+Head box: [89 x 81 from (374, 273)], selection box: [182 x 182 from (320, 208)]
+Final head_box:[182 x 182 from (327, 222)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 74 from (377, 274)], selection box: [169 x 169 from (325, 212)]
+Final head_box:[169 x 169 from (331, 227)]
+Try to make head box similar to selection box
+Head box: [98 x 93 from (368, 265)], selection box: [177 x 177 from (324, 208)]
+Final head_box:[177 x 177 from (329, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 80 from (371, 271)], selection box: [176 x 176 from (318, 206)]
+Final head_box:[176 x 176 from (323, 223)]
+Try to make head box similar to selection box
+Head box: [88 x 79 from (363, 274)], selection box: [169 x 169 from (325, 212)]
+Final head_box:[169 x 169 from (323, 229)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [58 x 57 from (377, 284)], selection box: [168 x 168 from (313, 224)]
+Final head_box:[168 x 168 from (322, 228)]
+Try to make head box similar to selection box
+Head box: [93 x 86 from (360, 272)], selection box: [176 x 176 from (318, 206)]
+Final head_box:[176 x 176 from (318, 227)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 333
+y: 244
+width: 87
+height: 87
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [67 x 65 from (366, 279)], selection box: [176 x 176 from (306, 215)]
+Final head_box:[176 x 176 from (311, 223)]
+Try to make head box similar to selection box
+Head box: [87 x 80 from (356, 276)], selection box: [168 x 168 from (313, 224)]
+Final head_box:[168 x 168 from (315, 232)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [61 x 60 from (368, 286)], selection box: [181 x 181 from (301, 211)]
+Final head_box:[181 x 181 from (308, 226)]
+Try to make head box similar to selection box
+Head box: [100 x 94 from (345, 271)], selection box: [176 x 176 from (306, 215)]
+Final head_box:[176 x 176 from (307, 230)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 84 from (355, 272)], selection box: [181 x 181 from (297, 209)]
+Final head_box:[181 x 181 from (307, 224)]
+Try to make head box similar to selection box
+Head box: [102 x 100 from (344, 268)], selection box: [181 x 181 from (301, 211)]
+Final head_box:[181 x 181 from (305, 228)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 84 from (348, 272)], selection box: [178 x 178 from (298, 214)]
+Final head_box:[178 x 178 from (300, 225)]
+Try to make head box similar to selection box
+Head box: [96 x 97 from (348, 269)], selection box: [181 x 181 from (297, 209)]
+Final head_box:[181 x 181 from (306, 227)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [72 x 69 from (368, 278)], selection box: [176 x 176 from (309, 214)]
+Final head_box:[176 x 176 from (316, 224)]
+Try to make head box similar to selection box
+Head box: [91 x 87 from (353, 272)], selection box: [178 x 178 from (298, 214)]
+Final head_box:[178 x 178 from (309, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+dest.mask.roi: x: 324
+y: 235
+width: 109
+height: 109
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 81 from (382, 272)], selection box: [187 x 187 from (323, 204)]
+Final head_box:[187 x 187 from (331, 219)]
+Try to make head box similar to selection box
+Head box: [108 x 93 from (361, 273)], selection box: [176 x 176 from (309, 214)]
+Final head_box:[176 x 176 from (327, 231)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [86 x 88 from (389, 255)], selection box: [198 x 198 from (341, 202)]
+Final head_box:[198 x 198 from (333, 200)]
+Try to make head box similar to selection box
+Head box: [116 x 109 from (378, 269)], selection box: [187 x 187 from (323, 204)]
+Final head_box:[187 x 187 from (343, 230)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [69 x 62 from (447, 258)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[194 x 194 from (384, 192)]
+Try to make head box similar to selection box
+Head box: [126 x 131 from (403, 229)], selection box: [198 x 198 from (341, 202)]
+Final head_box:[198 x 198 from (367, 195)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [105 x 110 from (476, 247)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[194 x 194 from (431, 205)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [75 x 106 from (521, 270)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[179 x 194 from (461, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [79 x 117 from (538, 277)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[160 x 194 from (480, 238)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [101 x 131 from (545, 275)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[142 x 194 from (498, 243)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [111 x 131 from (544, 277)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[138 x 194 from (502, 245)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [127 x 141 from (537, 272)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[137 x 194 from (503, 245)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [133 x 147 from (534, 271)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[137 x 194 from (503, 247)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [127 x 144 from (536, 274)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[138 x 194 from (502, 249)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [115 x 131 from (540, 282)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[140 x 194 from (500, 250)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [128 x 143 from (530, 278)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[143 x 194 from (497, 252)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [130 x 143 from (529, 274)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[143 x 194 from (497, 248)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [138 x 149 from (521, 272)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[147 x 194 from (493, 249)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [131 x 145 from (513, 272)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[159 x 194 from (481, 247)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [142 x 160 from (493, 260)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[173 x 194 from (467, 243)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [152 x 172 from (463, 247)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[194 x 194 from (442, 236)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [90 x 88 from (466, 249)], selection box: [194 x 194 from (399, 207)]
+Final head_box:[194 x 194 from (414, 196)]
+Try to make head box similar to selection box
+Head box: [132 x 158 from (443, 234)], selection box: [194 x 194 from (371, 204)]
+Final head_box:[194 x 194 from (412, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [105 x 99 from (455, 254)], selection box: [194 x 194 from (399, 207)]
+Final head_box:[194 x 194 from (410, 206)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [66 x 70 from (417, 270)], selection box: [195 x 195 from (346, 200)]
+Final head_box:[195 x 195 from (353, 208)]
+Try to make head box similar to selection box
+Head box: [122 x 109 from (405, 228)], selection box: [194 x 194 from (399, 207)]
+Final head_box:[194 x 194 from (369, 185)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 74 from (386, 269)], selection box: [190 x 190 from (325, 209)]
+Final head_box:[190 x 190 from (329, 211)]
+Try to make head box similar to selection box
+Head box: [128 x 129 from (360, 245)], selection box: [195 x 195 from (346, 200)]
+Final head_box:[195 x 195 from (327, 212)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [69 x 68 from (381, 270)], selection box: [182 x 182 from (319, 207)]
+Final head_box:[182 x 182 from (324, 213)]
+Try to make head box similar to selection box
+Head box: [112 x 108 from (352, 258)], selection box: [190 x 190 from (325, 209)]
+Final head_box:[190 x 190 from (313, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [85 x 85 from (353, 259)], selection box: [191 x 191 from (294, 200)]
+Final head_box:[191 x 191 from (300, 206)]
+Try to make head box similar to selection box
+Head box: [113 x 111 from (340, 253)], selection box: [182 x 182 from (319, 207)]
+Final head_box:[182 x 182 from (305, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 77 from (350, 264)], selection box: [174 x 174 from (294, 216)]
+Final head_box:[174 x 174 from (301, 215)]
+Try to make head box similar to selection box
+Head box: [69 x 68 from (353, 270)], selection box: [191 x 191 from (294, 200)]
+Final head_box:[191 x 191 from (292, 209)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [65 x 67 from (345, 270)], selection box: [162 x 162 from (294, 225)]
+Final head_box:[162 x 162 from (296, 222)]
+Try to make head box similar to selection box
+Head box: [103 x 102 from (331, 255)], selection box: [174 x 174 from (294, 216)]
+Final head_box:[174 x 174 from (295, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 76 from (339, 261)], selection box: [167 x 167 from (288, 222)]
+Final head_box:[167 x 167 from (292, 216)]
+Try to make head box similar to selection box
+Head box: [79 x 80 from (335, 262)], selection box: [162 x 162 from (294, 225)]
+Final head_box:[162 x 162 from (293, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 0
+Try to make head box similar to selection box
+Head box: [72 x 74 from (341, 265)], selection box: [167 x 167 from (288, 222)]
+Final head_box:[167 x 167 from (294, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [64 x 65 from (341, 264)], selection box: [171 x 171 from (286, 214)]
+Final head_box:[171 x 171 from (288, 211)]
+Try to make head box similar to selection box
+Head box: [124 x 125 from (318, 242)], selection box: [167 x 167 from (288, 222)]
+Final head_box:[167 x 167 from (297, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [56 x 60 from (349, 268)], selection box: [176 x 176 from (286, 211)]
+Final head_box:[176 x 176 from (289, 210)]
+Try to make head box similar to selection box
+Head box: [104 x 107 from (328, 248)], selection box: [171 x 171 from (286, 214)]
+Final head_box:[171 x 171 from (295, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [65 x 69 from (346, 263)], selection box: [175 x 175 from (286, 210)]
+Final head_box:[175 x 175 from (291, 210)]
+Try to make head box similar to selection box
+Head box: [100 x 102 from (330, 250)], selection box: [176 x 176 from (286, 211)]
+Final head_box:[176 x 176 from (292, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [62 x 64 from (348, 266)], selection box: [177 x 177 from (286, 211)]
+Final head_box:[177 x 177 from (291, 210)]
+Try to make head box similar to selection box
+Head box: [103 x 104 from (329, 250)], selection box: [175 x 175 from (286, 210)]
+Final head_box:[175 x 175 from (293, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [62 x 66 from (348, 267)], selection box: [179 x 179 from (284, 210)]
+Final head_box:[179 x 179 from (290, 211)]
+Try to make head box similar to selection box
+Head box: [101 x 103 from (329, 251)], selection box: [177 x 177 from (286, 211)]
+Final head_box:[177 x 177 from (291, 214)]
+Trackers: 1
+Number of head box to display: 1
+detector/depth_min_search_scale_y
+ * /cob_people_detection/head_detector/display_timing
+ * /cob_people_detection/head_detector/fill_unassigned_depth_values
+ * /cob_people_detection/head_detector/head_detector/data_directory
+ * /cob_people_detection/people_detection_display/display
+ * /cob_people_detection/people_detection_display/display_timing
+ * /cob_people_detection/sensor_message_gateway/display_timing
+ * /cob_people_detection/sensor_message_gateway/target_publishing_rate
+ * /head_detection_viewer/autosize
+ * /people_detection_viewer/autosize
+ * /rosdistro
+ * /rosversion
+
+NODES
+  /cob_people_detection/head_detection_display/
+    head_detection_display (cob_people_detection/head_detection_display_node)
+  /cob_people_detection/people_detection_display/
+    people_detection_display (cob_people_detection/people_detection_display_node)
+  /cob_people_detection/coordinator/
+    coordinator (cob_people_detection/coordinator_node)
+  /cob_people_detection/sensor_message_gateway/
+    sensor_message_gateway (cob_people_detection/sensor_message_gateway_node)
+  /
+    head_detection_viewer (image_view/image_view)
+    people_detection_viewer (image_view/image_view)
+  /cob_people_detection/detection_tracker/
+    detection_tracker (cob_people_detection/detection_tracker_node)
+  /cob_image_flip/
+    kinect_image_flip (cob_image_flip/kinect_image_flip)
+  /cob_people_detection/face_recognizer/
+    face_recognizer (cob_people_detection/face_recognizer_node)
+  /cob_people_detection/face_capture/
+    face_capture (cob_people_detection/face_capture_node)
+  /cob_people_detection/head_detector/
+    head_detector (cob_people_detection/head_detector_node)
+  /cob_people_detection/face_detector/
+    face_detector (cob_people_detection/face_detector_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch http://localhost:11311
+core service [/rosout] found
+[1mprocess[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1]: started with pid [9765][0m
+[1mprocess[cob_image_flip/kinect_image_flip-2]: started with pid [9780][0m
+[1mprocess[cob_people_detection/head_detector/head_detector-3]: started with pid [9801][0m
+[1mprocess[cob_people_detection/face_detector/face_detector-4]: started with pid [9828][0m
+[1mprocess[cob_people_detection/face_recognizer/face_recognizer-5]: started with pid [9885][0m
+[1mprocess[cob_people_detection/detection_tracker/detection_tracker-6]: started with pid [9948][0m
+[1mprocess[cob_people_detection/people_detection_display/people_detection_display-7]: started with pid [10004][0m
+[1mprocess[people_detection_viewer-8]: started with pid [10021][0m
+[1mprocess[cob_people_detection/head_detection_display/head_detection_display-9]: started with pid [10028][0m
+[1mprocess[head_detection_viewer-10]: started with pid [10058][0m
+[1mprocess[cob_people_detection/face_capture/face_capture-11]: started with pid [10093][0m
+[1mprocess[cob_people_detection/coordinator/coordinator-12]: started with pid [10172][0m
+[cob_people_detection/coordinator/coordinator-12] killing on exit
+[cob_people_detection/face_capture/face_capture-11] killing on exit
+[head_detection_viewer-10] killing on exit
+[cob_people_detection/head_detection_display/head_detection_display-9] killing on exit
+[people_detection_viewer-8] killing on exit
+[cob_people_detection/people_detection_display/people_detection_display-7] killing on exit
+[cob_people_detection/detection_tracker/detection_tracker-6] killing on exit
+[cob_people_detection/face_recognizer/face_recognizer-5] killing on exit
+[cob_people_detection/head_detector/head_detector-3] killing on exit
+[cob_people_detection/face_detector/face_detector-4] killing on exit
+[cob_image_flip/kinect_image_flip-2] killing on exit
+[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

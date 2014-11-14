@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="display_results_with_image_view" default="true"/>   <!-- set to false if you do not like to display the camera image with names attached to detected faces within an image_view window -->
+
+  <!-- display node for the detections -->
+  <rosparam command="load" ns="cob_people_detection/head_detection_display" file="$(find cob_people_detection)/ros/launch/people_detection_display_params.yaml"/>
+  <node pkg="cob_people_detection" ns="cob_people_detection/head_detection_display" type="head_detection_display_node" name="head_detection_display" output="screen">
+    <remap from="head_detections" to="/cob_people_detection/head_detector/head_positions"/>
+    <remap from="colorimage_in" to="/cob_people_detection/image_flip/colorimage_out"/>
+  </node>
+
+  <!-- Image viewer display -->
+  <node if="$(arg display_results_with_image_view)" name="head_detection_viewer" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/cob_people_detection/head_detection_display/head_position_image"/>
+    <param name="autosize" value="true"/>
+  </node>
+
+</launch>

@@ -1,0 +1,1004 @@
+... logging to /home/xinyan/.ros/log/5bb547ee-6392-11e4-a32e-d43d7e947647/roslaunch-jarvis-24603.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch
+[1mstarted roslaunch server http://jarvis:57291/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cob_image_flip/kinect_image_flip/display_timing
+ * /cob_image_flip/kinect_image_flip/display_warnings
+ * /cob_image_flip/kinect_image_flip/flip_color_image
+ * /cob_image_flip/kinect_image_flip/flip_pointcloud
+ * /cob_image_flip/kinect_image_flip/pointcloud_data_format
+ * /cob_people_detection/coordinator/namespace_gateway
+ * /cob_people_detection/data_storage_directory
+ * /cob_people_detection/detection_tracker/debug
+ * /cob_people_detection/detection_tracker/detection_tracker/data_directory
+ * /cob_people_detection/detection_tracker/display_timing
+ * /cob_people_detection/detection_tracker/face_identification_score_decay_rate
+ * /cob_people_detection/detection_tracker/face_redetection_time
+ * /cob_people_detection/detection_tracker/fall_back_to_unknown_identification
+ * /cob_people_detection/detection_tracker/min_face_identification_score_to_publish
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_face
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_head
+ * /cob_people_detection/detection_tracker/publish_currently_not_visible_detections_timespan
+ * /cob_people_detection/detection_tracker/rosbag_mode
+ * /cob_people_detection/detection_tracker/tracking_range_m
+ * /cob_people_detection/detection_tracker/use_people_segmentation
+ * /cob_people_detection/face_capture/debug
+ * /cob_people_detection/face_capture/display_timing
+ * /cob_people_detection/face_capture/enable_face_recognition
+ * /cob_people_detection/face_capture/face_capture/data_directory
+ * /cob_people_detection/face_capture/feature_dimension
+ * /cob_people_detection/face_capture/metric
+ * /cob_people_detection/face_capture/norm_align
+ * /cob_people_detection/face_capture/norm_extreme_illumination
+ * /cob_people_detection/face_capture/norm_illumination
+ * /cob_people_detection/face_capture/norm_size
+ * /cob_people_detection/face_capture/recognition_method
+ * /cob_people_detection/face_capture/use_depth
+ * /cob_people_detection/face_capture/use_unknown_thresh
+ * /cob_people_detection/face_detector/debug
+ * /cob_people_detection/face_detector/display_timing
+ * /cob_people_detection/face_detector/face_detector/data_directory
+ * /cob_people_detection/face_detector/face_size_max_m
+ * /cob_people_detection/face_detector/face_size_min_m
+ * /cob_people_detection/face_detector/faces_drop_groups
+ * /cob_people_detection/face_detector/faces_increase_search_scale
+ * /cob_people_detection/face_detector/faces_min_search_scale_x
+ * /cob_people_detection/face_detector/faces_min_search_scale_y
+ * /cob_people_detection/face_detector/max_face_z_m
+ * /cob_people_detection/face_detector/reason_about_3dface_size
+ * /cob_people_detection/face_recognizer/debug
+ * /cob_people_detection/face_recognizer/display_timing
+ * /cob_people_detection/face_recognizer/enable_face_recognition
+ * /cob_people_detection/face_recognizer/feature_dimension
+ * /cob_people_detection/face_recognizer/metric
+ * /cob_people_detection/face_recognizer/norm_align
+ * /cob_people_detection/face_recognizer/norm_extreme_illumination
+ * /cob_people_detection/face_recognizer/norm_illumination
+ * /cob_people_detection/face_recognizer/norm_size
+ * /cob_people_detection/face_recognizer/recognition_method
+ * /cob_people_detection/face_recognizer/use_depth
+ * /cob_people_detection/face_recognizer/use_unknown_thresh
+ * /cob_people_detection/head_detection_display/display
+ * /cob_people_detection/head_detection_display/display_timing
+ * /cob_people_detection/head_detector/depth_drop_groups
+ * /cob_people_detection/head_detector/depth_increase_search_scale
+ * /cob_people_detection/head_detector/depth_min_search_scale_x
+ * /cob_people_detection/head
+--------------------------
+Kinect Image Flip Parameters:
+--------------------------
+flip_color_image = 1
+flip_pointcloud = 1
+pointcloud_data_format = xyzrgb
+display_warnings = 0
+display_timing = 0
+robot = cob3-3
+CobKinectImageFlip: Robot number is cob3-3.
+
+--------------------------
+Head Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+fill_unassigned_depth_values = 1
+depth_increase_search_scale = 1.2
+depth_drop_groups = 40
+depth_min_search_scale_x = 30
+depth_min_search_scale_y = 30
+display_timing = 0
+HeadDetectorNode initialized.
+
+--------------------------
+Face Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+faces_increase_search_scale = 1.2
+faces_drop_groups = 2
+faces_min_search_scale_x = 30
+faces_min_search_scale_y = 30
+reason_about_3dface_size = 1
+face_size_max_m = 0.35
+face_size_min_m = 0.1
+max_face_z_m = 8
+debug = 0
+display_timing = 0
+FaceDetectorNode initialized.
+
+--------------------------
+Face Recognizer Parameters:
+--------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+enable_face_recognition = 1
+feature dimension = 15
+threshold_facespace = 10000
+threshold_unknown = 1000
+metric = 0
+debug = 0
+recognition method: 2
+ use use unknown thresh: 1
+ use depth: 0
+display_timing = 0
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 0
+identification_labels_to_recognize: 
+INFO: FaceRecognizer::loadTrainingData: 67 color images loaded.
+
+Training LDA2D
+CobKinectImageFlip initilized.
+0000000000000000000000000000000000000001111111111111111111111111111THRESH for db: 1.95015e+06
+FaceRecognizer1D::saveModel() to /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+
+---------------------------
+People Detection Parameters:
+---------------------------
+debug = 0
+use rosbag mode:  1
+use_people_segmentation = 0
+face_redetection_time = 2.5
+publish_currently_not_visible_detections_timespan = 0.2
+min_segmented_people_ratio_face = 0.7
+min_segmented_people_ratio_head = 0.2
+tracking_range_m = 0.4
+face_identification_score_decay_rate = 0.9
+min_face_identification_score_to_publish = 4
+fall_back_to_unknown_identification = 0
+display_timing = 0
+DetectionTrackerNode initialized.
+OPENING at /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+INFO: FaceRecognizer::saveRecognitionModel: recognizer data saved.
+
+Recognition model trained or loaded for:
+   - Xinyan
+   - Vivian
+
+---------------------------
+Face Capture Node Parameters:
+---------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 0
+INFO: FaceRecognizer::loadTrainingData: 67 color images loaded.
+
+
+---------------------------
+People Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+PeopleDetectionDisplay initialized.
+
+---------------------------
+Coordinator Node Parameters:
+---------------------------
+namespace_gateway = /cob_people_detection/sensor_message_gateway/sensor_message_gateway
+CoordinatorNode initialized.
+FaceCaptureNode initialized. 67 color images and 0 depth images for training loaded.
+
+
+---------------------------
+Head Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+HeadDetectionDisplay initialized.
+
+--------------------------
+Sensor Message Gateway Parameters:
+--------------------------
+target_publishing_rate = 5
+display_timing = 0
+[0m[ INFO] [1415130042.404902135]: Reconfigure request accomplished. New target publishing rate: 100.000000[0m
+SensorMessageGatewayNode initialized.
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 0
+Number of head box to display: 0
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 0
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Tracking box is too bigger than select
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Tracking box is too smaller than select
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Too right!
+Trackers: 1
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Too right!
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 2
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 2
+Number of head box to display: 2
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Tracking box is too bigger than select
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 0
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+Number of head boxes are 2, 1, or 0
+Detected: 1
+Now start prepareing trackers
+Trackers: 1
+Number of head box to display: 1
+[0m[ INFO] [1415130037.844722462]: FaceRecognizerNode initialized.[0m
+_detector/depth_min_search_scale_y
+ * /cob_people_detection/head_detector/display_timing
+ * /cob_people_detection/head_detector/fill_unassigned_depth_values
+ * /cob_people_detection/head_detector/head_detector/data_directory
+ * /cob_people_detection/people_detection_display/display
+ * /cob_people_detection/people_detection_display/display_timing
+ * /cob_people_detection/sensor_message_gateway/display_timing
+ * /cob_people_detection/sensor_message_gateway/target_publishing_rate
+ * /head_detection_viewer/autosize
+ * /people_detection_viewer/autosize
+ * /rosdistro
+ * /rosversion
+
+NODES
+  /cob_people_detection/head_detection_display/
+    head_detection_display (cob_people_detection/head_detection_display_node)
+  /cob_people_detection/people_detection_display/
+    people_detection_display (cob_people_detection/people_detection_display_node)
+  /cob_people_detection/coordinator/
+    coordinator (cob_people_detection/coordinator_node)
+  /cob_people_detection/sensor_message_gateway/
+    sensor_message_gateway (cob_people_detection/sensor_message_gateway_node)
+  /
+    head_detection_viewer (image_view/image_view)
+    people_detection_viewer (image_view/image_view)
+  /cob_people_detection/detection_tracker/
+    detection_tracker (cob_people_detection/detection_tracker_node)
+  /cob_image_flip/
+    kinect_image_flip (cob_image_flip/kinect_image_flip)
+  /cob_people_detection/face_recognizer/
+    face_recognizer (cob_people_detection/face_recognizer_node)
+  /cob_people_detection/face_capture/
+    face_capture (cob_people_detection/face_capture_node)
+  /cob_people_detection/head_detector/
+    head_detector (cob_people_detection/head_detector_node)
+  /cob_people_detection/face_detector/
+    face_detector (cob_people_detection/face_detector_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch http://localhost:11311
+core service [/rosout] found
+[1mprocess[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1]: started with pid [24621][0m
+[1mprocess[cob_image_flip/kinect_image_flip-2]: started with pid [24636][0m
+[1mprocess[cob_people_detection/head_detector/head_detector-3]: started with pid [24657][0m
+[1mprocess[cob_people_detection/face_detector/face_detector-4]: started with pid [24684][0m
+[1mprocess[cob_people_detection/face_recognizer/face_recognizer-5]: started with pid [24732][0m
+[1mprocess[cob_people_detection/detection_tracker/detection_tracker-6]: started with pid [24792][0m
+[1mprocess[cob_people_detection/people_detection_display/people_detection_display-7]: started with pid [24848][0m
+[1mprocess[people_detection_viewer-8]: started with pid [24865][0m
+[1mprocess[cob_people_detection/head_detection_display/head_detection_display-9]: started with pid [24882][0m
+[1mprocess[head_detection_viewer-10]: started with pid [24929][0m
+[1mprocess[cob_people_detection/face_capture/face_capture-11]: started with pid [24975][0m
+[1mprocess[cob_people_detection/coordinator/coordinator-12]: started with pid [25045][0m
+[cob_people_detection/coordinator/coordinator-12] killing on exit
+[cob_people_detection/face_capture/face_capture-11] killing on exit
+[head_detection_viewer-10] killing on exit
+[cob_people_detection/head_detection_display/head_detection_display-9] killing on exit
+[people_detection_viewer-8] killing on exit
+[cob_people_detection/people_detection_display/people_detection_display-7] killing on exit
+[cob_people_detection/detection_tracker/detection_tracker-6] killing on exit
+[cob_people_detection/face_recognizer/face_recognizer-5] killing on exit
+[cob_people_detection/face_detector/face_detector-4] killing on exit
+[cob_people_detection/head_detector/head_detector-3] killing on exit
+[cob_image_flip/kinect_image_flip-2] killing on exit
+[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

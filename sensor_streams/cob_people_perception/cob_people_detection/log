@@ -1,0 +1,3767 @@
+... logging to /home/xinyan/.ros/log/ce3d1720-6ad5-11e4-b90a-d43d7e947647/roslaunch-jarvis-10677.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch
+[1mstarted roslaunch server http://jarvis:58398/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cob_image_flip/kinect_image_flip/display_timing
+ * /cob_image_flip/kinect_image_flip/display_warnings
+ * /cob_image_flip/kinect_image_flip/flip_color_image
+ * /cob_image_flip/kinect_image_flip/flip_pointcloud
+ * /cob_image_flip/kinect_image_flip/pointcloud_data_format
+ * /cob_people_detection/coordinator/namespace_gateway
+ * /cob_people_detection/data_storage_directory
+ * /cob_people_detection/detection_tracker/debug
+ * /cob_people_detection/detection_tracker/detection_tracker/data_directory
+ * /cob_people_detection/detection_tracker/display_timing
+ * /cob_people_detection/detection_tracker/face_identification_score_decay_rate
+ * /cob_people_detection/detection_tracker/face_redetection_time
+ * /cob_people_detection/detection_tracker/fall_back_to_unknown_identification
+ * /cob_people_detection/detection_tracker/min_face_identification_score_to_publish
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_face
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_head
+ * /cob_people_detection/detection_tracker/publish_currently_not_visible_detections_timespan
+ * /cob_people_detection/detection_tracker/rosbag_mode
+ * /cob_people_detection/detection_tracker/tracking_range_m
+ * /cob_people_detection/detection_tracker/use_people_segmentation
+ * /cob_people_detection/face_capture/debug
+ * /cob_people_detection/face_capture/display_timing
+ * /cob_people_detection/face_capture/enable_face_recognition
+ * /cob_people_detection/face_capture/face_capture/data_directory
+ * /cob_people_detection/face_capture/feature_dimension
+ * /cob_people_detection/face_capture/metric
+ * /cob_people_detection/face_capture/norm_align
+ * /cob_people_detection/face_capture/norm_extreme_illumination
+ * /cob_people_detection/face_capture/norm_illumination
+ * /cob_people_detection/face_capture/norm_size
+ * /cob_people_detection/face_capture/recognition_method
+ * /cob_people_detection/face_capture/use_depth
+ * /cob_people_detection/face_capture/use_unknown_thresh
+ * /cob_people_detection/face_detector/debug
+ * /cob_people_detection/face_detector/display_timing
+ * /cob_people_detection/face_detector/face_detector/data_directory
+ * /cob_people_detection/face_detector/face_size_max_m
+ * /cob_people_detection/face_detector/face_size_min_m
+ * /cob_people_detection/face_detector/faces_drop_groups
+ * /cob_people_detection/face_detector/faces_increase_search_scale
+ * /cob_people_detection/face_detector/faces_min_search_scale_x
+ * /cob_people_detection/face_detector/faces_min_search_scale_y
+ * /cob_people_detection/face_detector/max_face_z_m
+ * /cob_people_detection/face_detector/reason_about_3dface_size
+ * /cob_people_detection/face_recognizer/debug
+ * /cob_people_detection/face_recognizer/display_timing
+ * /cob_people_detection/face_recognizer/enable_face_recognition
+ * /cob_people_detection/face_recognizer/feature_dimension
+ * /cob_people_detection/face_recognizer/metric
+ * /cob_people_detection/face_recognizer/norm_align
+ * /cob_people_detection/face_recognizer/norm_extreme_illumination
+ * /cob_people_detection/face_recognizer/norm_illumination
+ * /cob_people_detection/face_recognizer/norm_size
+ * /cob_people_detection/face_recognizer/recognition_method
+ * /cob_people_detection/face_recognizer/use_depth
+ * /cob_people_detection/face_recognizer/use_unknown_thresh
+ * /cob_people_detection/head_detection_display/display
+ * /cob_people_detection/head_detection_display/display_timing
+ * /cob_people_detection/head_detector/depth_drop_groups
+ * /cob_people_detection/head_detector/depth_increase_search_scale
+ * /cob_people_detection/head_detector/depth_min_search_scale_x
+ * /cob_people_detection/head
+--------------------------
+Kinect Image Flip Parameters:
+--------------------------
+flip_color_image = 1
+flip_pointcloud = 1
+pointcloud_data_format = xyzrgb
+display_warnings = 0
+display_timing = 0
+robot = cob3-3
+CobKinectImageFlip: Robot number is cob3-3.
+
+--------------------------
+Head Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+fill_unassigned_depth_values = 1
+depth_increase_search_scale = 1.1
+depth_drop_groups = 40
+depth_min_search_scale_x = 20
+depth_min_search_scale_y = 20
+display_timing = 0
+HeadDetectorNode initialized.
+
+--------------------------
+Face Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+faces_increase_search_scale = 1.2
+faces_drop_groups = 2
+faces_min_search_scale_x = 30
+faces_min_search_scale_y = 30
+reason_about_3dface_size = 1
+face_size_max_m = 0.35
+face_size_min_m = 0.1
+max_face_z_m = 8
+debug = 0
+display_timing = 0
+FaceDetectorNode initialized.
+
+--------------------------
+Face Recognizer Parameters:
+--------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+enable_face_recognition = 1
+feature dimension = 15
+threshold_facespace = 10000
+threshold_unknown = 1000
+metric = 0
+debug = 0
+recognition method: 3
+ use use unknown thresh: 1
+ use depth: 1
+display_timing = 0
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 1
+identification_labels_to_recognize: 
+Error: FaceRecognizer::loadTrainingData: Can't open /home/xinyan/.ros/cob_people_detection/files/training_data/tdata.xml.
+
+FaceRecognizer1D::saveModel() to /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+OPENING at /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+INFO: FaceRecognizer::saveRecognitionModel: recognizer data saved.
+
+CobKinectImageFlip initilized.
+
+---------------------------
+People Detection Parameters:
+---------------------------
+debug = 1
+use rosbag mode:  1
+use_people_segmentation = 0
+face_redetection_time = 2.5
+publish_currently_not_visible_detections_timespan = 0.2
+min_segmented_people_ratio_face = 0.7
+min_segmented_people_ratio_head = 0.2
+tracking_range_m = 0.4
+face_identification_score_decay_rate = 0.9
+min_face_identification_score_to_publish = 4
+fall_back_to_unknown_identification = 0
+display_timing = 0
+DetectionTrackerNode initialized.
+
+---------------------------
+Face Capture Node Parameters:
+---------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 1
+Error: FaceRecognizer::loadTrainingData: Can't open /home/xinyan/.ros/cob_people_detection/files/training_data/tdata.xml.
+
+
+---------------------------
+People Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+PeopleDetectionDisplay initialized.
+
+---------------------------
+Coordinator Node Parameters:
+---------------------------
+namespace_gateway = /cob_people_detection/sensor_message_gateway/sensor_message_gateway
+CoordinatorNode initialized.
+FaceCaptureNode initialized. 0 color images and 0 depth images for training loaded.
+
+
+---------------------------
+Head Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+HeadDetectionDisplay initialized.
+
+--------------------------
+Sensor Message Gateway Parameters:
+--------------------------
+target_publishing_rate = 20
+display_timing = 0
+[0m[ INFO] [1415843433.779103832]: Reconfigure request accomplished. New target publishing rate: 100.000000[0m
+SensorMessageGatewayNode initialized.
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 81 from (304, 259)], selection box: [183 x 183 from (245, 211)]
+Final head_box:[183 x 183 from (251, 208)]
+Trackers: 0
+Number of head box to display: 1
+Recognition model trained or loaded for:
+[0m[ INFO] [1415843429.011518852]: FaceRecognizerNode initialized.[0m
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+incoming detections: 1
+Costs matrix.
+Matches found.
+
+***** New detection *****
+
+dest.mask.roi: x: 260
+y: 226
+width: 111
+height: 111
+
+src.detector: face
+src.label: Unknown
+dest.label: 
+Close to boundary: 0
+Newly detected face!
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 77 from (304, 260)], selection box: [166 x 166 from (249, 222)]
+Final head_box:[166 x 166 from (259, 215)]
+Try to make head box similar to selection box
+Head box: [90 x 98 from (298, 247)], selection box: [183 x 183 from (245, 211)]
+Final head_box:[183 x 183 from (252, 205)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+New detections.
+'UnknownHead' score: 0 label 'Human 1' score: 1 - not published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 266
+y: 233
+width: 99
+height: 99
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [70 x 73 from (308, 263)], selection box: [169 x 169 from (247, 222)]
+Final head_box:[169 x 169 from (259, 215)]
+Try to make head box similar to selection box
+Head box: [81 x 86 from (301, 258)], selection box: [166 x 166 from (249, 222)]
+Final head_box:[166 x 166 from (258, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 1.8 label 'Human 1' score: 1.8 - not published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 263
+y: 231
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [60 x 65 from (314, 265)], selection box: [175 x 175 from (246, 213)]
+Final head_box:[175 x 175 from (257, 210)]
+Try to make head box similar to selection box
+Head box: [80 x 87 from (302, 258)], selection box: [169 x 169 from (247, 222)]
+Final head_box:[169 x 169 from (258, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 2.52 label 'Human 1' score: 2.52 - not published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 261
+y: 232
+width: 106
+height: 106
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [63 x 69 from (314, 266)], selection box: [181 x 181 from (243, 212)]
+Final head_box:[181 x 181 from (255, 210)]
+Try to make head box similar to selection box
+Head box: [77 x 86 from (306, 257)], selection box: [175 x 175 from (246, 213)]
+Final head_box:[175 x 175 from (257, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.168 label 'Human 1' score: 3.168 - not published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 259
+y: 226
+width: 111
+height: 111
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [58 x 63 from (315, 268)], selection box: [171 x 171 from (247, 217)]
+Final head_box:[171 x 171 from (259, 214)]
+Try to make head box similar to selection box
+Head box: [76 x 83 from (304, 260)], selection box: [181 x 181 from (243, 212)]
+Final head_box:[181 x 181 from (252, 211)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.7512 label 'Human 1' score: 3.7512 - not published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 262
+y: 230
+width: 106
+height: 106
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 80 from (306, 263)], selection box: [165 x 165 from (250, 224)]
+Final head_box:[165 x 165 from (263, 221)]
+Try to make head box similar to selection box
+Head box: [85 x 94 from (302, 255)], selection box: [171 x 171 from (247, 217)]
+Final head_box:[171 x 171 from (259, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.27608 label 'Human 1' score: 4.27608 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 266
+y: 233
+width: 97
+height: 97
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 84 from (302, 265)], selection box: [172 x 172 from (246, 224)]
+Final head_box:[172 x 172 from (256, 221)]
+Try to make head box similar to selection box
+Head box: [76 x 82 from (306, 263)], selection box: [165 x 165 from (250, 224)]
+Final head_box:[165 x 165 from (262, 222)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.74847 label 'Human 1' score: 4.74847 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 263
+y: 231
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [58 x 63 from (315, 267)], selection box: [175 x 175 from (246, 214)]
+Final head_box:[175 x 175 from (257, 211)]
+Try to make head box similar to selection box
+Head box: [73 x 81 from (306, 263)], selection box: [172 x 172 from (246, 224)]
+Final head_box:[172 x 172 from (256, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.17362 label 'Human 1' score: 5.17362 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 262
+y: 230
+width: 106
+height: 106
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [69 x 72 from (310, 264)], selection box: [171 x 171 from (247, 216)]
+Final head_box:[171 x 171 from (259, 215)]
+Try to make head box similar to selection box
+Head box: [87 x 95 from (300, 257)], selection box: [175 x 175 from (246, 214)]
+Final head_box:[175 x 175 from (256, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.55626 label 'Human 1' score: 5.55626 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 264
+y: 232
+width: 102
+height: 102
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [68 x 70 from (310, 267)], selection box: [174 x 174 from (246, 213)]
+Final head_box:[174 x 174 from (257, 215)]
+Try to make head box similar to selection box
+Head box: [80 x 87 from (304, 262)], selection box: [171 x 171 from (247, 216)]
+Final head_box:[171 x 171 from (259, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.90064 label 'Human 1' score: 5.90064 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 261
+y: 228
+width: 110
+height: 110
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [65 x 70 from (312, 267)], selection box: [174 x 174 from (246, 211)]
+Final head_box:[174 x 174 from (257, 215)]
+Try to make head box similar to selection box
+Head box: [79 x 85 from (303, 262)], selection box: [174 x 174 from (246, 213)]
+Final head_box:[174 x 174 from (255, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.21057 label 'Human 1' score: 6.21057 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 261
+y: 230
+width: 108
+height: 108
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [66 x 70 from (312, 267)], selection box: [176 x 176 from (244, 211)]
+Final head_box:[176 x 176 from (257, 214)]
+Try to make head box similar to selection box
+Head box: [92 x 98 from (298, 256)], selection box: [174 x 174 from (246, 211)]
+Final head_box:[174 x 174 from (257, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.48952 label 'Human 1' score: 6.48952 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 260
+y: 230
+width: 107
+height: 107
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 82 from (304, 265)], selection box: [178 x 178 from (245, 211)]
+Final head_box:[178 x 178 from (255, 217)]
+Try to make head box similar to selection box
+Head box: [93 x 98 from (297, 257)], selection box: [176 x 176 from (244, 211)]
+Final head_box:[176 x 176 from (255, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.74056 label 'Human 1' score: 6.74056 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 261
+y: 229
+width: 115
+height: 115
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 81 from (309, 264)], selection box: [174 x 174 from (250, 214)]
+Final head_box:[174 x 174 from (262, 217)]
+Try to make head box similar to selection box
+Head box: [89 x 93 from (304, 261)], selection box: [178 x 178 from (245, 211)]
+Final head_box:[178 x 178 from (259, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.96651 label 'Human 1' score: 6.96651 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 266
+y: 227
+width: 112
+height: 112
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 80 from (314, 266)], selection box: [175 x 175 from (257, 212)]
+Final head_box:[175 x 175 from (267, 219)]
+Try to make head box similar to selection box
+Head box: [89 x 93 from (309, 260)], selection box: [174 x 174 from (250, 214)]
+Final head_box:[174 x 174 from (266, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.16986 label 'Human 1' score: 7.16986 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 271
+y: 229
+width: 112
+height: 112
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [66 x 68 from (332, 272)], selection box: [177 x 177 from (268, 208)]
+Final head_box:[177 x 177 from (277, 218)]
+Try to make head box similar to selection box
+Head box: [89 x 90 from (321, 268)], selection box: [175 x 175 from (257, 212)]
+Final head_box:[175 x 175 from (278, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.35287 label 'Human 1' score: 7.35287 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 283
+y: 230
+width: 114
+height: 114
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 78 from (337, 272)], selection box: [179 x 179 from (280, 212)]
+Final head_box:[179 x 179 from (285, 222)]
+Try to make head box similar to selection box
+Head box: [113 x 116 from (313, 256)], selection box: [177 x 177 from (268, 208)]
+Final head_box:[177 x 177 from (281, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.51758 label 'Human 1' score: 7.51758 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 298
+y: 230
+width: 116
+height: 116
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 77 from (345, 272)], selection box: [165 x 165 from (293, 224)]
+Final head_box:[165 x 165 from (299, 228)]
+Try to make head box similar to selection box
+Head box: [102 x 105 from (331, 260)], selection box: [179 x 179 from (280, 212)]
+Final head_box:[179 x 179 from (293, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.66583 label 'Human 1' score: 7.66583 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 299
+y: 228
+width: 165
+height: 165
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 82 from (350, 275)], selection box: [168 x 168 from (304, 222)]
+Final head_box:[168 x 168 from (306, 232)]
+Try to make head box similar to selection box
+Head box: [87 x 91 from (345, 268)], selection box: [165 x 165 from (293, 224)]
+Final head_box:[165 x 165 from (306, 231)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.79924 label 'Human 1' score: 7.79924 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 306
+y: 232
+width: 168
+height: 168
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 79 from (357, 282)], selection box: [172 x 172 from (312, 218)]
+Final head_box:[172 x 172 from (312, 235)]
+Try to make head box similar to selection box
+Head box: [96 x 93 from (349, 276)], selection box: [168 x 168 from (304, 222)]
+Final head_box:[168 x 168 from (313, 238)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.91932 label 'Human 1' score: 7.91932 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 312
+y: 235
+width: 172
+height: 172
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 75 from (367, 286)], selection box: [163 x 163 from (318, 228)]
+Final head_box:[163 x 163 from (324, 242)]
+Try to make head box similar to selection box
+Head box: [106 x 98 from (346, 278)], selection box: [172 x 172 from (312, 218)]
+Final head_box:[172 x 172 from (313, 241)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.02739 label 'Human 1' score: 8.02739 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 324
+y: 242
+width: 163
+height: 163
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [85 x 87 from (375, 262)], selection box: [183 x 183 from (325, 214)]
+Final head_box:[183 x 183 from (326, 214)]
+Try to make head box similar to selection box
+Head box: [108 x 103 from (352, 279)], selection box: [163 x 163 from (318, 228)]
+Final head_box:[163 x 163 from (325, 249)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.12465 label 'Human 1' score: 8.12465 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 326
+y: 214
+width: 183
+height: 183
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 1
+Close to boundary: 0
+Final dest label: Human 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 83 from (390, 278)], selection box: [183 x 183 from (333, 218)]
+Final head_box:[183 x 183 from (340, 228)]
+Try to make head box similar to selection box
+Head box: [128 x 128 from (348, 264)], selection box: [183 x 183 from (325, 214)]
+Final head_box:[183 x 183 from (321, 237)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.21218 label 'Human 1' score: 8.21218 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 340
+y: 228
+width: 183
+height: 183
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 1
+Close to boundary: 1
+Close to boundary and the most voted label is: Human 1
+'HumanX' is the most voted label and close to boundary
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 87 from (393, 282)], selection box: [182 x 182 from (336, 221)]
+Final head_box:[182 x 182 from (344, 234)]
+Try to make head box similar to selection box
+Head box: [120 x 116 from (361, 273)], selection box: [183 x 183 from (333, 218)]
+Final head_box:[183 x 183 from (330, 240)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 344
+y: 234
+width: 182
+height: 182
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 83 from (395, 289)], selection box: [175 x 175 from (340, 232)]
+Final head_box:[175 x 175 from (349, 243)]
+Try to make head box similar to selection box
+Head box: [110 x 111 from (380, 277)], selection box: [182 x 182 from (336, 221)]
+Final head_box:[182 x 182 from (344, 241)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 349
+y: 243
+width: 175
+height: 175
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 80 from (398, 297)], selection box: [179 x 179 from (345, 231)]
+Final head_box:[179 x 179 from (349, 248)]
+Try to make head box similar to selection box
+Head box: [101 x 99 from (378, 289)], selection box: [175 x 175 from (340, 232)]
+Final head_box:[175 x 175 from (341, 251)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 349
+y: 248
+width: 179
+height: 179
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 79 from (393, 301)], selection box: [185 x 185 from (340, 232)]
+Final head_box:[185 x 185 from (341, 248)]
+Try to make head box similar to selection box
+Head box: [89 x 79 from (386, 301)], selection box: [179 x 179 from (345, 231)]
+Final head_box:[179 x 179 from (341, 251)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 341
+y: 248
+width: 185
+height: 185
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [99 x 87 from (385, 306)], selection box: [185 x 185 from (340, 232)]
+Final head_box:[185 x 185 from (342, 257)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 342
+y: 257
+width: 185
+height: 185
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [87 x 87 from (403, 304)], selection box: [192 x 192 from (354, 235)]
+Final head_box:[192 x 192 from (350, 251)]
+Try to make head box similar to selection box
+Head box: [132 x 119 from (367, 292)], selection box: [185 x 185 from (340, 232)]
+Final head_box:[185 x 185 from (341, 259)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 350
+y: 251
+width: 192
+height: 192
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [92 x 94 from (415, 284)], selection box: [194 x 194 from (365, 236)]
+Final head_box:[194 x 194 from (364, 234)]
+Try to make head box similar to selection box
+Head box: [102 x 91 from (395, 310)], selection box: [192 x 192 from (354, 235)]
+Final head_box:[192 x 192 from (350, 259)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 364
+y: 234
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [98 x 98 from (419, 287)], selection box: [203 x 203 from (368, 237)]
+Final head_box:[203 x 203 from (367, 235)]
+Try to make head box similar to selection box
+Head box: [124 x 127 from (395, 281)], selection box: [194 x 194 from (365, 236)]
+Final head_box:[194 x 194 from (360, 247)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 367
+y: 235
+width: 203
+height: 203
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [90 x 90 from (422, 288)], selection box: [198 x 198 from (374, 237)]
+Final head_box:[198 x 198 from (368, 234)]
+Try to make head box similar to selection box
+Head box: [117 x 120 from (394, 297)], selection box: [203 x 203 from (368, 237)]
+Final head_box:[203 x 203 from (351, 256)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 368
+y: 234
+width: 198
+height: 198
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [69 x 76 from (430, 318)], selection box: [190 x 190 from (375, 250)]
+Final head_box:[190 x 190 from (369, 261)]
+Try to make head box similar to selection box
+Head box: [126 x 131 from (402, 280)], selection box: [198 x 198 from (374, 237)]
+Final head_box:[198 x 198 from (366, 246)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 369
+y: 261
+width: 190
+height: 190
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 85 from (453, 279)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 194 from (396, 224)]
+Try to make head box similar to selection box
+Head box: [119 x 123 from (401, 299)], selection box: [190 x 190 from (375, 250)]
+Final head_box:[190 x 190 from (365, 265)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+46	
+Assignment problem solved.
+dest.mask.roi: x: 396
+y: 224
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [86 x 93 from (469, 286)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 194 from (415, 235)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 415
+y: 235
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [115 x 131 from (456, 270)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 194 from (416, 238)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 416
+y: 238
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [167 x 184 from (420, 260)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 194 from (406, 255)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 406
+y: 255
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [202 x 224 from (401, 248)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 194 from (405, 263)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 405
+y: 263
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [228 x 259 from (375, 255)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 193 from (392, 287)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 392
+y: 287
+width: 194
+height: 193
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [207 x 253 from (372, 267)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 184 from (378, 296)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 378
+y: 296
+width: 194
+height: 184
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [201 x 239 from (374, 276)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 182 from (377, 298)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 377
+y: 298
+width: 194
+height: 182
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [178 x 221 from (381, 294)], selection box: [194 x 194 from (392, 234)]
+Final head_box:[194 x 173 from (373, 307)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 373
+y: 307
+width: 194
+height: 173
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Tracking box center moves too much
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 0
+Costs matrix.
+
+Detected: 1
+Try to make head box similar to selection box
+Head box: [93 x 92 from (423, 309)], selection box: [204 x 204 from (373, 238)]
+Final head_box:[204 x 204 from (367, 253)]
+Trackers: 0
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - not published
+because of time
+incoming detections: 1
+Costs matrix.
+44	
+Assignment problem solved.
+dest.mask.roi: x: 367
+y: 253
+width: 204
+height: 204
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [84 x 87 from (436, 292)], selection box: [194 x 194 from (372, 229)]
+Final head_box:[194 x 194 from (381, 238)]
+Try to make head box similar to selection box
+Head box: [105 x 98 from (401, 297)], selection box: [204 x 204 from (373, 238)]
+Final head_box:[204 x 204 from (351, 244)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 381
+y: 238
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [86 x 84 from (405, 295)], selection box: [195 x 195 from (351, 225)]
+Final head_box:[195 x 195 from (351, 240)]
+Try to make head box similar to selection box
+Head box: [106 x 111 from (411, 281)], selection box: [194 x 194 from (372, 229)]
+Final head_box:[194 x 194 from (367, 239)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+44	
+Assignment problem solved.
+dest.mask.roi: x: 351
+y: 240
+width: 195
+height: 195
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [88 x 89 from (383, 278)], selection box: [197 x 197 from (326, 212)]
+Final head_box:[197 x 197 from (329, 224)]
+Try to make head box similar to selection box
+Head box: [108 x 102 from (365, 278)], selection box: [195 x 195 from (351, 225)]
+Final head_box:[195 x 195 from (322, 232)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 329
+y: 224
+width: 197
+height: 197
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 79 from (366, 280)], selection box: [179 x 179 from (316, 220)]
+Final head_box:[179 x 179 from (317, 230)]
+Try to make head box similar to selection box
+Head box: [118 x 116 from (344, 264)], selection box: [197 x 197 from (326, 212)]
+Final head_box:[197 x 197 from (305, 224)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.05 label 'Bound' score: 4.05 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 317
+y: 230
+width: 179
+height: 179
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 84 from (356, 270)], selection box: [194 x 194 from (298, 206)]
+Final head_box:[194 x 194 from (300, 215)]
+Try to make head box similar to selection box
+Head box: [108 x 106 from (334, 266)], selection box: [179 x 179 from (316, 220)]
+Final head_box:[179 x 179 from (299, 230)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.645 label 'Bound' score: 3.645 - not published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 300
+y: 215
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [83 x 81 from (346, 270)], selection box: [189 x 189 from (286, 215)]
+Final head_box:[189 x 189 from (293, 216)]
+Try to make head box similar to selection box
+Head box: [87 x 89 from (345, 267)], selection box: [194 x 194 from (298, 206)]
+Final head_box:[194 x 194 from (291, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.2805 label 'Bound' score: 3.2805 - not published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 293
+y: 216
+width: 189
+height: 189
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [64 x 62 from (344, 275)], selection box: [174 x 174 from (285, 218)]
+Final head_box:[174 x 174 from (289, 219)]
+Try to make head box similar to selection box
+Head box: [87 x 86 from (335, 268)], selection box: [189 x 189 from (286, 215)]
+Final head_box:[189 x 189 from (284, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.0951 label 'Human 2' score: 3.0951 - not published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 289
+y: 219
+width: 174
+height: 174
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 84 from (332, 267)], selection box: [185 x 185 from (278, 220)]
+Final head_box:[185 x 185 from (281, 217)]
+Try to make head box similar to selection box
+Head box: [112 x 111 from (312, 255)], selection box: [174 x 174 from (285, 218)]
+Final head_box:[174 x 174 from (281, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.68559 label 'Human 2' score: 3.68559 - not published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 281
+y: 217
+width: 185
+height: 185
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 75 from (335, 268)], selection box: [170 x 170 from (280, 224)]
+Final head_box:[170 x 170 from (286, 220)]
+Try to make head box similar to selection box
+Head box: [90 x 96 from (325, 262)], selection box: [185 x 185 from (278, 220)]
+Final head_box:[185 x 185 from (278, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.21703 label 'Human 2' score: 4.21703 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 286
+y: 220
+width: 170
+height: 170
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 82 from (330, 268)], selection box: [188 x 188 from (273, 213)]
+Final head_box:[188 x 188 from (275, 215)]
+Try to make head box similar to selection box
+Head box: [92 x 98 from (318, 262)], selection box: [170 x 170 from (280, 224)]
+Final head_box:[170 x 170 from (279, 226)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.69533 label 'Human 2' score: 4.69533 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 275
+y: 215
+width: 188
+height: 188
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [68 x 72 from (333, 270)], selection box: [186 x 186 from (270, 215)]
+Final head_box:[186 x 186 from (274, 213)]
+Try to make head box similar to selection box
+Head box: [96 x 98 from (318, 259)], selection box: [188 x 188 from (273, 213)]
+Final head_box:[188 x 188 from (272, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.1258 label 'Human 2' score: 5.1258 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 274
+y: 213
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [66 x 72 from (327, 268)], selection box: [180 x 180 from (266, 214)]
+Final head_box:[180 x 180 from (270, 214)]
+Try to make head box similar to selection box
+Head box: [99 x 102 from (308, 255)], selection box: [186 x 186 from (270, 215)]
+Final head_box:[186 x 186 from (264, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.51322 label 'Human 2' score: 5.51322 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 270
+y: 214
+width: 180
+height: 180
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 83 from (314, 260)], selection box: [186 x 186 from (256, 213)]
+Final head_box:[186 x 186 from (260, 208)]
+Try to make head box similar to selection box
+Head box: [90 x 92 from (311, 258)], selection box: [180 x 180 from (266, 214)]
+Final head_box:[180 x 180 from (266, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.86189 label 'Human 2' score: 5.86189 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 260
+y: 208
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [62 x 64 from (320, 267)], selection box: [173 x 173 from (258, 211)]
+Final head_box:[173 x 173 from (265, 213)]
+Try to make head box similar to selection box
+Head box: [78 x 82 from (311, 261)], selection box: [186 x 186 from (256, 213)]
+Final head_box:[186 x 186 from (257, 209)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.1757 label 'Human 2' score: 6.1757 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 265
+y: 213
+width: 173
+height: 173
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 79 from (312, 260)], selection box: [186 x 186 from (250, 206)]
+Final head_box:[186 x 186 from (257, 206)]
+Try to make head box similar to selection box
+Head box: [77 x 80 from (308, 263)], selection box: [173 x 173 from (258, 211)]
+Final head_box:[173 x 173 from (260, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.45813 label 'Human 2' score: 6.45813 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 257
+y: 206
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [72 x 72 from (313, 262)], selection box: [187 x 187 from (247, 199)]
+Final head_box:[187 x 187 from (256, 205)]
+Try to make head box similar to selection box
+Head box: [96 x 99 from (301, 254)], selection box: [186 x 186 from (250, 206)]
+Final head_box:[186 x 186 from (256, 210)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.71232 label 'Human 2' score: 6.71232 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 256
+y: 205
+width: 187
+height: 187
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [63 x 64 from (319, 266)], selection box: [183 x 183 from (248, 204)]
+Final head_box:[183 x 183 from (259, 207)]
+Try to make head box similar to selection box
+Head box: [105 x 108 from (295, 250)], selection box: [187 x 187 from (247, 199)]
+Final head_box:[187 x 187 from (254, 211)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.94109 label 'Human 2' score: 6.94109 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 259
+y: 207
+width: 183
+height: 183
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 84 from (307, 258)], selection box: [180 x 180 from (250, 207)]
+Final head_box:[180 x 180 from (257, 210)]
+Try to make head box similar to selection box
+Head box: [112 x 111 from (292, 247)], selection box: [183 x 183 from (248, 204)]
+Final head_box:[183 x 183 from (257, 211)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.14698 label 'Human 2' score: 7.14698 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 257
+y: 210
+width: 180
+height: 180
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 77 from (318, 260)], selection box: [179 x 179 from (256, 208)]
+Final head_box:[179 x 179 from (265, 209)]
+Try to make head box similar to selection box
+Head box: [96 x 99 from (304, 253)], selection box: [180 x 180 from (250, 207)]
+Final head_box:[180 x 180 from (262, 212)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.33228 label 'Human 2' score: 7.33228 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 265
+y: 209
+width: 179
+height: 179
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 79 from (314, 260)], selection box: [172 x 172 from (256, 210)]
+Final head_box:[172 x 172 from (265, 213)]
+Try to make head box similar to selection box
+Head box: [97 x 99 from (304, 254)], selection box: [179 x 179 from (256, 208)]
+Final head_box:[179 x 179 from (263, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.49905 label 'Human 2' score: 7.49905 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 265
+y: 213
+width: 172
+height: 172
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 81 from (310, 262)], selection box: [180 x 180 from (252, 209)]
+Final head_box:[180 x 180 from (260, 212)]
+Try to make head box similar to selection box
+Head box: [91 x 95 from (306, 257)], selection box: [172 x 172 from (256, 210)]
+Final head_box:[172 x 172 from (265, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.64915 label 'Human 2' score: 7.64915 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 268
+y: 230
+width: 110
+height: 110
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 77 from (318, 261)], selection box: [181 x 181 from (253, 206)]
+Final head_box:[181 x 181 from (265, 209)]
+Try to make head box similar to selection box
+Head box: [87 x 93 from (307, 257)], selection box: [180 x 180 from (252, 209)]
+Final head_box:[180 x 180 from (260, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.78423 label 'Human 2' score: 7.78423 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 273
+y: 236
+width: 94
+height: 94
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 80 from (312, 259)], selection box: [171 x 171 from (257, 215)]
+Final head_box:[171 x 171 from (266, 214)]
+Try to make head box similar to selection box
+Head box: [99 x 103 from (305, 252)], selection box: [181 x 181 from (253, 206)]
+Final head_box:[181 x 181 from (264, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.90581 label 'Human 2' score: 7.90581 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 270
+y: 232
+width: 103
+height: 103
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 82 from (312, 264)], selection box: [174 x 174 from (257, 214)]
+Final head_box:[174 x 174 from (265, 218)]
+Try to make head box similar to selection box
+Head box: [92 x 96 from (307, 257)], selection box: [171 x 171 from (257, 215)]
+Final head_box:[171 x 171 from (268, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.01523 label 'Human 2' score: 8.01523 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 269
+y: 229
+width: 111
+height: 111
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 78 from (318, 261)], selection box: [184 x 184 from (252, 202)]
+Final head_box:[184 x 184 from (263, 208)]
+Try to make head box similar to selection box
+Head box: [92 x 95 from (307, 255)], selection box: [174 x 174 from (257, 214)]
+Final head_box:[174 x 174 from (266, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.11371 label 'Human 2' score: 8.11371 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 269
+y: 233
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [79 x 83 from (313, 260)], selection box: [175 x 175 from (257, 209)]
+Final head_box:[175 x 175 from (265, 214)]
+Try to make head box similar to selection box
+Head box: [97 x 102 from (306, 253)], selection box: [184 x 184 from (252, 202)]
+Final head_box:[184 x 184 from (262, 212)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.20234 label 'Human 2' score: 8.20234 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 269
+y: 230
+width: 106
+height: 106
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 77 from (315, 262)], selection box: [173 x 173 from (257, 212)]
+Final head_box:[173 x 173 from (266, 214)]
+Try to make head box similar to selection box
+Head box: [90 x 94 from (308, 257)], selection box: [175 x 175 from (257, 209)]
+Final head_box:[175 x 175 from (266, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.2821 label 'Human 2' score: 8.2821 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 268
+y: 228
+width: 110
+height: 110
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 79 from (315, 260)], selection box: [173 x 173 from (257, 210)]
+Final head_box:[173 x 173 from (267, 213)]
+Try to make head box similar to selection box
+Head box: [90 x 96 from (307, 255)], selection box: [173 x 173 from (257, 212)]
+Final head_box:[173 x 173 from (266, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.35389 label 'Human 2' score: 8.35389 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 269
+y: 230
+width: 108
+height: 108
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 80 from (312, 262)], selection box: [171 x 171 from (257, 214)]
+Final head_box:[171 x 171 from (265, 217)]
+Try to make head box similar to selection box
+Head box: [71 x 78 from (319, 265)], selection box: [173 x 173 from (257, 210)]
+Final head_box:[173 x 173 from (268, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.4185 label 'Human 2' score: 8.4185 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 272
+y: 237
+width: 100
+height: 100
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 77 from (318, 260)], selection box: [177 x 177 from (254, 207)]
+Final head_box:[177 x 177 from (267, 210)]
+Try to make head box similar to selection box
+Head box: [87 x 93 from (307, 257)], selection box: [171 x 171 from (257, 214)]
+Final head_box:[171 x 171 from (265, 218)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.47665 label 'Human 2' score: 8.47665 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 268
+y: 230
+width: 108
+height: 108
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 80 from (314, 260)], selection box: [174 x 174 from (256, 210)]
+Final head_box:[174 x 174 from (265, 213)]
+Try to make head box similar to selection box
+Head box: [95 x 99 from (305, 254)], selection box: [177 x 177 from (254, 207)]
+Final head_box:[177 x 177 from (264, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.52899 label 'Human 2' score: 8.52899 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 269
+y: 230
+width: 108
+height: 108
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 82 from (314, 259)], selection box: [184 x 184 from (251, 202)]
+Final head_box:[184 x 184 from (262, 208)]
+Try to make head box similar to selection box
+Head box: [95 x 99 from (304, 254)], selection box: [174 x 174 from (256, 210)]
+Final head_box:[174 x 174 from (264, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.57609 label 'Human 2' score: 8.57609 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 268
+y: 232
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 75 from (320, 261)], selection box: [184 x 184 from (252, 201)]
+Final head_box:[184 x 184 from (265, 206)]
+Try to make head box similar to selection box
+Head box: [92 x 96 from (309, 257)], selection box: [184 x 184 from (251, 202)]
+Final head_box:[184 x 184 from (263, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.61848 label 'Human 2' score: 8.61848 - published
+incoming detections: 1
+Costs matrix.
+46	
+Assignment problem solved.
+dest.mask.roi: x: 265
+y: 206
+width: 184
+height: 184
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [68 x 74 from (322, 263)], selection box: [184 x 184 from (250, 202)]
+Final head_box:[184 x 184 from (264, 208)]
+Try to make head box similar to selection box
+Head box: [92 x 97 from (307, 256)], selection box: [184 x 184 from (252, 201)]
+Final head_box:[184 x 184 from (261, 212)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.65663 label 'Human 2' score: 8.65663 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 271
+y: 234
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [69 x 73 from (320, 263)], selection box: [185 x 185 from (251, 203)]
+Final head_box:[185 x 185 from (262, 207)]
+Tracking box is too smaller than select
+Trackers: 0
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.69097 label 'Human 2' score: 8.69097 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 266
+y: 228
+width: 114
+height: 114
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [80 x 82 from (312, 263)], selection box: [175 x 175 from (255, 212)]
+Final head_box:[175 x 175 from (265, 217)]
+Try to make head box similar to selection box
+Head box: [84 x 90 from (312, 261)], selection box: [185 x 185 from (251, 203)]
+Final head_box:[185 x 185 from (262, 214)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.72187 label 'Human 2' score: 8.72187 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 265
+y: 217
+width: 175
+height: 175
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 81 from (314, 262)], selection box: [171 x 171 from (258, 216)]
+Final head_box:[171 x 171 from (267, 217)]
+Try to make head box similar to selection box
+Head box: [93 x 97 from (308, 258)], selection box: [175 x 175 from (255, 212)]
+Final head_box:[175 x 175 from (267, 219)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.74968 label 'Human 2' score: 8.74968 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 267
+y: 217
+width: 171
+height: 171
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 79 from (322, 263)], selection box: [174 x 174 from (263, 212)]
+Final head_box:[174 x 174 from (273, 215)]
+Try to make head box similar to selection box
+Head box: [89 x 96 from (311, 257)], selection box: [171 x 171 from (258, 216)]
+Final head_box:[171 x 171 from (270, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.77472 label 'Human 2' score: 8.77472 - published
+incoming detections: 1
+Costs matrix.
+44	
+Assignment problem solved.
+dest.mask.roi: x: 279
+y: 230
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [58 x 65 from (346, 265)], selection box: [185 x 185 from (275, 201)]
+Final head_box:[185 x 185 from (283, 205)]
+Try to make head box similar to selection box
+Head box: [71 x 80 from (339, 260)], selection box: [174 x 174 from (263, 212)]
+Final head_box:[174 x 174 from (287, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.79724 label 'Human 2' score: 8.79724 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 294
+y: 234
+width: 94
+height: 94
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [64 x 67 from (361, 261)], selection box: [180 x 180 from (295, 198)]
+Final head_box:[180 x 180 from (303, 204)]
+Try to make head box similar to selection box
+Head box: [109 x 114 from (334, 240)], selection box: [185 x 185 from (275, 201)]
+Final head_box:[185 x 185 from (296, 205)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.81752 label 'Human 2' score: 8.81752 - published
+incoming detections: 1
+Costs matrix.
+44	
+Assignment problem solved.
+dest.mask.roi: x: 314
+y: 224
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [70 x 73 from (381, 256)], selection box: [195 x 195 from (309, 193)]
+Final head_box:[195 x 195 from (319, 195)]
+Try to make head box similar to selection box
+Head box: [120 x 122 from (353, 234)], selection box: [180 x 180 from (295, 198)]
+Final head_box:[180 x 180 from (323, 205)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.83577 label 'Human 2' score: 8.83577 - published
+incoming detections: 1
+Costs matrix.
+48	
+Assignment problem solved.
+dest.mask.roi: x: 319
+y: 195
+width: 195
+height: 195
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 0
+Final dest label: Human 2
+Detected: 1
+Try to make head box similar to selection box
+Head box: [82 x 85 from (395, 254)], selection box: [205 x 205 from (325, 186)]
+Final head_box:[205 x 205 from (334, 194)]
+Try to make head box similar to selection box
+Head box: [122 x 125 from (371, 237)], selection box: [195 x 195 from (309, 193)]
+Final head_box:[195 x 195 from (335, 202)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 8.85219 label 'Human 2' score: 8.85219 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 334
+y: 194
+width: 205
+height: 205
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 2
+Close to boundary: 1
+Close to boundary and the most voted label is: Human 2
+'HumanX' is the most voted label and close to boundary
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [90 x 90 from (404, 253)], selection box: [190 x 190 from (344, 193)]
+Final head_box:[190 x 190 from (354, 203)]
+Try to make head box similar to selection box
+Head box: [118 x 121 from (390, 240)], selection box: [205 x 205 from (325, 186)]
+Final head_box:[205 x 205 from (347, 198)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 354
+y: 203
+width: 190
+height: 190
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [88 x 91 from (423, 253)], selection box: [194 x 194 from (360, 193)]
+Final head_box:[194 x 194 from (370, 201)]
+Try to make head box similar to selection box
+Head box: [112 x 112 from (408, 246)], selection box: [190 x 190 from (344, 193)]
+Final head_box:[190 x 190 from (369, 207)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 370
+y: 201
+width: 194
+height: 194
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [89 x 90 from (435, 251)], selection box: [190 x 190 from (375, 194)]
+Final head_box:[190 x 190 from (384, 201)]
+Try to make head box similar to selection box
+Head box: [107 x 107 from (428, 246)], selection box: [194 x 194 from (360, 193)]
+Final head_box:[194 x 194 from (384, 202)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 384
+y: 201
+width: 190
+height: 190
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [88 x 88 from (448, 254)], selection box: [195 x 195 from (382, 200)]
+Final head_box:[195 x 195 from (395, 201)]
+Try to make head box similar to selection box
+Head box: [101 x 101 from (439, 250)], selection box: [190 x 190 from (375, 194)]
+Final head_box:[190 x 190 from (394, 205)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 395
+y: 201
+width: 195
+height: 195
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [92 x 93 from (462, 258)], selection box: [196 x 196 from (394, 204)]
+Final head_box:[196 x 196 from (410, 206)]
+Try to make head box similar to selection box
+Head box: [105 x 106 from (457, 256)], selection box: [195 x 195 from (382, 200)]
+Final head_box:[195 x 195 from (412, 212)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 410
+y: 206
+width: 196
+height: 196
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [81 x 78 from (479, 274)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (426, 220)]
+Try to make head box similar to selection box
+Head box: [106 x 108 from (476, 260)], selection box: [196 x 196 from (394, 204)]
+Final head_box:[196 x 196 from (431, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 426
+y: 220
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [119 x 116 from (466, 260)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (432, 225)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 432
+y: 225
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [122 x 109 from (473, 273)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (441, 234)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 441
+y: 234
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [192 x 187 from (439, 244)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (442, 244)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 442
+y: 244
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [188 x 179 from (444, 246)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (445, 242)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 445
+y: 242
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [193 x 184 from (435, 243)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (438, 242)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 438
+y: 242
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [195 x 187 from (426, 235)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (430, 235)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 430
+y: 235
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [185 x 176 from (420, 233)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (419, 228)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 419
+y: 228
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [178 x 175 from (398, 229)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (394, 223)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 394
+y: 223
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 0
+Try to make head box similar to selection box
+Head box: [170 x 170 from (379, 228)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (371, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 371
+y: 220
+width: 186
+height: 186
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [90 x 91 from (404, 245)], selection box: [191 x 191 from (344, 193)]
+Final head_box:[191 x 191 from (354, 195)]
+Try to make head box similar to selection box
+Head box: [119 x 134 from (379, 234)], selection box: [186 x 186 from (410, 222)]
+Final head_box:[186 x 186 from (345, 208)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 354
+y: 195
+width: 191
+height: 191
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 1
+Close to boundary and the most voted label is: Bound
+Final dest label: Bound
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [78 x 79 from (379, 246)], selection box: [204 x 204 from (316, 171)]
+Final head_box:[204 x 204 from (316, 183)]
+Try to make head box similar to selection box
+Head box: [103 x 106 from (361, 241)], selection box: [191 x 191 from (344, 193)]
+Final head_box:[191 x 191 from (317, 199)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.5 label 'Bound' score: 4.5 - published
+incoming detections: 1
+Costs matrix.
+44	
+Assignment problem solved.
+dest.mask.roi: x: 316
+y: 183
+width: 204
+height: 204
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Bound
+Detected: 1
+Try to make head box similar to selection box
+Head box: [88 x 90 from (355, 241)], selection box: [198 x 198 from (296, 177)]
+Final head_box:[198 x 198 from (300, 187)]
+Try to make head box similar to selection box
+Head box: [112 x 108 from (331, 239)], selection box: [204 x 204 from (316, 171)]
+Final head_box:[204 x 204 from (285, 191)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.05 label 'Bound' score: 4.05 - published
+incoming detections: 1
+Costs matrix.
+43	
+Assignment problem solved.
+dest.mask.roi: x: 300
+y: 187
+width: 198
+height: 198
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Bound
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [74 x 79 from (337, 249)], selection box: [193 x 193 from (272, 193)]
+Final head_box:[193 x 193 from (278, 192)]
+Try to make head box similar to selection box
+Head box: [106 x 107 from (315, 241)], selection box: [198 x 198 from (296, 177)]
+Final head_box:[198 x 198 from (269, 195)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.645 label 'Bound' score: 3.645 - not published
+incoming detections: 1
+Costs matrix.
+44	
+Assignment problem solved.
+dest.mask.roi: x: 278
+y: 192
+width: 193
+height: 193
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Bound
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [73 x 78 from (316, 253)], selection box: [183 x 183 from (254, 199)]
+Final head_box:[183 x 183 from (261, 201)]
+Try to make head box similar to selection box
+Head box: [94 x 99 from (308, 246)], selection box: [193 x 193 from (272, 193)]
+Final head_box:[193 x 193 from (259, 199)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.2805 label 'Bound' score: 3.2805 - not published
+incoming detections: 1
+Costs matrix.
+49	
+Assignment problem solved.
+dest.mask.roi: x: 269
+y: 217
+width: 109
+height: 109
+
+src.detector: face
+src.label: Unknown
+dest.label: Bound
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 81 from (305, 253)], selection box: [179 x 179 from (244, 201)]
+Final head_box:[179 x 179 from (254, 204)]
+Try to make head box similar to selection box
+Head box: [95 x 100 from (293, 248)], selection box: [183 x 183 from (254, 199)]
+Final head_box:[183 x 183 from (249, 207)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.0951 label 'Human 3' score: 3.0951 - not published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 258
+y: 218
+width: 114
+height: 114
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 77 from (306, 254)], selection box: [183 x 183 from (242, 197)]
+Final head_box:[183 x 183 from (252, 201)]
+Try to make head box similar to selection box
+Head box: [82 x 90 from (300, 252)], selection box: [179 x 179 from (244, 201)]
+Final head_box:[179 x 179 from (252, 208)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 3.68559 label 'Human 3' score: 3.68559 - not published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 257
+y: 219
+width: 110
+height: 110
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 77 from (298, 259)], selection box: [176 x 176 from (237, 208)]
+Final head_box:[176 x 176 from (246, 209)]
+Try to make head box similar to selection box
+Head box: [78 x 85 from (299, 260)], selection box: [183 x 183 from (242, 197)]
+Final head_box:[183 x 183 from (247, 211)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.21703 label 'Human 3' score: 4.21703 - published
+incoming detections: 1
+Costs matrix.
+42	
+Assignment problem solved.
+dest.mask.roi: x: 253
+y: 225
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [72 x 74 from (296, 262)], selection box: [169 x 169 from (239, 214)]
+Final head_box:[169 x 169 from (248, 215)]
+Try to make head box similar to selection box
+Head box: [91 x 95 from (288, 256)], selection box: [176 x 176 from (237, 208)]
+Final head_box:[176 x 176 from (245, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 4.69533 label 'Human 3' score: 4.69533 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 253
+y: 234
+width: 101
+height: 101
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 78 from (295, 259)], selection box: [172 x 172 from (238, 208)]
+Final head_box:[172 x 172 from (247, 212)]
+Try to make head box similar to selection box
+Head box: [86 x 90 from (290, 256)], selection box: [169 x 169 from (239, 214)]
+Final head_box:[169 x 169 from (249, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.1258 label 'Human 3' score: 5.1258 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 248
+y: 232
+width: 108
+height: 108
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [67 x 72 from (299, 263)], selection box: [163 x 163 from (240, 218)]
+Final head_box:[163 x 163 from (251, 218)]
+Try to make head box similar to selection box
+Head box: [80 x 86 from (294, 258)], selection box: [172 x 172 from (238, 208)]
+Final head_box:[172 x 172 from (248, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.51322 label 'Human 3' score: 5.51322 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 251
+y: 218
+width: 163
+height: 163
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [75 x 75 from (293, 261)], selection box: [165 x 165 from (239, 218)]
+Final head_box:[165 x 165 from (248, 216)]
+Try to make head box similar to selection box
+Head box: [75 x 82 from (293, 261)], selection box: [163 x 163 from (240, 218)]
+Final head_box:[163 x 163 from (249, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 5.86189 label 'Human 3' score: 5.86189 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 254
+y: 235
+width: 98
+height: 98
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [69 x 73 from (300, 260)], selection box: [179 x 179 from (232, 203)]
+Final head_box:[179 x 179 from (245, 207)]
+Try to make head box similar to selection box
+Head box: [82 x 86 from (290, 259)], selection box: [165 x 165 from (239, 218)]
+Final head_box:[165 x 165 from (249, 220)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.1757 label 'Human 3' score: 6.1757 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 246
+y: 233
+width: 108
+height: 108
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [67 x 67 from (297, 265)], selection box: [175 x 175 from (233, 209)]
+Final head_box:[175 x 175 from (243, 211)]
+Try to make head box similar to selection box
+Head box: [86 x 93 from (288, 258)], selection box: [179 x 179 from (232, 203)]
+Final head_box:[179 x 179 from (242, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.45813 label 'Human 3' score: 6.45813 - published
+incoming detections: 1
+Costs matrix.
+41	
+Assignment problem solved.
+dest.mask.roi: x: 247
+y: 229
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [76 x 78 from (290, 262)], selection box: [175 x 175 from (231, 213)]
+Final head_box:[175 x 175 from (241, 214)]
+Try to make head box similar to selection box
+Head box: [87 x 91 from (285, 258)], selection box: [175 x 175 from (233, 209)]
+Final head_box:[175 x 175 from (241, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.71232 label 'Human 3' score: 6.71232 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 249
+y: 234
+width: 104
+height: 104
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [78 x 79 from (291, 262)], selection box: [178 x 178 from (231, 208)]
+Final head_box:[178 x 178 from (241, 212)]
+Try to make head box similar to selection box
+Head box: [89 x 93 from (285, 257)], selection box: [175 x 175 from (231, 213)]
+Final head_box:[175 x 175 from (242, 216)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 6.94109 label 'Human 3' score: 6.94109 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 245
+y: 228
+width: 114
+height: 114
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [73 x 74 from (294, 264)], selection box: [168 x 168 from (233, 217)]
+Final head_box:[168 x 168 from (246, 217)]
+Try to make head box similar to selection box
+Head box: [90 x 92 from (285, 258)], selection box: [178 x 178 from (231, 208)]
+Final head_box:[178 x 178 from (241, 215)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.14698 label 'Human 3' score: 7.14698 - published
+incoming detections: 1
+Costs matrix.
+45	
+Assignment problem solved.
+dest.mask.roi: x: 246
+y: 217
+width: 168
+height: 168
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [71 x 71 from (294, 263)], selection box: [177 x 177 from (231, 210)]
+Final head_box:[177 x 177 from (241, 210)]
+Try to make head box similar to selection box
+Head box: [79 x 83 from (292, 260)], selection box: [168 x 168 from (233, 217)]
+Final head_box:[168 x 168 from (247, 217)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.33228 label 'Human 3' score: 7.33228 - published
+incoming detections: 1
+Costs matrix.
+46	
+Assignment problem solved.
+dest.mask.roi: x: 247
+y: 234
+width: 100
+height: 100
+
+src.detector: face
+src.label: Unknown
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [65 x 68 from (298, 267)], selection box: [169 x 169 from (235, 216)]
+Final head_box:[169 x 169 from (246, 217)]
+Try to make head box similar to selection box
+Head box: [79 x 84 from (290, 259)], selection box: [177 x 177 from (231, 210)]
+Final head_box:[177 x 177 from (241, 213)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.49905 label 'Human 3' score: 7.49905 - published
+incoming detections: 1
+Costs matrix.
+46	
+Assignment problem solved.
+dest.mask.roi: x: 246
+y: 217
+width: 169
+height: 169
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Try to make head box similar to selection box
+Head box: [74 x 76 from (293, 263)], selection box: [176 x 176 from (232, 210)]
+Final head_box:[176 x 176 from (242, 213)]
+Try to make head box similar to selection box
+Head box: [73 x 80 from (294, 265)], selection box: [169 x 169 from (235, 216)]
+Final head_box:[169 x 169 from (246, 221)]
+Trackers: 1
+Number of head box to display: 1
+Error: FaceRecognizer::recognizeFace: Load or train some identification model, first.
+
+Matches found.
+New detections.
+'UnknownHead' score: 7.64915 label 'Human 3' score: 7.64915 - published
+incoming detections: 1
+Costs matrix.
+40	
+Assignment problem solved.
+dest.mask.roi: x: 242
+y: 213
+width: 176
+height: 176
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Human 3
+Close to boundary: 0
+Final dest label: Human 3
+Detected: 1
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [68 x 74 from (294, 264)], selection box: [172 x 172 from (234, 214)]
+Final head_box:[172 x 172 from (242, 215)]
+Try to make head box similar to selection box
+Head box: [76 x 79 from (291, 266)], selection box: [176 x 176 from (232, 210)]
+Final head_box:[176 x 176 from (241, 217)]
+Trackers: 1
+Number of head box to display: 1
+Detected: 1
+Try to make head box similar to selection box
+Head box: [77 x 79 from (284, 262)], selection box: [175 x 175 from (232, 213)]
+Final head_box:[175 x 175 from (235, 214)]
+Try to make head box similar to selection box
+Head box: [89 x 93 from (283, 260)], selection box: [172 x 172 from (234, 214)]
+Final head_box:[172 x 172 from (241, 220)]
+Trackers: 1
+Number of head box to display: 1
+Matches found.
+New detections.
+'UnknownHead' score: 7.78423 label 'Human 3' score: 7.78423 - published
+[33m[ WARN] [1415843430.890876848]: Left-clicking no longer saves images. Right-click instead.[0m
+_detector/depth_min_search_scale_y
+ * /cob_people_detection/head_detector/display_timing
+ * /cob_people_detection/head_detector/fill_unassigned_depth_values
+ * /cob_people_detection/head_detector/head_detector/data_directory
+ * /cob_people_detection/people_detection_display/display
+ * /cob_people_detection/people_detection_display/display_timing
+ * /cob_people_detection/sensor_message_gateway/display_timing
+ * /cob_people_detection/sensor_message_gateway/target_publishing_rate
+ * /head_detection_viewer/autosize
+ * /people_detection_viewer/autosize
+ * /rosdistro
+ * /rosversion
+
+NODES
+  /cob_people_detection/head_detection_display/
+    head_detection_display (cob_people_detection/head_detection_display_node)
+  /cob_people_detection/people_detection_display/
+    people_detection_display (cob_people_detection/people_detection_display_node)
+  /cob_people_detection/coordinator/
+    coordinator (cob_people_detection/coordinator_node)
+  /cob_people_detection/sensor_message_gateway/
+    sensor_message_gateway (cob_people_detection/sensor_message_gateway_node)
+  /
+    head_detection_viewer (image_view/image_view)
+    people_detection_viewer (image_view/image_view)
+  /cob_people_detection/detection_tracker/
+    detection_tracker (cob_people_detection/detection_tracker_node)
+  /cob_image_flip/
+    kinect_image_flip (cob_image_flip/kinect_image_flip)
+  /cob_people_detection/face_recognizer/
+    face_recognizer (cob_people_detection/face_recognizer_node)
+  /cob_people_detection/face_capture/
+    face_capture (cob_people_detection/face_capture_node)
+  /cob_people_detection/head_detector/
+    head_detector (cob_people_detection/head_detector_node)
+  /cob_people_detection/face_detector/
+    face_detector (cob_people_detection/face_detector_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch http://localhost:11311
+core service [/rosout] found
+[1mprocess[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1]: started with pid [10695][0m
+[1mprocess[cob_image_flip/kinect_image_flip-2]: started with pid [10710][0m
+[1mprocess[cob_people_detection/head_detector/head_detector-3]: started with pid [10731][0m
+[1mprocess[cob_people_detection/face_detector/face_detector-4]: started with pid [10758][0m
+[1mprocess[cob_people_detection/face_recognizer/face_recognizer-5]: started with pid [10812][0m
+[1mprocess[cob_people_detection/detection_tracker/detection_tracker-6]: started with pid [10878][0m
+[1mprocess[cob_people_detection/people_detection_display/people_detection_display-7]: started with pid [10934][0m
+[1mprocess[people_detection_viewer-8]: started with pid [10951][0m
+[1mprocess[cob_people_detection/head_detection_display/head_detection_display-9]: started with pid [10958][0m
+[1mprocess[head_detection_viewer-10]: started with pid [10988][0m
+[1mprocess[cob_people_detection/face_capture/face_capture-11]: started with pid [11045][0m
+[1mprocess[cob_people_detection/coordinator/coordinator-12]: started with pid [11122][0m
+[cob_people_detection/coordinator/coordinator-12] killing on exit
+[cob_people_detection/face_capture/face_capture-11] killing on exit
+[head_detection_viewer-10] killing on exit
+[cob_people_detection/head_detection_display/head_detection_display-9] killing on exit
+[people_detection_viewer-8] killing on exit
+[cob_people_detection/detection_tracker/detection_tracker-6] killing on exit
+[cob_people_detection/people_detection_display/people_detection_display-7] killing on exit
+[cob_people_detection/head_detector/head_detector-3] killing on exit
+[cob_people_detection/face_detector/face_detector-4] killing on exit
+[cob_people_detection/face_recognizer/face_recognizer-5] killing on exit
+[cob_image_flip/kinect_image_flip-2] killing on exit
+[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
