@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- Start audio capture node --> 
+    <node name="stereo_mic_capture" pkg="audio_capture" type="audio_capture" output="screen" />
+
+</launch>
+
