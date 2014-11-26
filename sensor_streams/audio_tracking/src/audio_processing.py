@@ -1,28 +1,71 @@
 #!/usr/bin/env python
-import roslib; roslib.load_manifest('audio_capture')
+import roslib; roslib.load_manifest('audio_tracking')
 import rospy
-from audio_common_msgs.msg import AudioData
-
+import struct
+import numpy as np
+import matplotlib.pyplot as plt
+from audio_tracking.msg import AudioData16
+from std_msgs.msg import Float64
 
 class AudioCaptureProcessing():
 
     def __init__(self):
 
+        rospy.on_shutdown(self.cleanup)
+        self.data = []
         # Subscribers
         rospy.loginfo("Setting up subscribers")
-        rospy.Subscriber("contingent_data_logger_flag", Bool, self.callback)
-        rospy.Subscriber("audio", AudioData, self.audio_callback, queue_size = 1000)
+        rospy.Subscriber("audio_raw", AudioData16, self.audio_callback, queue_size = 10)
         
         # Setup publishers
-        rospy.loginfo("Setting up publishers")
-        self.raw_amp = rospy.Publisher('audio_amp', Float64)
+        #rospy.loginfo("Setting up publishers")
+        #self.raw_amp = rospy.Publisher('audio_raw', AudioData16)
 
 
     def audio_callback(self, msg):
 
         # Do something with audio?
-        print msg.data 
+        raw_audio = msg.data
 
+        # Split data into left and right channels
+        left_audio, right_audio = raw_audio[0::2],raw_audio[1::2]
+
+        if max(left_audio) > max(right_audio):
+            print "left louder"
+        else:
+            print "right louder"
+        '''
+        audio_data = [struct.unpack('B',i[0])[0] for i in raw_audio]
+        audio_stream = np.array(audio_data)
+        
+        # Write data to mp3 file
+        data_bytes = bytearray(audio_stream)
+        temp_file_name = 'temp_audio.mp3'
+        mp3_file = open(temp_file_name,'w')
+        mp3_file.write(''.join(map(chr,data_bytes)))
+        mp3_file.close()
+
+        import pdb; pdb.set_trace()
+        # Read the file back in 
+        datastream = AudioSegment.from_mp3(temp_file_name)
+
+        # Grab the raw data and convert it into an np array 
+        raw_audio_bytes = datastream._data
+        converted_audio = np.fromstring(raw_audio_bytes, dtype=np.int16)
+
+ 
+
+        print len(left_audio)
+        print len(right_audio)
+
+        '''
+        self.data.append(msg.data)
+
+    def cleanup(self):
+
+        rospy.loginfo("numpy!")
+        cur_data = np.hstack(self.data)
+        #import pdb; pdb.set_trace()
 
 
 def main():

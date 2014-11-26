@@ -1,14 +1,15 @@
 <package>
-  <description brief="audio_capture">
+  <description brief="audio_tracking">
 
-     audio_capture
+     audio_tracking
 
   </description>
   <author>Vivian Chu</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/audio_capture</url>
+  <url>http://ros.org/wiki/audio_tracking</url>
   <depend package="rospy"/>
+  <rosdep name="python-gst"/>
 
 </package>
 
