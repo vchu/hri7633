@@ -23,7 +23,7 @@ class AudioCaptureRaw():
         # Setup the recording
         self.chunk = 1024
         FORMAT = pyaudio.paInt16
-        CHANNELS = 1
+        CHANNELS = 2
         RATE = 44100
 
         self.p = pyaudio.PyAudio()

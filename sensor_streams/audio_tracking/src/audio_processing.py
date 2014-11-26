@@ -21,6 +21,9 @@ class AudioCaptureProcessing():
         #rospy.loginfo("Setting up publishers")
         #self.raw_amp = rospy.Publisher('audio_raw', AudioData16)
 
+        # Setup some calibration values
+
+
 
     def audio_callback(self, msg):
 
@@ -28,12 +31,23 @@ class AudioCaptureProcessing():
         raw_audio = msg.data
 
         # Split data into left and right channels
-        left_audio, right_audio = raw_audio[0::2],raw_audio[1::2]
+        right_audio, left_audio = raw_audio[0::2],raw_audio[1::2]
 
-        if max(left_audio) > max(right_audio):
-            print "left louder"
-        else:
-            print "right louder"
+        # Grab largest values
+        left_max = max(np.absolute(left_audio)) - 250
+        right_max = max(np.absolute(right_audio))
+
+        #print 'right: %d' % right_max
+        #print 'left: %d' % left_max
+
+        threshold = 300
+
+        if abs(left_max - right_max) > threshold:
+            if left_max > right_max:
+                print "left louder"
+            else:
+                print "right_louder"
+
         '''
         audio_data = [struct.unpack('B',i[0])[0] for i in raw_audio]
         audio_stream = np.array(audio_data)
@@ -65,7 +79,7 @@ class AudioCaptureProcessing():
 
         rospy.loginfo("numpy!")
         cur_data = np.hstack(self.data)
-        #import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
 
 
 def main():
