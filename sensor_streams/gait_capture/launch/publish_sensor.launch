@@ -1,7 +1,10 @@
 <launch>
 
-    <!-- Start gait capture node --> 
+    <!-- Start openni tracker capture node --> 
     <node name="openni_tracker" pkg="openni_tracker" type="openni_tracker" output="screen" />
+
+    <!-- Start custom person tracking node -->
+    <node name="gait_capture" pkg="gait_capture" type="gait_processing" output="screen" />
 
 </launch>
 

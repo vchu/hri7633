@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/gait_capture</url>
   <depend package="rospy"/>
   <depend package="tf"/>
+  <depend package="geometry_msgs"/>
 
 </package>
 
