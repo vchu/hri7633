@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- Start gait capture node --> 
+    <node name="openni_tracker" pkg="openni_tracker" type="openni_tracker" output="screen" />
+
+</launch>
+
