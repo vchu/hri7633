@@ -1,0 +1,16 @@
+<package>
+  <description brief="sensor_fusion">
+
+     sensor_fusion
+
+  </description>
+  <author>Vivian Chu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/sensor_fusion</url>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+
+</package>
+
+
