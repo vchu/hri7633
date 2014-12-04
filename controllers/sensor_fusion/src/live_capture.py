@@ -5,7 +5,7 @@ import struct
 import numpy as np
 import matplotlib.pyplot as plt 
 import threading
-from collections import defaultdict
+from collections import defaultdict, deque
 from audio_tracking.msg import AudioData16
 from gait_capture.msg import PersonFrame
 
@@ -27,14 +27,14 @@ class SensorFusion():
         rospy.Subscriber("gait_tracking", PersonFrame, self.gait_callback, queue_size = 10) 
 
         # Initialize some audio values
-        self.audio_data = [] # Can store last X number of msgs
+        self.audio_data = deque([]) # Can store last X number of msgs
         self.gait_data = defaultdict(dict)
 
     def audio_callback(self, msg):
 
-        # We only store the last ten seconds (44.1 hz * 10 = ~441 msgs)
-        if len(self.audio_data) > 450:
-            self.audio_data.pop(0) # throw it out
+
+        raw_audio = msg.data
+
 
         # Get lock...
         # This implementation might cause some msgs to get lost....
@@ -42,7 +42,21 @@ class SensorFusion():
             rospy.loginfo("Failed to acquire lock - audio")
         else:
             try:
-                self.audio_data.append(msg)
+                # We only store the last ten seconds (44.1 hz * 10 = ~441 msgs)
+                # Each message contains 2048 readings (1024 for each channel)
+                if len(self.audio_data) > 450:
+                    self.audio_data.popleft() # throw it out
+
+                self.audio_data.append(msg.data)
+        
+                # Split into left and right channels
+                # TODO: Might be flipped...
+                right_audio, left_audio = raw_audio[0::2],raw_audio[1::2]
+
+                # Currently only transform the current message
+                self.audio_data_left = left_audio
+                self.audio_data_right = right_audio
+
             finally:
                 self.audio_lock.release()
 
