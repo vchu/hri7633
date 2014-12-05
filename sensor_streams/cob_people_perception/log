@@ -1,0 +1,1243 @@
+... logging to /home/xinyan/.ros/log/fdad7706-7a85-11e4-90c9-d43d7e947647/roslaunch-jarvis-12051.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch
+[1mstarted roslaunch server http://jarvis:51624/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cob_image_flip/kinect_image_flip/display_timing
+ * /cob_image_flip/kinect_image_flip/display_warnings
+ * /cob_image_flip/kinect_image_flip/flip_color_image
+ * /cob_image_flip/kinect_image_flip/flip_pointcloud
+ * /cob_image_flip/kinect_image_flip/pointcloud_data_format
+ * /cob_people_detection/coordinator/namespace_gateway
+ * /cob_people_detection/data_storage_directory
+ * /cob_people_detection/detection_tracker/debug
+ * /cob_people_detection/detection_tracker/detection_tracker/data_directory
+ * /cob_people_detection/detection_tracker/display_timing
+ * /cob_people_detection/detection_tracker/face_identification_score_decay_rate
+ * /cob_people_detection/detection_tracker/face_redetection_time
+ * /cob_people_detection/detection_tracker/fall_back_to_unknown_identification
+ * /cob_people_detection/detection_tracker/min_face_identification_score_to_publish
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_face
+ * /cob_people_detection/detection_tracker/min_segmented_people_ratio_head
+ * /cob_people_detection/detection_tracker/nimages
+ * /cob_people_detection/detection_tracker/norm_align
+ * /cob_people_detection/detection_tracker/norm_extreme_illumination
+ * /cob_people_detection/detection_tracker/norm_illumination
+ * /cob_people_detection/detection_tracker/norm_size
+ * /cob_people_detection/detection_tracker/publish_currently_not_visible_detections_timespan
+ * /cob_people_detection/detection_tracker/rosbag_mode
+ * /cob_people_detection/detection_tracker/tracking_range_m
+ * /cob_people_detection/detection_tracker/use_depth
+ * /cob_people_detection/detection_tracker/use_people_segmentation
+ * /cob_people_detection/face_capture/debug
+ * /cob_people_detection/face_capture/display_timing
+ * /cob_people_detection/face_capture/enable_face_recognition
+ * /cob_people_detection/face_capture/face_capture/data_directory
+ * /cob_people_detection/face_capture/feature_dimension
+ * /cob_people_detection/face_capture/metric
+ * /cob_people_detection/face_capture/norm_align
+ * /cob_people_detection/face_capture/norm_extreme_illumination
+ * /cob_people_detection/face_capture/norm_illumination
+ * /cob_people_detection/face_capture/norm_size
+ * /cob_people_detection/face_capture/recognition_method
+ * /cob_people_detection/face_capture/use_depth
+ * /cob_people_detection/face_capture/use_unknown_thresh
+ * /cob_people_detection/face_detector/debug
+ * /cob_people_detection/face_detector/display_timing
+ * /cob_people_detection/face_detector/face_detector/data_directory
+ * /cob_people_detection/face_detector/face_size_max_m
+ * /cob_people_detection/face_detector/face_size_min_m
+ * /cob_people_detection/face_detector/faces_drop_groups
+ * /cob_people_detection/face_detector/faces_increase_search_scale
+ * /cob_people_detection/face_detector/faces_min_search_scale_x
+ * /cob_people_detection/face_detector/faces_min_search_scale_y
+ * /cob_people_detection/face_detector/max_face_z_m
+ * /cob_people_detection/face_detector/reason_about_3dface_size
+ * /cob_people_detection/face_recognizer/debug
+ * /cob_people_detection/face_recognizer/display_timing
+ * /cob_people_detection/face_recognizer/enable_face_recognition
+ * /cob_people_detection/face_recognizer/feature_dimension
+ * /cob_people_detection/face_recognizer/metric
+ * /cob_people_detection/face_recognizer/norm_align
+ * /cob_people_detection/face_recognizer/norm_extreme_illumination
+ * /cob_people_detection/face_recognizer/norm_illumination
+ * /cob_people_detection/face_recognizer/norm_size
+ * /cob_people_detection/face_recognizer/recognition_method
+ * /cob_people_detection/face_recognizer/use_depth
+ * /cob_people_detection/face_recognizer/use_unknown_th
+--------------------------
+Kinect Image Flip Parameters:
+--------------------------
+flip_color_image = 1
+flip_pointcloud = 1
+pointcloud_data_format = xyzrgb
+display_warnings = 0
+display_timing = 0
+robot = cob3-3
+CobKinectImageFlip: Robot number is cob3-3.
+
+--------------------------
+Head Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+fill_unassigned_depth_values = 1
+depth_increase_search_scale = 1.1
+depth_drop_groups = 40
+depth_min_search_scale_x = 20
+depth_min_search_scale_y = 20
+display_timing = 0
+HeadDetectorNode initialized.
+
+--------------------------
+Face Detector Parameters:
+--------------------------
+data_directory = /home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/common/files/
+faces_increase_search_scale = 1.2
+faces_drop_groups = 2
+faces_min_search_scale_x = 30
+faces_min_search_scale_y = 30
+reason_about_3dface_size = 1
+face_size_max_m = 0.35
+face_size_min_m = 0.1
+max_face_z_m = 8
+debug = 0
+display_timing = 0
+FaceDetectorNode initialized.
+CobKinectImageFlip initilized.
+
+--------------------------
+Face Recognizer Parameters:
+--------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+enable_face_recognition = 1
+feature dimension = 20
+threshold_facespace = 10000
+threshold_unknown = 1000
+metric = 0
+debug = 0
+recognition method: 2
+ use use unknown thresh: 1
+ use depth: 1
+display_timing = 0
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 1
+identification_labels_to_recognize: 
+INFO: FaceRecognizer::loadTrainingData: 113 color images loaded.
+
+Training LDA2D
+
+---------------------------
+People Detection Parameters:
+---------------------------
+debug = 1
+use rosbag mode:  1
+use_people_segmentation = 0
+face_redetection_time = 2.5
+publish_currently_not_visible_detections_timespan = 0.2
+min_segmented_people_ratio_face = 0.7
+min_segmented_people_ratio_head = 0.2
+tracking_range_m = 0.4
+face_identification_score_decay_rate = 0.99
+min_face_identification_score_to_publish = 1
+fall_back_to_unknown_identification = 0
+display_timing = 0
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+use depth: 1
+number of images for one person: 45
+INFO: FaceRecognizer::loadTrainingData: 113 color images loaded.
+
+detection tracker use_depth: 1
+DetectionTrackerNode initialized.
+00000000000000000000000000000000000000011111111111111111111111111111222222222222222222222222222222222222222222222THRESH for db: 1.92036e+06
+FaceRecognizer1D::saveModel() to /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+
+---------------------------
+Face Capture Node Parameters:
+---------------------------
+data_directory = /home/xinyan/.ros/cob_people_detection/files/
+norm_size = 100
+norm_illumination = 1
+norm_align = 0
+norm_extreme_illumination = 0
+debug = 0
+use depth: 1
+INFO: FaceRecognizer::loadTrainingData: 113 color images loaded.
+
+in capture: # color: 113 # depth 0
+OPENING at /home/xinyan/.ros/cob_people_detection/files/training_data/rdata_color.xml
+INFO: FaceRecognizer::saveRecognitionModel: recognizer data saved.
+
+Test label set
+Xinyan
+Vivian
+Human3
+Recognition model trained or loaded for:
+   - Xinyan
+   - Vivian
+   - Human3
+
+---------------------------
+People Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+PeopleDetectionDisplay initialized.
+
+---------------------------
+Coordinator Node Parameters:
+---------------------------
+namespace_gateway = /cob_people_detection/sensor_message_gateway/sensor_message_gateway
+CoordinatorNode initialized.
+FaceCaptureNode initialized. 113 color images and 0 depth images for training loaded.
+
+
+---------------------------
+Head Detection Display Parameters:
+---------------------------
+display = 0
+display_timing = 0
+HeadDetectionDisplay initialized.
+
+--------------------------
+Sensor Message Gateway Parameters:
+--------------------------
+target_publishing_rate = 20
+display_timing = 0
+[0m[ INFO] [1417742104.613132736]: Reconfigure request accomplished. New target publishing rate: 100.000000[0m
+SensorMessageGatewayNode initialized.
+Detected: 0
+Trackers: 0
+Number of head box to display: 0
+In detection_tracker_node inputCallback
+Detected: 2
+Try to make head box similar to selection box
+Head box: [66 x 69 from (285, 101)], selection box: [116 x 116 from (258, 81)]
+Final head_box:[116 x 116 from (260, 77)]
+Try to make head box similar to selection box
+Head box: [52 x 53 from (440, 222)], selection box: [99 x 99 from (418, 203)]
+Final head_box:[99 x 99 from (417, 199)]
+Trackers: 0
+Number of head box to display: 2
+[0m[ INFO] [1417742100.350021379]: FaceRecognizerNode initialized.[0m
+Distance: 2.00591e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.98341e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 4.67931e+06
+Pushing Label: Vivian Distance: 1.05188e+07
+Pushing Label: Human3 Distance: 5.55562e+06
+Pushing Label: Xinyan Distance: 7.94739e+06
+Pushing Label: Vivian Distance: 3.9357e+06
+Pushing Label: Human3 Distance: 1.38726e+07
+incoming detections: 0
+Costs matrix.
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+
+***** New detection *****
+
+dest.mask.roi: x: 271
+y: 97
+width: 76
+height: 76
+
+src.detector: face
+src.label: Unknown
+dest.label: 
+Close to boundary: 0
+Newly detected face!
+Final dest label: Newfc1
+
+***** New detection *****
+
+dest.mask.roi: x: 440
+y: 214
+width: 50
+height: 50
+
+src.detector: face
+src.label: Unknown
+dest.label: 
+Close to boundary: 0
+Newly detected face!
+Final dest label: Newfc2
+'UnknownHead' score: 0 label 'Newfc1' score: 1 - published
+'UnknownHead' score: 0 label 'Newfc2' score: 1 - published
+Got 0 images for Human1
+Got 0 images for Human2
+Detected: 2
+Try to make head box similar to selection box
+Head box: [50 x 48 from (442, 225)], selection box: [100 x 100 from (418, 203)]
+Final head_box:[100 x 100 from (417, 199)]
+Try to make head box similar to selection box
+Head box: [71 x 72 from (280, 105)], selection box: [119 x 119 from (255, 81)]
+Final head_box:[119 x 119 from (256, 82)]
+Try to make head box similar to selection box
+Head box: [79 x 96 from (275, 86)], selection box: [116 x 116 from (258, 81)]
+Final head_box:[116 x 116 from (256, 76)]
+Try to make head box similar to selection box
+Head box: [54 x 68 from (438, 215)], selection box: [99 x 99 from (418, 203)]
+Final head_box:[99 x 99 from (416, 200)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 2.33223e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 2.05858e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 7.29133e+06
+Pushing Label: Vivian Distance: 3.68771e+06
+Pushing Label: Human3 Distance: 1.26024e+07
+Pushing Label: Xinyan Distance: 4.80282e+06
+Pushing Label: Vivian Distance: 1.02319e+07
+Pushing Label: Human3 Distance: 5.55493e+06
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+114	40	
+41	116	
+Assignment problem solved.
+dest.mask.roi: x: 440
+y: 213
+width: 52
+height: 52
+
+src.detector: face
+src.label: Unknown
+dest.label: Newfc2
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 1.98
+Label: UnknownHead, Score: 1.98
+Final dest label: Newfc2
+previous_match_index: 1 display label: Newfc2
+dest.mask.roi: x: 271
+y: 98
+width: 73
+height: 73
+
+src.detector: face
+src.label: Unknown
+dest.label: Newfc1
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc1, Score: 1.98
+Label: UnknownHead, Score: 1.98
+Final dest label: Newfc1
+previous_match_index: 0 display label: Newfc1
+'UnknownHead' score: 1.98 label 'Newfc1' score: 1.98 - published
+'UnknownHead' score: 1.98 label 'Newfc2' score: 1.98 - published
+Got 1 images for Human1
+Got 1 images for Human2
+Detected: 2
+Try to make head box similar to selection box
+Head box: [51 x 48 from (442, 225)], selection box: [94 x 94 from (422, 205)]
+Final head_box:[94 x 94 from (420, 202)]
+Try to make head box similar to selection box
+Head box: [63 x 65 from (282, 109)], selection box: [119 x 119 from (254, 82)]
+Final head_box:[119 x 119 from (254, 82)]
+Try to make head box similar to selection box
+Head box: [56 x 69 from (438, 215)], selection box: [100 x 100 from (418, 203)]
+Final head_box:[100 x 100 from (416, 199)]
+Try to make head box similar to selection box
+Head box: [82 x 88 from (273, 113)], selection box: [119 x 119 from (255, 81)]
+Final head_box:[119 x 119 from (255, 98)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 2.92904e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.58105e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 5.19814e+06
+Pushing Label: Vivian Distance: 5.10741e+06
+Pushing Label: Human3 Distance: 9.77987e+06
+Pushing Label: Xinyan Distance: 5.22693e+06
+Pushing Label: Vivian Distance: 1.06053e+07
+Pushing Label: Human3 Distance: 5.26555e+06
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+114	40	
+40	115	
+Assignment problem solved.
+dest.mask.roi: x: 441
+y: 213
+width: 53
+height: 53
+
+src.detector: face
+src.label: Unknown
+dest.label: Newfc2
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 2.9502
+Label: UnknownHead, Score: 2.9502
+Final dest label: Newfc2
+previous_match_index: 1 display label: Newfc2
+dest.mask.roi: x: 270
+y: 96
+width: 77
+height: 77
+
+src.detector: face
+src.label: Xinyan
+dest.label: Newfc1
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 4.95
+Label: Xinyan, Score: 4.95
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+'UnknownHead' score: 4.95 label 'Xinyan' score: 4.95 - published
+'UnknownHead' score: 2.9502 label 'Newfc2' score: 2.9502 - published
+Got 2 images for Human2
+Detected: 2
+Try to make head box similar to selection box
+Head box: [68 x 69 from (283, 102)], selection box: [121 x 121 from (255, 81)]
+Final head_box:[121 x 121 from (257, 76)]
+Try to make head box similar to selection box
+Head box: [42 x 45 from (448, 226)], selection box: [101 x 101 from (419, 203)]
+Final head_box:[101 x 101 from (419, 198)]
+Try to make head box similar to selection box
+Head box: [54 x 70 from (440, 213)], selection box: [94 x 94 from (422, 205)]
+Final head_box:[94 x 94 from (420, 201)]
+Try to make head box similar to selection box
+Head box: [70 x 85 from (279, 114)], selection box: [119 x 119 from (254, 82)]
+Final head_box:[119 x 119 from (255, 97)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 1.62455e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.69074e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 5.64786e+06
+Pushing Label: Vivian Distance: 1.07722e+07
+Pushing Label: Human3 Distance: 5.45545e+06
+Pushing Label: Xinyan Distance: 6.30305e+06
+Pushing Label: Vivian Distance: 3.4501e+06
+Pushing Label: Human3 Distance: 1.15374e+07
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+0	114	
+114	40	
+Assignment problem solved.
+dest.mask.roi: x: 272
+y: 97
+width: 75
+height: 75
+
+src.detector: face
+src.label: Xinyan
+dest.label: Xinyan
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 6.8805
+Label: Xinyan, Score: 6.8805
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 442
+y: 214
+width: 51
+height: 51
+
+src.detector: face
+src.label: Vivian
+dest.label: Newfc2
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 4.95
+Label: Vivian, Score: 4.95
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+Detected: 2
+Try to make head box similar to selection box
+Head box: [55 x 53 from (442, 220)], selection box: [97 x 97 from (422, 202)]
+Final head_box:[97 x 97 from (421, 198)]
+Try to make head box similar to selection box
+Head box: [65 x 69 from (285, 103)], selection box: [118 x 118 from (257, 82)]
+Final head_box:[118 x 118 from (258, 78)]
+Try to make head box similar to selection box
+Head box: [69 x 85 from (281, 105)], selection box: [121 x 121 from (255, 81)]
+Final head_box:[121 x 121 from (255, 87)]
+Try to make head box similar to selection box
+Head box: [53 x 69 from (440, 213)], selection box: [101 x 101 from (419, 203)]
+Final head_box:[101 x 101 from (416, 197)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 1.42276e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.98457e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 7.66177e+06
+Pushing Label: Vivian Distance: 3.37055e+06
+Pushing Label: Human3 Distance: 1.36207e+07
+Pushing Label: Xinyan Distance: 5.41593e+06
+Pushing Label: Vivian Distance: 1.16252e+07
+Pushing Label: Human3 Distance: 5.36822e+06
+'UnknownHead' score: 6.8805 label 'Xinyan' score: 6.8805 - published
+'UnknownHead' score: 4.95 label 'Vivian' score: 4.95 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+113	40	
+0	114	
+Assignment problem solved.
+dest.mask.roi: x: 443
+y: 214
+width: 51
+height: 51
+
+src.detector: face
+src.label: Vivian
+dest.label: Vivian
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 6.8805
+Label: Vivian, Score: 6.8805
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+dest.mask.roi: x: 271
+y: 100
+width: 76
+height: 76
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 6.8117
+Label: Xinyan, Score: 6.8117
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+Detected: 2
+Try to make head box similar to selection box
+Head box: [58 x 55 from (444, 220)], selection box: [99 x 99 from (425, 202)]
+Final head_box:[99 x 99 from (424, 198)]
+Try to make head box similar to selection box
+Head box: [61 x 65 from (286, 115)], selection box: [133 x 133 from (252, 86)]
+Final head_box:[133 x 133 from (250, 81)]
+Try to make head box similar to selection box
+Head box: [57 x 65 from (440, 212)], selection box: [97 x 97 from (422, 202)]
+Final head_box:[97 x 97 from (420, 196)]
+Try to make head box similar to selection box
+Head box: [83 x 83 from (270, 78)], selection box: [118 x 118 from (257, 82)]
+Final head_box:[118 x 118 from (252, 60)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 1.68651e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 2.1436e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 7.88153e+06
+Pushing Label: Vivian Distance: 3.41994e+06
+Pushing Label: Human3 Distance: 1.40374e+07
+Pushing Label: Xinyan Distance: 4.8802e+06
+Pushing Label: Vivian Distance: 1.13755e+07
+Pushing Label: Human3 Distance: 5.514e+06
+'UnknownHead' score: 6.8117 label 'Xinyan' score: 6.8117 - published
+'UnknownHead' score: 6.8805 label 'Vivian' score: 6.8805 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+112	45	
+1	115	
+Assignment problem solved.
+dest.mask.roi: x: 446
+y: 215
+width: 50
+height: 50
+
+src.detector: face
+src.label: Vivian
+dest.label: Vivian
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 8.7917
+Label: Vivian, Score: 8.7917
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+dest.mask.roi: x: 272
+y: 108
+width: 79
+height: 79
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 6.74358
+Label: Xinyan, Score: 6.74358
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+Detected: 2
+Try to make head box similar to selection box
+Head box: [70 x 71 from (288, 114)], selection box: [124 x 124 from (261, 92)]
+Final head_box:[124 x 124 from (261, 87)]
+Try to make head box similar to selection box
+Head box: [43 x 46 from (453, 227)], selection box: [104 x 104 from (424, 202)]
+Final head_box:[104 x 104 from (422, 198)]
+Try to make head box similar to selection box
+Head box: [59 x 70 from (442, 213)], selection box: [99 x 99 from (425, 202)]
+Final head_box:[99 x 99 from (422, 199)]
+Try to make head box similar to selection box
+Head box: [81 x 98 from (277, 99)], selection box: [133 x 133 from (252, 86)]
+Final head_box:[133 x 133 from (251, 82)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 1.58122e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 2.06201e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 6.13125e+06
+Pushing Label: Vivian Distance: 1.08743e+07
+Pushing Label: Human3 Distance: 6.24479e+06
+Pushing Label: Xinyan Distance: 7.09078e+06
+Pushing Label: Vivian Distance: 3.23199e+06
+Pushing Label: Human3 Distance: 1.25604e+07
+'UnknownHead' score: 6.74358 label 'Xinyan' score: 6.74358 - published
+'UnknownHead' score: 8.7917 label 'Vivian' score: 8.7917 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+0	114	
+114	40	
+Assignment problem solved.
+dest.mask.roi: x: 275
+y: 109
+width: 79
+height: 79
+
+src.detector: face
+src.label: Xinyan
+dest.label: Xinyan
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.65614
+Label: Xinyan, Score: 8.65614
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 447
+y: 213
+width: 52
+height: 52
+
+src.detector: face
+src.label: Unknown
+dest.label: Vivian
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 8.70378
+Label: Vivian, Score: 8.70378
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+Detected: 2
+Try to make head box similar to selection box
+Head box: [63 x 65 from (289, 111)], selection box: [133 x 133 from (259, 84)]
+Final head_box:[133 x 133 from (254, 77)]
+Try to make head box similar to selection box
+Head box: [58 x 57 from (446, 221)], selection box: [104 x 104 from (423, 201)]
+Final head_box:[104 x 104 from (423, 197)]
+Try to make head box similar to selection box
+Head box: [71 x 84 from (287, 108)], selection box: [124 x 124 from (261, 92)]
+Final head_box:[124 x 124 from (260, 88)]
+Try to make head box similar to selection box
+Head box: [55 x 72 from (445, 217)], selection box: [104 x 104 from (424, 202)]
+Final head_box:[104 x 104 from (420, 201)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 2.31992e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.86136e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 5.28048e+06
+Pushing Label: Vivian Distance: 1.10269e+07
+Pushing Label: Human3 Distance: 5.02584e+06
+Pushing Label: Xinyan Distance: 8.0958e+06
+Pushing Label: Vivian Distance: 4.14649e+06
+Pushing Label: Human3 Distance: 1.3961e+07
+'UnknownHead' score: 8.65614 label 'Xinyan' score: 8.65614 - published
+'UnknownHead' score: 8.70378 label 'Vivian' score: 8.70378 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+41	113	
+112	0	
+Assignment problem solved.
+dest.mask.roi: x: 278
+y: 106
+width: 81
+height: 81
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.56958
+Label: Xinyan, Score: 8.56958
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 449
+y: 213
+width: 52
+height: 52
+
+src.detector: face
+src.label: Vivian
+dest.label: Vivian
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 10.5967
+Label: Vivian, Score: 10.5967
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+Detected: 2
+Try to make head box similar to selection box
+Head box: [49 x 51 from (453, 220)], selection box: [99 x 99 from (429, 199)]
+Final head_box:[99 x 99 from (428, 196)]
+Try to make head box similar to selection box
+Head box: [51 x 56 from (297, 107)], selection box: [115 x 115 from (269, 88)]
+Final head_box:[115 x 115 from (265, 78)]
+Try to make head box similar to selection box
+Head box: [66 x 88 from (289, 111)], selection box: [133 x 133 from (259, 84)]
+Final head_box:[133 x 133 from (256, 89)]
+Try to make head box similar to selection box
+Head box: [55 x 63 from (448, 218)], selection box: [104 x 104 from (423, 201)]
+Final head_box:[104 x 104 from (423, 197)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 1.85984e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 2.49121e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 7.3881e+06
+Pushing Label: Vivian Distance: 2.94693e+06
+Pushing Label: Human3 Distance: 1.29227e+07
+Pushing Label: Xinyan Distance: 5.25133e+06
+Pushing Label: Vivian Distance: 1.12365e+07
+Pushing Label: Human3 Distance: 5.75188e+06
+'UnknownHead' score: 8.56958 label 'Xinyan' score: 8.56958 - published
+'UnknownHead' score: 10.5967 label 'Vivian' score: 10.5967 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+111	45	
+0	108	
+Assignment problem solved.
+dest.mask.roi: x: 450
+y: 212
+width: 52
+height: 52
+
+src.detector: face
+src.label: Vivian
+dest.label: Vivian
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 12.4708
+Label: Vivian, Score: 12.4708
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+dest.mask.roi: x: 284
+y: 108
+width: 74
+height: 74
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.48389
+Label: Xinyan, Score: 8.48389
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+Detected: 2
+Try to make head box similar to selection box
+Head box: [50 x 49 from (455, 222)], selection box: [104 x 104 from (428, 198)]
+Final head_box:[104 x 104 from (428, 194)]
+Try to make head box similar to selection box
+Head box: [61 x 63 from (289, 116)], selection box: [109 x 109 from (265, 98)]
+Final head_box:[109 x 109 from (265, 93)]
+Try to make head box similar to selection box
+Head box: [54 x 68 from (452, 214)], selection box: [99 x 99 from (429, 199)]
+Final head_box:[99 x 99 from (430, 199)]
+Try to make head box similar to selection box
+Head box: [70 x 80 from (278, 91)], selection box: [115 x 115 from (269, 88)]
+Final head_box:[115 x 115 from (256, 74)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 1.53504e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 2.76066e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 5.97148e+06
+Pushing Label: Vivian Distance: 2.7257e+06
+Pushing Label: Human3 Distance: 1.12321e+07
+Pushing Label: Xinyan Distance: 5.78363e+06
+Pushing Label: Vivian Distance: 1.09891e+07
+Pushing Label: Human3 Distance: 5.83886e+06
+'UnknownHead' score: 8.48389 label 'Xinyan' score: 8.48389 - published
+'UnknownHead' score: 12.4708 label 'Vivian' score: 12.4708 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+108	44	
+0	106	
+Assignment problem solved.
+dest.mask.roi: x: 453
+y: 212
+width: 51
+height: 51
+
+src.detector: face
+src.label: Vivian
+dest.label: Vivian
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 14.3261
+Label: Vivian, Score: 14.3261
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+dest.mask.roi: x: 279
+y: 109
+width: 72
+height: 72
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.39905
+Label: Xinyan, Score: 8.39905
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+Detected: 2
+Try to make head box similar to selection box
+Head box: [53 x 56 from (269, 132)], selection box: [102 x 102 from (247, 114)]
+Final head_box:[102 x 102 from (244, 109)]
+Try to make head box similar to selection box
+Head box: [50 x 50 from (459, 223)], selection box: [107 x 107 from (431, 197)]
+Final head_box:[107 x 107 from (431, 195)]
+Try to make head box similar to selection box
+Head box: [61 x 71 from (451, 211)], selection box: [104 x 104 from (428, 198)]
+Final head_box:[104 x 104 from (429, 194)]
+Try to make head box similar to selection box
+Head box: [65 x 81 from (266, 115)], selection box: [109 x 109 from (265, 98)]
+Final head_box:[109 x 109 from (244, 101)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 3.34599e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 2.00027e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 6.36122e+06
+Pushing Label: Vivian Distance: 1.04247e+07
+Pushing Label: Human3 Distance: 6.56926e+06
+Pushing Label: Xinyan Distance: 6.28736e+06
+Pushing Label: Vivian Distance: 2.40891e+06
+Pushing Label: Human3 Distance: 1.18128e+07
+'UnknownHead' score: 8.39905 label 'Xinyan' score: 8.39905 - published
+'UnknownHead' score: 14.3261 label 'Vivian' score: 14.3261 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+49	107	
+106	40	
+Assignment problem solved.
+dest.mask.roi: x: 267
+y: 115
+width: 65
+height: 65
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.31506
+Label: Xinyan, Score: 8.31506
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 455
+y: 212
+width: 51
+height: 51
+
+src.detector: face
+src.label: Unknown
+dest.label: Vivian
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 14.1828
+Label: Vivian, Score: 14.1828
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+Detected: 2
+Try to make head box similar to selection box
+Head box: [61 x 62 from (249, 125)], selection box: [95 x 95 from (235, 115)]
+Final head_box:[95 x 95 from (232, 109)]
+Try to make head box similar to selection box
+Head box: [55 x 61 from (459, 228)], selection box: [122 x 122 from (424, 203)]
+Final head_box:[122 x 122 from (425, 197)]
+Try to make head box similar to selection box
+Head box: [53 x 69 from (255, 125)], selection box: [102 x 102 from (247, 114)]
+Final head_box:[102 x 102 from (230, 108)]
+Try to make head box similar to selection box
+Head box: [55 x 69 from (456, 214)], selection box: [107 x 107 from (431, 197)]
+Final head_box:[107 x 107 from (430, 195)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 3.60888e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.69468e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 6.0039e+06
+Pushing Label: Vivian Distance: 9.08716e+06
+Pushing Label: Human3 Distance: 6.39789e+06
+Pushing Label: Xinyan Distance: 6.62928e+06
+Pushing Label: Vivian Distance: 2.01636e+06
+Pushing Label: Human3 Distance: 1.19714e+07
+'UnknownHead' score: 8.31506 label 'Xinyan' score: 8.31506 - published
+'UnknownHead' score: 14.1828 label 'Vivian' score: 14.1828 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+46	107	
+108	0	
+Assignment problem solved.
+dest.mask.roi: x: 249
+y: 123
+width: 64
+height: 64
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.23191
+Label: Xinyan, Score: 8.23191
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 457
+y: 213
+width: 51
+height: 51
+
+src.detector: face
+src.label: Vivian
+dest.label: Vivian
+Close to boundary: 0
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 16.021
+Label: Vivian, Score: 16.021
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+Detected: 2
+Try to make head box similar to selection box
+Head box: [51 x 59 from (462, 229)], selection box: [119 x 119 from (429, 205)]
+Final head_box:[119 x 119 from (428, 199)]
+Try to make head box similar to selection box
+Head box: [63 x 63 from (234, 128)], selection box: [93 x 93 from (221, 117)]
+Final head_box:[93 x 93 from (219, 113)]
+Try to make head box similar to selection box
+Head box: [67 x 77 from (232, 119)], selection box: [95 x 95 from (235, 115)]
+Final head_box:[95 x 95 from (218, 110)]
+Try to make head box similar to selection box
+Head box: [56 x 78 from (458, 217)], selection box: [122 x 122 from (424, 203)]
+Final head_box:[122 x 122 from (425, 195)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 2.38277e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 3.70796e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 4.53593e+06
+Pushing Label: Vivian Distance: 2.61931e+06
+Pushing Label: Human3 Distance: 9.12956e+06
+Pushing Label: Xinyan Distance: 5.69891e+06
+Pushing Label: Vivian Distance: 1.03677e+07
+Pushing Label: Human3 Distance: 6.37854e+06
+'UnknownHead' score: 8.23191 label 'Xinyan' score: 8.23191 - published
+'UnknownHead' score: 16.021 label 'Vivian' score: 16.021 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+110	46	
+41	111	
+Assignment problem solved.
+dest.mask.roi: x: 458
+y: 216
+width: 49
+height: 49
+
+src.detector: face
+src.label: Unknown
+dest.label: Vivian
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 15.8608
+Label: Vivian, Score: 15.8608
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+dest.mask.roi: x: 235
+y: 126
+width: 64
+height: 64
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.14959
+Label: Xinyan, Score: 8.14959
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+Detected: 2
+Try to make head box similar to selection box
+Head box: [59 x 59 from (232, 130)], selection box: [89 x 89 from (217, 119)]
+Final head_box:[89 x 89 from (217, 115)]
+Try to make head box similar to selection box
+Head box: [56 x 55 from (458, 223)], selection box: [107 x 107 from (433, 201)]
+Final head_box:[107 x 107 from (433, 197)]
+Try to make head box similar to selection box
+Head box: [51 x 74 from (460, 216)], selection box: [119 x 119 from (429, 205)]
+Final head_box:[119 x 119 from (426, 194)]
+Try to make head box similar to selection box
+Head box: [68 x 75 from (229, 124)], selection box: [93 x 93 from (221, 117)]
+Final head_box:[93 x 93 from (217, 115)]
+Trackers: 2
+Number of head box to display: 2
+Distance: 4.21131e+06
+Classifying... use_unknown_thresh_: 1
+Distance: 1.95296e+06
+Classifying... use_unknown_thresh_: 1
+Pushing Label: Xinyan Distance: 5.57777e+06
+Pushing Label: Vivian Distance: 1.04455e+07
+Pushing Label: Human3 Distance: 6.32531e+06
+Pushing Label: Xinyan Distance: 5.63197e+06
+Pushing Label: Vivian Distance: 2.52386e+06
+Pushing Label: Human3 Distance: 1.09015e+07
+'UnknownHead' score: 8.14959 label 'Xinyan' score: 8.14959 - published
+'UnknownHead' score: 15.8608 label 'Vivian' score: 15.8608 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+44	113	
+112	41	
+Assignment problem solved.
+dest.mask.roi: x: 229
+y: 125
+width: 72
+height: 72
+
+src.detector: face
+src.label: Unknown
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 8.06809
+Label: Xinyan, Score: 8.06809
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 459
+y: 217
+width: 49
+height: 49
+
+src.detector: face
+src.label: Unknown
+dest.label: Vivian
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 15.7022
+Label: Vivian, Score: 15.7022
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+Detected: 2
+Try to make head box similar to selection box
+Head box: [53 x 53 from (224, 141)], selection box: [93 x 93 from (212, 121)]
+Final head_box:[93 x 93 from (204, 121)]
+Tracking box is too smaller than select
+Try to make head box similar to selection box
+Head box: [49 x 60 from (461, 235)], selection box: [125 x 125 from (424, 209)]
+Final head_box:[125 x 125 from (423, 203)]
+Try to make head box similar to selection box
+Head box: [76 x 78 from (217, 132)], selection box: [89 x 89 from (217, 119)]
+Final head_box:[89 x 89 from (211, 127)]
+Try to make head box similar to selection box
+Head box: [57 x 69 from (454, 215)], selection box: [107 x 107 from (433, 201)]
+Final head_box:[107 x 107 from (429, 196)]
+Trackers: 2
+Number of head box to display: 2
+'UnknownHead' score: 8.06809 label 'Xinyan' score: 8.06809 - published
+'UnknownHead' score: 15.7022 label 'Vivian' score: 15.7022 - published
+In detection_tracker_node inputCallback
+incoming detections: 2
+Costs matrix.
+47	116	
+116	47	
+Assignment problem solved.
+dest.mask.roi: x: 204
+y: 121
+width: 93
+height: 93
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Xinyan
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc1, Score: 0
+Label: UnknownHead, Score: 7.98741
+Label: Xinyan, Score: 7.98741
+Final dest label: Xinyan
+previous_match_index: 0 display label: Xinyan
+dest.mask.roi: x: 423
+y: 203
+width: 125
+height: 125
+
+src.detector: head
+src.label: UnknownHead
+dest.label: Vivian
+Close to boundary: 0
+src unknown dest recognized
+Label: Bound, Score: 0
+Label: Newfc2, Score: 0
+Label: UnknownHead, Score: 15.5451
+Label: Vivian, Score: 15.5451
+Final dest label: Vivian
+previous_match_index: 1 display label: Vivian
+resh
+ * /cob_people_detection/head_detection_display/display
+ * /cob_people_detection/head_detection_display/display_timing
+ * /cob_people_detection/head_detector/depth_drop_groups
+ * /cob_people_detection/head_detector/depth_increase_search_scale
+ * /cob_people_detection/head_detector/depth_min_search_scale_x
+ * /cob_people_detection/head_detector/depth_min_search_scale_y
+ * /cob_people_detection/head_detector/display_timing
+ * /cob_people_detection/head_detector/fill_unassigned_depth_values
+ * /cob_people_detection/head_detector/head_detector/data_directory
+ * /cob_people_detection/people_detection_display/display
+ * /cob_people_detection/people_detection_display/display_timing
+ * /cob_people_detection/sensor_message_gateway/display_timing
+ * /cob_people_detection/sensor_message_gateway/target_publishing_rate
+ * /head_detection_viewer/autosize
+ * /people_detection_viewer/autosize
+ * /rosdistro
+ * /rosversion
+
+NODES
+  /cob_people_detection/head_detection_display/
+    head_detection_display (cob_people_detection/head_detection_display_node)
+  /cob_people_detection/people_detection_display/
+    people_detection_display (cob_people_detection/people_detection_display_node)
+  /cob_people_detection/coordinator/
+    coordinator (cob_people_detection/coordinator_node)
+  /cob_people_detection/sensor_message_gateway/
+    sensor_message_gateway (cob_people_detection/sensor_message_gateway_node)
+  /
+    head_detection_viewer (image_view/image_view)
+    people_detection_viewer (image_view/image_view)
+  /cob_people_detection/detection_tracker/
+    detection_tracker (cob_people_detection/detection_tracker_node)
+  /cob_image_flip/
+    kinect_image_flip (cob_image_flip/kinect_image_flip)
+  /cob_people_detection/face_recognizer/
+    face_recognizer (cob_people_detection/face_recognizer_node)
+  /cob_people_detection/face_capture/
+    face_capture (cob_people_detection/face_capture_node)
+  /cob_people_detection/head_detector/
+    head_detector (cob_people_detection/head_detector_node)
+  /cob_people_detection/face_detector/
+    face_detector (cob_people_detection/face_detector_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/xinyan/groovy_workspace/sandbox/cob_people_perception/cob_people_detection/ros/launch/people_detection.launch http://localhost:11311
+core service [/rosout] found
+[1mprocess[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1]: started with pid [12069][0m
+[1mprocess[cob_image_flip/kinect_image_flip-2]: started with pid [12084][0m
+[1mprocess[cob_people_detection/head_detector/head_detector-3]: started with pid [12105][0m
+[1mprocess[cob_people_detection/face_detector/face_detector-4]: started with pid [12132][0m
+[1mprocess[cob_people_detection/face_recognizer/face_recognizer-5]: started with pid [12196][0m
+[1mprocess[cob_people_detection/detection_tracker/detection_tracker-6]: started with pid [12243][0m
+[1mprocess[cob_people_detection/people_detection_display/people_detection_display-7]: started with pid [12312][0m
+[1mprocess[people_detection_viewer-8]: started with pid [12329][0m
+[1mprocess[cob_people_detection/head_detection_display/head_detection_display-9]: started with pid [12343][0m
+[1mprocess[head_detection_viewer-10]: started with pid [12395][0m
+[1mprocess[cob_people_detection/face_capture/face_capture-11]: started with pid [12426][0m
+[1mprocess[cob_people_detection/coordinator/coordinator-12]: started with pid [12477][0m
+[cob_people_detection/coordinator/coordinator-12] killing on exit
+[cob_people_detection/face_capture/face_capture-11] killing on exit
+[cob_people_detection/head_detection_display/head_detection_display-9] killing on exit
+[head_detection_viewer-10] killing on exit
+[cob_people_detection/people_detection_display/people_detection_display-7] killing on exit
+[cob_people_detection/detection_tracker/detection_tracker-6] killing on exit
+[cob_people_detection/face_recognizer/face_recognizer-5] killing on exit
+[people_detection_viewer-8] killing on exit
+[cob_people_detection/face_detector/face_detector-4] killing on exit
+[cob_people_detection/head_dete'UnknownHead' score: 7.98741 label 'Xinyan' score: 7.98741 - published
+'UnknownHead' score: 15.5451 label 'Vivian' score: 15.5451 - published
+ctor/head_detector-3] killing on exit
+[cob_image_flip/kinect_image_flip-2] killing on exit
+[cob_people_detection/sensor_message_gateway/sensor_message_gateway-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
