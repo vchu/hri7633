@@ -1,0 +1,20 @@
+<launch>
+
+    <!-- Start openni node? -->
+
+
+    <!-- Start audio capture -->
+    <include file="$(find audio_tracking)/launch/publish_sensors.launch" />
+
+    <!-- Start gait capture -->
+    <include file="$(find gait_capture)/launch/publish_sensors.launch" />
+
+    <!-- Start face detection -->
+
+    <!-- Start bluetooth -->
+
+    <!-- Start logger -->
+    <include file="$(find data_logger_bag)/launch/record.launch" />
+    
+</launch>    
+    
