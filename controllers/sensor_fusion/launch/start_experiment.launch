@@ -4,10 +4,10 @@
 
 
     <!-- Start audio capture -->
-    <include file="$(find audio_tracking)/launch/publish_sensors.launch" />
+    <include file="$(find audio_tracking)/launch/publish_sensor.launch" />
 
     <!-- Start gait capture -->
-    <include file="$(find gait_capture)/launch/publish_sensors.launch" />
+    <include file="$(find gait_capture)/launch/publish_sensor.launch" />
 
     <!-- Start face detection -->
 
