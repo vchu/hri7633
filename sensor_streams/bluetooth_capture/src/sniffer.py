@@ -58,7 +58,7 @@ class BluetoothSniffer():
 
         if msg.skillName is not "": 
             self.user = msg.skillName
-            rospy.loginfo("User is: " % self.user)
+            rospy.loginfo("User is: %s" % self.user)
 
 
 if __name__ == '__main__':

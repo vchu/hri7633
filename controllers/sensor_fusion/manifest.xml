@@ -12,6 +12,7 @@
   <depend package="roscpp"/>
   <depend package="audio_tracking"/>
   <depend package="gait_capture"/>
+  <depend package="bluetooth_capture"/>
 
 </package>
 

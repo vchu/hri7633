@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- Startup the ubertooth sniffer node -->
+    <node name="bluetooth_sniff" pkg="bluetooth_capture" type="sniffer.py" output="screen" />
+
+
+</launch>
