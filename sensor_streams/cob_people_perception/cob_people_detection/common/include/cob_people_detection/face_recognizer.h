@@ -157,6 +157,11 @@ virtual unsigned long init(std::string data_directory, int norm_size,bool norm_i
 	/// @return Return code
 	virtual unsigned long loadRecognitionModel(std::vector<std::string>& identification_labels_to_recognize);
 
+	// Get current label set
+	virtual std::vector<std::string> getCurrentLabelSet() {
+	  return m_current_label_set;
+	};
+
 	enum Metrics {EUCLIDEAN, MAHALANOBIS, MAHALANOBISCOSINE};
 
 protected:
@@ -169,7 +174,8 @@ protected:
 	/// @return Return code
 	virtual unsigned long recognizeFace(cv::Mat& color_image, std::vector<cv::Rect>& face_coordinates, std::vector<std::string>& identification_labels);
 	virtual unsigned long recognizeFace(cv::Mat& color_image,cv::Mat& depth_image, std::vector<cv::Rect>& face_coordinates, std::vector<std::string>& identification_labels);
-
+	virtual unsigned long recognizeFace(cv::Mat& color_image,cv::Mat& depth_image, std::vector<cv::Rect>& face_coordinates, std::vector<std::string>& identification_labels, std::vector<cv::Mat> &classification_probabilities_v);
+	
 	/// Function to find the closest face class
 	/// The function calculates the distance of each sample image to the trained face class
 	/// @param eigen_vector_weights The weights of corresponding eigenvectors of projected test face

@@ -154,6 +154,12 @@ FaceRecognizerNode::FaceRecognizerNode(ros::NodeHandle nh)
 
 	// initialize face recognizer
 	unsigned long return_value=face_recognizer_.init(data_directory_, norm_size,norm_illumination,norm_align,norm_extreme_illumination, metric, debug, identification_labels_to_recognize,recognition_method, feature_dimension, use_unknown_thresh, use_depth);
+	current_label_set_ = face_recognizer_.getCurrentLabelSet();
+	std::cout << "Test label set" << std::endl;
+	for (int i = 0; i < current_label_set_.size(); i++) {
+	  std::cout << current_label_set_[i] << std::endl;
+	}
+	
   if(return_value==ipa_Utils::RET_FAILED)
   {
     ROS_ERROR( "Recognition model not trained");
@@ -433,6 +439,7 @@ void FaceRecognizerNode::facePositionsCallback(const cob_people_detection_msgs::
 	// --- face recognition ---
 	std::vector< std::vector<std::string> > identification_labels;
 	bool identification_failed = false;
+	  std::vector< std::vector< cv::Mat> > classification_probabilities_vv;	
 	if (enable_face_recognition_ == true)
 	{
 
@@ -441,7 +448,10 @@ void FaceRecognizerNode::facePositionsCallback(const cob_people_detection_msgs::
 
     //timeval t1,t2;
     //gettimeofday(&t1,NULL);
-		unsigned long result_state = face_recognizer_.recognizeFaces(heads_color_images,heads_depth_images, face_bounding_boxes, identification_labels);
+
+	   unsigned long result_state = face_recognizer_.recognizeFaces(heads_color_images,heads_depth_images, face_bounding_boxes, identification_labels, classification_probabilities_vv);
+	   //	  unsigned long result_state = face_recognizer_.recognizeFaces(heads_color_images,heads_depth_images, face_bounding_boxes, identification_labels);
+	  
     //gettimeofday(&t2,NULL);
     //std::cout<<(t2.tv_sec - t1.tv_sec) * 1000.0<<std::endl;
 		if (result_state == ipa_Utils::RET_FAILED)
@@ -450,6 +460,7 @@ void FaceRecognizerNode::facePositionsCallback(const cob_people_detection_msgs::
 			identification_failed = true;
 		}
 	}
+	
 	if (enable_face_recognition_ == false || identification_failed == true)
 	{
 		// label all image unknown if face recognition disabled
@@ -469,6 +480,8 @@ void FaceRecognizerNode::facePositionsCallback(const cob_people_detection_msgs::
 	// prepare message
 	for (int head=0; head<(int)head_bounding_boxes.size(); head++)
 	{
+	  std::vector<cv::Mat> &classification_probabilities_v = classification_probabilities_vv[head];
+
 		if (face_bounding_boxes[head].size() == 0)
 		{
 			// no faces detected in head region -> publish head position
@@ -517,6 +530,19 @@ void FaceRecognizerNode::facePositionsCallback(const cob_people_detection_msgs::
 				det.label=identification_labels[head][face];
 				// set origin of detection
 				det.detector = "face";
+				// Add recognition label distance pairs
+				if (!(enable_face_recognition_ == false || identification_failed == true))	{
+				  cv::Mat &cp = classification_probabilities_v[face];
+				  int cols = cp.cols;
+				  cob_people_detection_msgs::LabelDist ld;
+				  for (int label_index = 0; label_index < cols; label_index++) {
+				    ld.label = current_label_set_[label_index];
+				    ld.distance = cp.at<float>(label_index);
+				    det.dists.push_back(ld);
+				    std::cout << "Pushing Label: " << ld.label << " Distance: " << ld.distance << std::endl;
+				  }
+
+				}
 				// header
 				det.header = face_positions->header;
 				// add to message

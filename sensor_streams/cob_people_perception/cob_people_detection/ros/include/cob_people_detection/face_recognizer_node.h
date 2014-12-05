@@ -128,6 +128,7 @@ protected:
 
 	FaceRecognizer face_recognizer_;		///< implementation of the face recognizer
 
+	std::vector<std::string> current_label_set_;
 
 	// parameters
 	std::string data_directory_;	///< path to the classifier model

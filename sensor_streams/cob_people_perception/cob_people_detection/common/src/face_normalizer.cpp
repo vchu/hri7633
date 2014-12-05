@@ -1511,3 +1511,4 @@ bool FaceNormalizer::normalize_img_type(cv::Mat& in,cv::Mat& out)
   in.convertTo(out,CV_64FC1);
   return true;
 }
+	

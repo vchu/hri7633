@@ -16,7 +16,7 @@ Start tracking and recognition:
 Capture face images:
 `rosrun cob_people_detection people_detection_client`
 Then input 5 -> 1 -> 20 to change incoming image rate.
-Then 1 to capture images. Note that because of the recognition algorithm, more than 1 faces/humans must be trained before recognition. 
+Then 1 to capture images. Note that because of the recognition algorithm, more than 1 faces/humans must be trained before recognition. All the captured images are in `~/.ros/cob_people_detection` folder by default.
 
 After image capturing, run `roslaunch cob_people_detection people_detection.launch`, model will be automatically trained and loaded. 
 

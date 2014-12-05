@@ -75,7 +75,7 @@ namespace ipa_PeopleDetector{
       virtual bool loadModel(boost::filesystem::path& model_file)=0;
 
       ///  Method to activate usage of "unknown" threshold
-      inline virtual void activate_unknown_treshold()
+      inline virtual void activate_unknown_threshold()
         {
           use_unknown_thresh_=true;
         };
@@ -130,6 +130,7 @@ namespace ipa_PeopleDetector{
       /// @return Returns false, when threshold is exceeded.
       inline  bool is_known(double& distance ,double& threshold)
         {
+	  std::cout << "Distance: " << distance << std::endl;
           if( distance >= threshold)return false;
           return true;
         };

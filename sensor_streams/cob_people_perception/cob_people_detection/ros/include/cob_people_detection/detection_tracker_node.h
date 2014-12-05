@@ -73,8 +73,12 @@
 
 // ROS message includes
 #include <sensor_msgs/Image.h>
-//#include <sensor_msgs/PointCloud2.h>
+#include <sensor_msgs/PointCloud2.h>
 #include <cob_people_detection_msgs/DetectionArray.h>
+
+// Actions
+#include <actionlib/client/simple_action_client.h>
+#include <cob_people_detection/loadModelAction.h>
 
 // services
 //#include <cob_people_detection/DetectPeople.h>
@@ -99,14 +103,20 @@
 // external includes
 #include "cob_vision_utils/GlobalDefines.h"
 
+// point cloud
+#include <pcl/point_types.h>
+#include <pcl_ros/point_cloud.h>
 
 #include <sstream>
 #include <string>
 #include <vector>
 
+#include "cob_people_detection/face_recognizer.h"
+
 
 namespace ipa_PeopleDetector {
   
+typedef actionlib::SimpleActionClient<cob_people_detection::loadModelAction> LoadModelClient;
 
 class DetectionTrackerNode
 {
@@ -114,7 +124,8 @@ protected:
 	image_transport::ImageTransport* it_;
 	image_transport::SubscriberFilter people_segmentation_image_sub_; ///< Color camera image topic
 
-	message_filters::Synchronizer<message_filters::sync_policies::ApproximateTime<cob_people_detection_msgs::DetectionArray, sensor_msgs::Image> >* sync_input_2_;
+	message_filters::Synchronizer<message_filters::sync_policies::ApproximateTime<cob_people_detection_msgs::DetectionArray, sensor_msgs::PointCloud2> >* sync_input_2_;
+	
 	message_filters::Subscriber<cob_people_detection_msgs::DetectionArray> face_position_subscriber_; ///< receives the face messages from the face detector
 	ros::Publisher face_position_publisher_; ///< publisher for the positions of the detected faces
 
@@ -139,6 +150,28 @@ protected:
 
   bool rosbag_mode_;    /// < true if data from a rosbag is used, to ignore deprecated timestamps
 
+  // Online capturing
+  message_filters::Subscriber<sensor_msgs::PointCloud2> pcl2_sub_;
+  LoadModelClient* load_model_client_;
+  std::set<std::string> labels_trained_;
+
+  // Fields for online image capture
+  std::string data_directory_;  // path to classifier model
+  // All face images, including the ones in the database
+  std::vector<cv::Mat> face_images_;
+  std::vector<cv::Mat> face_depthmaps_;
+  FaceRecognizer face_recognizer_trainer_;
+  int nimages_;
+  // depth image
+  // color image
+  typedef struct CDImage {
+    cv::Mat color;
+    cv::Mat depth;
+    cv::Rect roi;
+  } CDImage;
+
+  std::map<std::string, std::vector<CDImage> > face_captures_;
+  
 public:
 
 	DetectionTrackerNode(ros::NodeHandle nh);
@@ -148,6 +181,8 @@ public:
 	/// Converts a color image message to cv::Mat format.
 	unsigned long convertColorImageMessageToMat(const sensor_msgs::Image::ConstPtr& image_msg, cv_bridge::CvImageConstPtr& image_ptr, cv::Mat& image);
 
+	unsigned long convertPclMessageToMat(const sensor_msgs::PointCloud2::ConstPtr& pointcloud, cv::Mat& depth_image, cv::Mat& color_image);
+	
 	/// Copies the data from src to dest.
 	/// @param src The new data which shall be copied into dest
 	/// @param dst The new data src is copied into dest
@@ -172,7 +207,7 @@ public:
 	unsigned long prepareFacePositionMessage(cob_people_detection_msgs::DetectionArray& face_position_msg_out, ros::Time image_recording_time);
 
 	/// checks the detected faces from the input topic against the people segmentation and outputs faces if both are positive
-	void inputCallback(const cob_people_detection_msgs::DetectionArray::ConstPtr& face_position_msg_in, const sensor_msgs::Image::ConstPtr& people_segmentation_image_msg);
+	void inputCallback(const cob_people_detection_msgs::DetectionArray::ConstPtr& face_position_msg_in, const sensor_msgs::PointCloud2::ConstPtr& pointcloud);
 
 };
 

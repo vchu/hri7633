@@ -105,6 +105,7 @@ FaceCaptureNode::FaceCaptureNode(ros::NodeHandle nh)
   
 	// face recognizer trainer
 	face_recognizer_trainer_.initTraining(data_directory_, norm_size,norm_illumination,norm_align,norm_extreme_illumination, debug, face_images_, face_depthmaps_, use_depth);
+	std::cout << "in capture: # color: " << face_images_.size() << " # depth " << face_depthmaps_.size() << std::endl;
 
 	// subscribers
 	it_ = new image_transport::ImageTransport(node_handle_);
@@ -176,6 +177,9 @@ void FaceCaptureNode::addDataServerCallback(const cob_people_detection::addDataG
 
 		// save new database status
 		face_recognizer_trainer_.saveTrainingData(face_images_,face_depthmaps_);
+	std::cout << "face caupture in saving: # color: " << face_images_.size() << " # depth " << face_depthmaps_.size() << std::endl;
+	// Train a classification model with these new faces
+	face_recognizer_trainer_.saveTrainingData(face_images_,face_depthmaps_);		
 
 		// close action
 		cob_people_detection::addDataResult result;
@@ -307,6 +311,7 @@ unsigned long FaceCaptureNode::convertDepthImageMessageToMat(const sensor_msgs::
 	return ipa_Utils::RET_OK;
 }
 
+// Set capture_image_ to true, so that the stuff in inputCallback can be executed
 bool FaceCaptureNode::captureImageCallback(cob_people_detection::captureImage::Request &req, cob_people_detection::captureImage::Response &res)
 {
 	capture_image_ = true;

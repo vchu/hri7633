@@ -134,12 +134,19 @@ message(STATUS "PCL Include dirs: ${PCL_INCLUDE_DIRS}")
     target_link_libraries(face_recognizer_node face_normalizer face_recognizer_algorithms)    
     rosbuild_link_boost(face_recognizer_node filesystem system)
     add_custom_command(TARGET face_recognizer_node POST_BUILD COMMAND mkdir -p ${PROJECT_SOURCE_DIR}/common/files/training_data)
+
+
     
     rosbuild_add_executable(detection_tracker_node
+    			common/src/abstract_face_recognizer.cpp
+    			common/src/face_recognizer.cpp
     			ros/src/detection_tracker_node.cpp
     			common/src/munkres/munkres.cpp)
-    rosbuild_link_boost(detection_tracker_node signals)
-    
+    rosbuild_link_boost(detection_tracker_node filesystem system signals)
+    target_link_libraries(detection_tracker_node face_normalizer face_recognizer_algorithms)
+
+
+
     rosbuild_add_executable(people_detection_display_node
     			ros/src/people_detection_display_node.cpp)
     rosbuild_link_boost(people_detection_display_node signals)
@@ -149,6 +156,9 @@ message(STATUS "PCL Include dirs: ${PCL_INCLUDE_DIRS}")
     rosbuild_link_boost(head_detection_display_node signals)
 
 
+
+
+
     rosbuild_add_executable(face_capture_node
     			common/src/abstract_face_recognizer.cpp
     			common/src/face_recognizer.cpp
@@ -156,6 +166,8 @@ message(STATUS "PCL Include dirs: ${PCL_INCLUDE_DIRS}")
     rosbuild_link_boost(face_capture_node filesystem system signals)
     target_link_libraries(face_capture_node face_normalizer face_recognizer_algorithms)
     
+
+
     rosbuild_add_executable(sensor_message_gateway_node
     			ros/src/sensor_message_gateway_node.cpp
     			ros/src/sensor_message_gateway_main.cpp)

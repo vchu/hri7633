@@ -115,10 +115,12 @@ void ipa_PeopleDetector::FaceRecognizer1D::classifyImage(cv::Mat& probe_mat,int&
 void ipa_PeopleDetector::FaceRecognizer1D::calcDIFS(cv::Mat& probe_mat,int& minDIFSindex,double& minDIFS,cv::Mat& probabilities)
 {
 
+  // Change: instead of output probabilities, output distance to difference classes
     double norm;
     minDIFS=std::numeric_limits<float>::max();
     probabilities=cv::Mat(1,num_classes_,CV_64FC1);
-    probabilities *=  std::numeric_limits<float>::max();
+    
+       probabilities *=  std::numeric_limits<float>::max();
       for(int r=0;r<model_features_.rows;r++)
       {
         cv::Mat model_mat=model_features_.row(r);
@@ -133,6 +135,11 @@ void ipa_PeopleDetector::FaceRecognizer1D::calcDIFS(cv::Mat& probe_mat,int& minD
           minDIFS=norm;
         }
         //calculate cost for classification to every class in database
+
+	// Save dist
+	// probabilities.at<double>(0,r) = norm;
+	// std::cout << "Prob at " << r << "Dist: " << norm << std::endl;
+	
       }
 
     //process class_cost
@@ -161,7 +168,7 @@ void ipa_PeopleDetector::FaceRecognizer2D::classifyImage(cv::Mat& probe_mat,int&
   cv::Mat feature_mat;
   extractFeatures(probe_mat,projection_mat_,feature_mat);
 
-  //calculate distance in face space DIFS
+  //calulate distance in face space DIFS
   double minDIFS;
   cv::Mat minDIFScoeffs;
   int minDIFSindex;
@@ -173,6 +180,8 @@ void ipa_PeopleDetector::FaceRecognizer2D::classifyImage(cv::Mat& probe_mat,int&
   {
     if(! is_known(minDIFS,unknown_thresh_))max_prob_index=-1;
   }
+  std::cout << "Classifying... use_unknown_thresh_: " << use_unknown_thresh_ << std::endl;
+
   return;
 }
 void ipa_PeopleDetector::FaceRecognizer2D::extractFeatures(std::vector<cv::Mat>& src_vec,cv::Mat& proj_mat,std::vector<cv::Mat>& coeff_mat_vec)
@@ -198,7 +207,7 @@ void ipa_PeopleDetector::FaceRecognizer2D::calcDIFS(cv::Mat& probe_mat,int& minD
 {
     minDIFS=std::numeric_limits<double>::max();
     probabilities=cv::Mat(1,num_classes_,CV_32FC1);
-    probabilities*=  std::numeric_limits<float>::max();
+    //    probabilities*=  std::numeric_limits<float>::max();
       for(int m=0;m<model_features_.size();m++)
       {
         // subtract matrices
@@ -216,14 +225,15 @@ void ipa_PeopleDetector::FaceRecognizer2D::calcDIFS(cv::Mat& probe_mat,int& minD
             minDIFS=(double)norm[0];
           }
         //calculate cost for classification to every class in database
-        probabilities.at<float>(model_label_vec_[m])=std::min(probabilities.at<float>(model_label_vec_[m]),(float)norm[0]);
+	  //        probabilities.at<float>(model_label_vec_[m])=std::min(probabilities.at<float>(model_label_vec_[m]),(float)norm[0]);
+        probabilities.at<float>(model_label_vec_[m])=(float)norm[0];	
         }
 
     //process class_cost
     double min_cost,max_cost;
-    probabilities=1/(probabilities.mul(probabilities));
-    cv::minMaxLoc(probabilities,&min_cost,&max_cost,0,0);
-    probabilities/=max_cost;
+    // probabilities=1/(probabilities.mul(probabilities));
+    // cv::minMaxLoc(probabilities,&min_cost,&max_cost,0,0);
+    // probabilities/=max_cost;
 
     return;
 }
@@ -271,7 +281,8 @@ void ipa_PeopleDetector::FaceRecognizer2D::calc_threshold(std::vector<cv::Mat>& 
 
   for(int c=0;c<num_classes_;c++)
   {
-    thresh=std::min(thresh,(P[c]+D[c]) *0.2);
+    thresh=std::min(thresh,(P[c]+D[c]) *0.18);
+    //thresh=std::min(thresh,(P[c]+D[c]) *0.05);    
   }
   std::cout<<"THRESH for db: "<<thresh<<std::endl;
 }

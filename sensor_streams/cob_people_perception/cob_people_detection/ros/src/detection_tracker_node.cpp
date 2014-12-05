@@ -74,7 +74,7 @@
 
 // ROS message includes
 #include <sensor_msgs/Image.h>
-//#include <sensor_msgs/PointCloud2.h>
+#include <sensor_msgs/PointCloud2.h>
 #include <cob_people_detection_msgs/DetectionArray.h>
 
 // services
@@ -116,9 +116,10 @@ static int image_height = 480;
 
 static std::string new_name() {
   std::stringstream ss;
-  ss << "Human " << ++UnknownCount;
+  ss << "Newfc" << ++UnknownCount;
   return ss.str();
 }
+
 
 DetectionTrackerNode::DetectionTrackerNode(ros::NodeHandle nh)
   : node_handle_(nh)
@@ -126,6 +127,12 @@ DetectionTrackerNode::DetectionTrackerNode(ros::NodeHandle nh)
   it_ = 0;
   sync_input_2_ = 0;
 
+  bool norm_illumination;
+  bool norm_align;
+  bool norm_extreme_illumination;
+  int  norm_size;						// Desired width and height of the Eigenfaces (=eigenvectors).
+  bool use_depth;
+  
   // parameters
   std::cout << "\n---------------------------\nPeople Detection Parameters:\n---------------------------\n";
   node_handle_.param("debug", debug_, false);
@@ -156,26 +163,47 @@ DetectionTrackerNode::DetectionTrackerNode(ros::NodeHandle nh)
   std::cout << "display_timing = " << display_timing_ << "\n";
 
 
+  // Parameters for online image capture
+  if(!node_handle_.getParam("/cob_people_detection/data_storage_directory", data_directory_)) std::cout<<"PARAM NOT AVAILABLE"<<std::endl;
+  node_handle_.param("norm_size", norm_size, 100);
+  std::cout << "norm_size = " << norm_size << "\n";
+  node_handle_.param("norm_illumination", norm_illumination, true);
+  std::cout << "norm_illumination = " << norm_illumination << "\n";
+  node_handle_.param("norm_align", norm_align, false);
+  std::cout << "norm_align = " << norm_align << "\n";
+  node_handle_.param("norm_extreme_illumination", norm_extreme_illumination, false);
+  std::cout << "norm_extreme_illumination = " << norm_extreme_illumination << "\n";
+  node_handle_.param("use_depth",use_depth,false);
+  std::cout<< "use depth: "<<use_depth<<"\n";
+  node_handle_.param("nimages",nimages_,50);
+  std::cout<< "number of images for one person: "<<nimages_<<"\n";  
+  
   // subscribers
   it_ = new image_transport::ImageTransport(node_handle_);
   people_segmentation_image_sub_.subscribe(*it_, "people_segmentation_image", 1);
   face_position_subscriber_.subscribe(node_handle_, "face_position_array_in", 1);
 
-  // input synchronization
-  sensor_msgs::Image::ConstPtr nullPtr;
-  if (use_people_segmentation_ == true)
-    {
-      sync_input_2_ = new message_filters::Synchronizer<message_filters::sync_policies::ApproximateTime<cob_people_detection_msgs::DetectionArray, sensor_msgs::Image> >(2);
-      sync_input_2_->connectInput(face_position_subscriber_, people_segmentation_image_sub_);
-      sync_input_2_->registerCallback(boost::bind(&DetectionTrackerNode::inputCallback, this, _1, _2));
-    }
-  else
-    {
-      face_position_subscriber_.registerCallback(boost::bind(&DetectionTrackerNode::inputCallback, this, _1, nullPtr));
-    }
+  // Use online capture feature
+  // Get point cloud data, so that we will have color image and depth to extract
+  pcl2_sub_.subscribe(node_handle_, "pointcloud_rgb", 1);
+  load_model_client_ = new LoadModelClient("/cob_people_detection/face_recognizer/load_model_server", true);
 
+  
+  sensor_msgs::Image::ConstPtr nullPtr;  
+  sync_input_2_ = new message_filters::Synchronizer<message_filters::sync_policies::ApproximateTime<cob_people_detection_msgs::DetectionArray, sensor_msgs::PointCloud2> >(10);
+  sync_input_2_->connectInput(face_position_subscriber_, pcl2_sub_);
+  sync_input_2_->registerCallback(boost::bind(&DetectionTrackerNode::inputCallback, this, _1, _2));
+  
+
+  // Face Recognizer
+  face_recognizer_trainer_.initTraining(data_directory_, norm_size, norm_illumination, norm_align, norm_extreme_illumination, debug_, face_images_, face_depthmaps_, use_depth);
+  std::cout << "detection tracker use_depth: " << use_depth << std::endl;
+  
   // publishers
   face_position_publisher_ = node_handle_.advertise<cob_people_detection_msgs::DetectionArray>("face_position_array", 1);
+
+  // Publish my stuff
+  
 
   std::cout << "DetectionTrackerNode initialized." << std::endl;
 }
@@ -185,6 +213,39 @@ DetectionTrackerNode::~DetectionTrackerNode()
   if (it_ != 0) delete it_;
   if (sync_input_2_ != 0) delete sync_input_2_;
 }
+
+unsigned long DetectionTrackerNode::convertPclMessageToMat(const sensor_msgs::PointCloud2::ConstPtr& pointcloud, cv::Mat& depth_image, cv::Mat& color_image)
+{
+  pcl::PointCloud<pcl::PointXYZRGB> depth_cloud; // point cloud
+  pcl::fromROSMsg(*pointcloud, depth_cloud);
+  depth_image.create(depth_cloud.height, depth_cloud.width, CV_32FC3);
+  color_image.create(depth_cloud.height, depth_cloud.width, CV_8UC3);
+  uchar* depth_image_ptr = (uchar*) depth_image.data;
+  uchar* color_image_ptr = (uchar*) color_image.data;
+  for (int v=0; v<(int)depth_cloud.height; v++)
+    {
+      int depth_base_index = depth_image.step*v;
+      int color_base_index = color_image.step*v;
+      for (int u=0; u<(int)depth_cloud.width; u++)
+	{
+	  int depth_index = depth_base_index + 3*u*sizeof(float);
+	  float* depth_data_ptr = (float*)(depth_image_ptr+depth_index);
+	  int color_index = color_base_index + 3*u*sizeof(uchar);
+	  uchar* color_data_ptr = (uchar*)(color_image_ptr+color_index);
+	  pcl::PointXYZRGB point_xyz = depth_cloud(u,v);
+	  depth_data_ptr[0] = point_xyz.x;
+	  depth_data_ptr[1] = point_xyz.y;
+	  depth_data_ptr[2] = (isnan(point_xyz.z)) ? 0.f : point_xyz.z;
+	  color_data_ptr[0] = point_xyz.r;
+	  color_data_ptr[1] = point_xyz.g;
+	  color_data_ptr[2] = point_xyz.b;
+	  //if (u%100 == 0) std::cout << "u" << u << " v" << v << " z" << data_ptr[2] << "\n";
+	}
+    }
+  return ipa_Utils::RET_OK;
+}
+
+
 
 /// Converts a color image message to cv::Mat format.
 unsigned long DetectionTrackerNode::convertColorImageMessageToMat(const sensor_msgs::Image::ConstPtr& image_msg, cv_bridge::CvImageConstPtr& image_ptr, cv::Mat& image)
@@ -220,13 +281,15 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
   dest.pose.pose = src.pose.pose;
 
   std::string src_label;
-  int boundX = 110;
-  int boundY = 100;
+  int boundX = 80;
+  int boundY = 60;
   int centerX = dest.mask.roi.x + dest.mask.roi.width/2;
   int centerY = dest.mask.roi.y + dest.mask.roi.height/2;
 
   int close_to_boundary;
-  if (centerX < boundX || centerX+boundX > image_width || centerY < boundY || centerY+boundY > image_height)
+
+  int tol = 4;
+  if ( (dest.mask.roi.x < tol) || (dest.mask.roi.x+dest.mask.roi.width  > image_width - tol) || (dest.mask.roi.y < tol) || (dest.mask.roi.y+dest.mask.roi.height > image_height-tol) )
     close_to_boundary = 1;
   else
     close_to_boundary = 0;
@@ -248,19 +311,20 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
       // The situation I want is that if the person stay in front of camera for enough time, we start to record and classify
       // 1. We just restart or don't count if the human is close to the boundary of the image
       //  label: might leave or just enter("Bound")
-      //        delete "HumanXX" vote or resets all votes when "HumanXX" has the highest vote
+      //        delete "NewfcXX" vote or resets all votes when "NewfcXX" has the highest vote
       //
-
+      
       // update label history
       // Can be "UnknownHead", if this is a head detection without face
       // Or it can be "Unknown", if this is an unrecognized face
       // Or it can be someone
-      if (src.label == "Unknown" || (!dest.label.empty() && dest.label.substr(0, 5) == "Human") || src.label == "UnknownHead" ) {
+      if ( (src.label == "Unknown" ||  src.label == "UnknownHead") && (dest.label.empty() || dest.label.substr(0,5)=="Newfc" || dest.label == "Bound") ) {
 	
+	//(!dest.label.empty() && dest.label.substr(0, 5) == "Newfc")	
       	// If close to boundary
       	if (close_to_boundary) {
 	  
-      	  // If "HumanX" is the most voted label
+      	  // If "NewfcX" is the most voted label
       	  std::string label = std::string();
       	  double max_s = 0;
       	  for (std::map<std::string, double>::iterator it=face_identification_votes_[updateIndex].begin(); it!=face_identification_votes_[updateIndex].end(); it++)
@@ -273,23 +337,23 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
       	    }
 
       	  std::cout << "Close to boundary and the most voted label is: " << label << std::endl;
-      	  if (label.substr(0, 5) == "Human") {
-      	    std::cout << "'HumanX' is the most voted label and close to boundary" << std::endl;
+      	  if (label.substr(0, 5) == "Newfc") {
+      	    std::cout << "'NewfcX' is the most voted label and close to boundary" << std::endl;
       	    // Resest votes
       	    face_identification_votes_[updateIndex].clear();
       	    face_identification_votes_[updateIndex]["UnknownHead"] = 0.0;
-      	    face_identification_votes_[updateIndex]["Bound"] = 5.0;
+      	    face_identification_votes_[updateIndex]["Bound"] = 2.0;
       	    // Reset label
       	    src_label = "Bound";
       	  } else if (label == "Bound") {
-      	    face_identification_votes_[updateIndex]["Bound"] = 5.0;
+      	    face_identification_votes_[updateIndex]["Bound"] = 2.0;
       	  }
       	} else {
 	  face_identification_votes_[updateIndex]["Bound"] = .0;	  
       	  int has_new_name = 0;
       	  for (std::map<std::string, double>::iterator itr = face_identification_votes_[updateIndex].begin();
       	       itr != face_identification_votes_[updateIndex].end(); ++itr) {
-      	    if (itr->first.substr(0, 5) == "Human") {
+      	    if (itr->first.substr(0, 5) == "Newfc") {
       	      itr->second += 1.0;
       	      src_label = itr->first;
       	      has_new_name = 1;
@@ -298,26 +362,45 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
       	  }
       	  if (!has_new_name) {
       	    src_label = new_name();
-      	    face_identification_votes_[updateIndex][src_label] = 1.0;
+      	    face_identification_votes_[updateIndex][src_label] = 5.0;
       	  }
       	}
-      } else {
-
+      } else if (!(src.label == "Unknown" ||  src.label == "UnknownHead")) {
+	
+	for (std::map<std::string, double>::iterator itr = face_identification_votes_[updateIndex].begin();
+	     itr != face_identification_votes_[updateIndex].end(); ++itr) {
+	  if (itr->first.substr(0, 5) == "Newfc") {
+	    //   face_identification_votes_[updateIndex].erase(itr);
+	    face_identification_votes_[updateIndex][itr->first] = 0.0;
+	    break;
+	  }
+	}
+	
 	if (face_identification_votes_[updateIndex].find(src.label) == face_identification_votes_[updateIndex].end())
-	  face_identification_votes_[updateIndex][src.label] = 1.0;
+	  face_identification_votes_[updateIndex][src.label] = 5.0;
 	else
-	  face_identification_votes_[updateIndex][src.label] += 1.0;
+	  face_identification_votes_[updateIndex][src.label] += 2.0;
+	
 	src_label = src.label;
-     }
+      } else {
+	src_label = dest.label;
+	std::cout << "src unknown dest recognized" << std::endl;
+      }
+      
       
       // apply voting decay with time and find most voted label
       double max_score = 0;
       //      dest.label = src.label;
       dest.label = src_label;
+
+      // Here we can decide whether we want to decay votes
+      bool to_decay = true;
+      
       for (std::map<std::string, double>::iterator face_identification_votes_it=face_identification_votes_[updateIndex].begin(); face_identification_votes_it!=face_identification_votes_[updateIndex].end(); face_identification_votes_it++)
 	{
 	  // todo: make the decay time-dependend - otherwise faster computing = faster decay. THIS IS ACTUALLY WRONG as true detections occur with same rate as decay -> so computing power only affects response time to a changed situation
-	  face_identification_votes_it->second *= face_identification_score_decay_rate_;
+	  if (to_decay) 
+	    face_identification_votes_it->second *= face_identification_score_decay_rate_;
 	  std::string label = face_identification_votes_it->first;
 			
 	  // Has a higher score && (not "UnknownHead") && (not "Unknown")
@@ -328,8 +411,6 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
 	    dest.label = label;
 	  }
 	}
-
-
 
  
       // if the score for the assigned label is higher than the score for UnknownHead increase the score for UnknownHead to the label's score (allows smooth transition if only the head detection is available after recognition)
@@ -342,6 +423,12 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
       // 	if (face_identification_votes_[updateIndex]["Unknown"] > face_identification_votes_[updateIndex]["UnknownHead"])
       // 		face_identification_votes_[updateIndex]["UnknownHead"] = face_identification_votes_[updateIndex]["Unknown"];
       // }
+
+  for (std::map<std::string, double>::iterator k = face_identification_votes_[updateIndex].begin(); k != face_identification_votes_[updateIndex].end(); k++) {
+    std::cout << "Label: " << k->first << ", Score: " << k->second << std::endl;
+  }
+
+      
     }
   else {
     // Newly detected face
@@ -364,7 +451,9 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
 
   dest.header.stamp = src.header.stamp; //ros::Time::now();
 
-
+  // Copy Label to Dist mapping
+  dest.dists = src.dists;
+  
   std::cout << "Final dest label: " << dest.label << std::endl;
   
   return ipa_Utils::RET_OK;
@@ -485,8 +574,12 @@ unsigned long DetectionTrackerNode::prepareFacePositionMessage(cob_people_detect
 
 
 /// checks the detected faces from the input topic against the people segmentation and outputs faces if both are positive
-void DetectionTrackerNode::inputCallback(const cob_people_detection_msgs::DetectionArray::ConstPtr& face_position_msg_in, const sensor_msgs::Image::ConstPtr& people_segmentation_image_msg)
+void DetectionTrackerNode::inputCallback(const cob_people_detection_msgs::DetectionArray::ConstPtr& face_position_msg_in, const sensor_msgs::PointCloud2::ConstPtr& pointcloud)
 {
+
+  std::cout << "In detection_tracker_node inputCallback" << std::endl;
+
+    sensor_msgs::Image::ConstPtr people_segmentation_image_msg;
   // todo? make update rates time dependent!
   // NOT USEFUL, as true detections occur with same rate as decay -> so computing power only affects response time to a changed situation
 
@@ -698,6 +791,7 @@ void DetectionTrackerNode::inputCallback(const cob_people_detection_msgs::Detect
 
 	      // instantiate the matching
 	      copyDetection(face_position_msg_in->detections[current_match_index], face_position_accumulator_[previous_match_index], true, previous_match_index);
+	      std::cout << "previous_match_index: " << previous_match_index << " display label: " << face_position_accumulator_[previous_match_index].label << std::endl;
 	      // mark the respective entry in face_detection_indices as labeled
 	      for (unsigned int i=0; i<face_detection_indices.size(); i++)
 		if (face_detection_indices[i] == current_match_index)
@@ -707,8 +801,6 @@ void DetectionTrackerNode::inputCallback(const cob_people_detection_msgs::Detect
 	  delete optimalAssignment;
 	}
     }
-  if (debug_)
-    std::cout << "Matches found.\n";
 
   // create new detections for the unmatched of the current detections if they originate from the color image
   // In what case, a new detection is not assigned
@@ -738,18 +830,100 @@ void DetectionTrackerNode::inputCallback(const cob_people_detection_msgs::Detect
 	    }
 	}
     }
-  if (debug_)
-    std::cout << "New detections.\n";
 
   // eliminate multiple instances of a label
-  removeMultipleInstancesOfLabel();
+  //  removeMultipleInstancesOfLabel();
 
   // publish face positions
   ros::Time image_recording_time = (face_position_msg_in->detections.size() > 0 ? face_position_msg_in->detections[0].header.stamp : ros::Time::now());
   cob_people_detection_msgs::DetectionArray face_position_msg_out;
   prepareFacePositionMessage(face_position_msg_out, image_recording_time);
+  
+  // Store unknown faces for later recognition
+  // Get color and depth images
+  cv::Mat depth_image;
+  cv::Mat color_image;
+  // Now we have both depth and color images, which are cv::Mat
+  convertPclMessageToMat(pointcloud, depth_image, color_image);
+  
+  
+  std::string l;  // label for the detection
+  
+  // Iterate through all detected faces and heads
+  for (int i = 0; i < face_position_msg_out.detections.size(); i++) {
+    l = face_position_msg_out.detections[i].label;
+      
+    // Unknown face detected and model does not include the label
+    // Of course, we neglect head detections and faces that have real names
+    if (face_position_msg_out.detections[i].detector == "face" && l.substr(0, 5) == "Newfc" &&
+	labels_trained_.find(l) == labels_trained_.end() // model does not include this label yet
+	) {       
+
+      // Change from "NewfcXX" to "HumanXX"      
+      l = "Human" + face_position_msg_out.detections[i].label.substr(5);
+      
+      std::map<std::string, std::vector<CDImage> >::iterator it;
+      it = face_captures_.find(l);  // pointer to the pair in the map
+
+      // Store the color and depth images and the region rect
+      cv::Rect roi;
+      roi.x = face_position_msg_out.detections[i].mask.roi.x;
+      roi.y = face_position_msg_out.detections[i].mask.roi.y;
+      roi.width = face_position_msg_out.detections[i].mask.roi.width;
+      roi.height = face_position_msg_out.detections[i].mask.roi.height;      
+      CDImage cd = {color_image, depth_image, roi};
+      // Encoutered this label previously?
+      if (it != face_captures_.end()) {
+	it->second.push_back(cd);
+      } else {
+	face_captures_[l] = std::vector<CDImage>();
+	it = face_captures_.find(l);
+      }
+
+      std::cout << "Got " << it->second.size() << " images for " << l << std::endl;
+
+      // If enough images, train a new model
+      if (it->second.size() == nimages_) {
+	// Iterate through all color and depth images
+	for (std::vector<CDImage>::iterator j = it->second.begin(); j != it->second.end(); j++) {
+	  // Add face
+	  cv::Rect empty_rect;
+	  if (face_recognizer_trainer_.addFace(j->color, j->depth, j->roi, empty_rect, l, face_images_,face_depthmaps_)==ipa_Utils::RET_FAILED) {
+	    ROS_WARN("Normalizing failed");
+	    return;
+	  }
+	  // if (j == it->second.begin()) {
+	  //   cv::namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+	  //   cv::imshow( "Display window", j->depth );                   // Show our image inside it.
+	  //   waitKey(0);
+	  // }
+	}
+
+	std::cout << "# color: " << face_images_.size() << " # depth " << face_depthmaps_.size() << std::endl;
+	// Train a classification model with these new faces
+	face_recognizer_trainer_.saveTrainingData(face_images_,face_depthmaps_);
+	
+	// Delete the images related to the label in the map
+	it->second.clear();
+	face_captures_.erase(it);
+
+	// Add to the trained labels set
+	labels_trained_.insert(l);
+
+	// Load and train new model
+	cob_people_detection::loadModelGoal goal;	
+	load_model_client_->sendGoal(goal);
+	std::cout << "Recognition model for all labels is being loaded by the server ..." << std::endl;
+      }
+    } else {
+      
+    }
+  }
+  // Publish
   face_position_msg_out.header.stamp = face_position_msg_in->header.stamp;
   face_position_publisher_.publish(face_position_msg_out);
+
+
   
   //  // display
   //  if (debug_ == true)

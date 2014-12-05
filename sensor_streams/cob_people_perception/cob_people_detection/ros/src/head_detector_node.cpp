@@ -124,6 +124,10 @@ int calc_camshift_box(cv::Rect& track_box, cv::RotatedRect& track_rot_box, const
   // Calcuate new rectangle based on the previous one
   backproj &= mask;
 
+  // Invalid input track box???
+  if (track_box.x < 0 || track_box.y < 0 || track_box.width <= 0 || track_box.height <= 0)
+      return 5;
+      
   // CamShift should always output a box inside the image
   track_rot_box = CamShift(backproj, track_box,
 			   cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 10, 1));
@@ -339,16 +343,11 @@ void HeadDetectorNode::pointcloud_callback(const sensor_msgs::PointCloud2::Const
 
   }
 	
-  static int track_object = 0;
-	
-  int channels[] = {0, 1};
   int hbins = 30, sbins = 32;
   int histSize[] = {hbins, sbins};
   float hranges[] = {0, 180};
   float sranges[] = {0, 256};
   const float* ranges[] = {hranges, sranges};
-  int track_min_box_area = 1000;
-  cv::Size image_size = color_image.size();
 
   // For trackers
   static list<CamShiftRecord> tracker_list;
@@ -361,7 +360,7 @@ void HeadDetectorNode::pointcloud_callback(const sensor_msgs::PointCloud2::Const
   cv::cvtColor(color_image, hsv, cv::COLOR_RGB2BGR);
   cv::cvtColor(hsv, hsv, cv::COLOR_BGR2HSV);	
   //	cv::imshow("HSV Test", hsv);
-  char c = (char)cv::waitKey(10);	
+  //  char c = (char)cv::waitKey(10);	
   cv::inRange(hsv, cv::Scalar(0, 15, 10), cv::Scalar(180, 256, 256), mask);
 
   // For head detection
