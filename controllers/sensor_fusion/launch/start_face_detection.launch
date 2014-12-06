@@ -1,0 +1,9 @@
+<launch>
+
+
+    <!-- Start face detection -->
+    <include file="$(find cob_people_detection)/ros/launch/people_detection.launch" />
+
+    
+</launch>    
+    
