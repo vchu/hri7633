@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- Start bluetooth -->
+    <include file="$(find bluetooth_capture)/launch/publish_sensor.launch" />
+
+</launch>    
+    

@@ -9,9 +9,6 @@
     <!-- Start gait capture -->
     <include file="$(find gait_capture)/launch/publish_sensor.launch" />
 
-    <!-- Start bluetooth -->
-    <include file="$(find bluetooth_capture)/launch/publish_sensor.launch" />
-
     <!-- Start logger -->
     <include file="$(find data_logger_bag)/launch/record.launch" />
     
