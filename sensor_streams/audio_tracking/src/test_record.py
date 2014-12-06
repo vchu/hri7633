@@ -29,6 +29,14 @@ print "* done recording"
 stream.close()
 p.terminate()
 
+wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+wf.setnchannels(CHANNELS)
+wf.setsampwidth(p.get_sample_size(FORMAT))
+wf.setframerate(RATE)
+wf.writeframes(b''.join(all))
+wf.close()
+
+
 import pdb; pdb.set_trace()
 data = ''.join(all)
 data_int = np.fromstring(data, dtype=np.int16)

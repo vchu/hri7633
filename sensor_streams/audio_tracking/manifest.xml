@@ -10,7 +10,8 @@
   <url>http://ros.org/wiki/audio_tracking</url>
   <depend package="rospy"/>
   <rosdep name="python-gst"/>
-
+  <depend package="audio_common_msgs"/>
+   
 </package>
 
 

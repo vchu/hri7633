@@ -4,8 +4,10 @@ import rospy
 import struct
 import numpy as np
 import matplotlib.pyplot as plt
-from audio_tracking.msg import AudioData16
+import pyaudio
+import wave
 from std_msgs.msg import Float64
+from audio_common_msgs.msg import AudioData
 
 class AudioCaptureProcessing():
 
@@ -15,7 +17,7 @@ class AudioCaptureProcessing():
         self.data = []
         # Subscribers
         rospy.loginfo("Setting up subscribers")
-        rospy.Subscriber("audio_raw", AudioData16, self.audio_callback, queue_size = 10)
+        rospy.Subscriber("audio_raw", AudioData, self.audio_callback, queue_size = 10)
         
         # Setup publishers
         #rospy.loginfo("Setting up publishers")
@@ -30,6 +32,7 @@ class AudioCaptureProcessing():
         # Do something with audio?
         raw_audio = msg.data
 
+        '''
         # Split data into left and right channels
         right_audio, left_audio = raw_audio[0::2],raw_audio[1::2]
 
@@ -47,7 +50,7 @@ class AudioCaptureProcessing():
                 print "left louder"
             else:
                 print "right_louder"
-
+        '''
         '''
         audio_data = [struct.unpack('B',i[0])[0] for i in raw_audio]
         audio_stream = np.array(audio_data)
@@ -78,7 +81,24 @@ class AudioCaptureProcessing():
     def cleanup(self):
 
         rospy.loginfo("numpy!")
-        cur_data = np.hstack(self.data)
+        cur_data = self.data[0:100]
+
+        chunk = 1024
+        FORMAT = pyaudio.paInt16
+        RATE = 44100
+        RECORD_SECONDS = 5 
+        WAVE_OUTPUT_FILENAME = "output.wav"
+
+        p = pyaudio.PyAudio()
+
+        wf = wave.open('test.wav', 'wb')
+        wf.setnchannels(2)
+        wf.setsampwidth(p.get_sample_size(FORMAT))
+        wf.setframerate(RATE)
+        wf.writeframes(b''.join(cur_data))
+        wf.close()
+
+
         import pdb; pdb.set_trace()
 
 
