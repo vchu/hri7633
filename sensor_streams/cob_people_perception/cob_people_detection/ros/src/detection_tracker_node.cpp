@@ -65,6 +65,7 @@
 
 // standard includes
 #include <sstream>
+#include <signal.h>
 
 //--
 
@@ -379,7 +380,7 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
 	if (face_identification_votes_[updateIndex].find(src.label) == face_identification_votes_[updateIndex].end())
 	  face_identification_votes_[updateIndex][src.label] = 5.0;
 	else
-	  face_identification_votes_[updateIndex][src.label] += 2.0;
+	  face_identification_votes_[updateIndex][src.label] += 5.0;
 	
 	src_label = src.label;
       } else {
@@ -415,7 +416,8 @@ unsigned long DetectionTrackerNode::copyDetection(const cob_people_detection_msg
  
       // if the score for the assigned label is higher than the score for UnknownHead increase the score for UnknownHead to the label's score (allows smooth transition if only the head detection is available after recognition)
       if (face_identification_votes_[updateIndex][dest.label] > face_identification_votes_[updateIndex]["UnknownHead"])
-	face_identification_votes_[updateIndex]["UnknownHead"] = face_identification_votes_[updateIndex][dest.label];
+	
+	//	face_identification_votes_[updateIndex]["UnknownHead"] = face_identification_votes_[updateIndex][dest.label];
 
       // Anyway "UnknownHead" should have the score as the highest one
       // if (fall_back_to_unknown_identification_==false)
@@ -969,6 +971,17 @@ void DetectionTrackerNode::inputCallback(const cob_people_detection_msgs::Detect
 }
 
 
+void mySigintHandler(int sig)
+{
+  // Do some custom action.
+  // For example, publish a stop message to some other nodes.
+  std::cout << "I am shuting down" << std::endl;
+  
+  // All the default sigint handler does is call shutdown()
+  ros::shutdown();
+}
+
+
 //#######################
 //#### main programm ####
 int main(int argc, char** argv)
@@ -979,6 +992,11 @@ int main(int argc, char** argv)
   // Create a handle for this node, initialize node
   ros::NodeHandle nh;
 
+  // Override the default ros sigint handler.
+  // This must be set after the first NodeHandle is created.
+  signal(SIGINT, mySigintHandler);
+  // Copy train
+  
   // Create FaceRecognizerNode class instance
   DetectionTrackerNode detection_tracker_node(nh);
 

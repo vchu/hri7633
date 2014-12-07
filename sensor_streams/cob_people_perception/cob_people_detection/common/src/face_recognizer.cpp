@@ -585,8 +585,9 @@ unsigned long ipa_PeopleDetector::FaceRecognizer::recognizeFace(cv::Mat& color_i
 
 	    if(eff_color->trained_)
 	      {
+		std::cout << "prob " << i << std::endl;
 		eff_color->classifyImage(color_crop,res_label_color, classification_probabilities_v[i]);
-		//eff_color->classifyImage(color_crop,res_label_color);		
+		//		eff_color->classifyImage(color_crop,res_label_color);		
 		if(res_label_color==-1)
 		  {
 		    class_color="Unknown";

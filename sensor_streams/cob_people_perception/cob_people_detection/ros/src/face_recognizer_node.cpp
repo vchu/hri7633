@@ -534,7 +534,11 @@ void FaceRecognizerNode::facePositionsCallback(const cob_people_detection_msgs::
 				if (!(enable_face_recognition_ == false || identification_failed == true))	{
 				  cv::Mat &cp = classification_probabilities_v[face];
 				  int cols = cp.cols;
+				  std::cout << "Before pushing, prob cols: " << cols << std::endl;
 				  cob_people_detection_msgs::LabelDist ld;
+
+				  current_label_set_ = face_recognizer_.getCurrentLabelSet();				  				  
+				  std::cout << "Size of current_label_set_: " << current_label_set_.size() << std::endl;
 				  for (int label_index = 0; label_index < cols; label_index++) {
 				    ld.label = current_label_set_[label_index];
 				    ld.distance = cp.at<float>(label_index);

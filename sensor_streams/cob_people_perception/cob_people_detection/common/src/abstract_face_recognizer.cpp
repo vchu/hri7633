@@ -119,6 +119,7 @@ unsigned long AbstractFaceRecognizer::recognizeFaces(std::vector<cv::Mat>& color
 	// prepare probabilities
         classification_probabilities_vv.clear();
 	classification_probabilities_vv.resize(face_coordinates.size());
+	std::cout << "Resizing classification_probabilities" << std::endl;
 
 	// find identification indices
 	for (unsigned int i=0; i<color_images.size(); i++)

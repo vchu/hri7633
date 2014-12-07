@@ -207,8 +207,10 @@ void ipa_PeopleDetector::FaceRecognizer2D::calcDIFS(cv::Mat& probe_mat,int& minD
 {
     minDIFS=std::numeric_limits<double>::max();
     probabilities=cv::Mat(1,num_classes_,CV_32FC1);
+    std::cout << "Declare prob, num_classes_ is " << num_classes_ << std::endl;
+    std::cout << "prob ncol: " << probabilities.cols;
     //    probabilities*=  std::numeric_limits<float>::max();
-      for(int m=0;m<model_features_.size();m++)
+          for(int m=0;m<model_features_.size();m++)
       {
         // subtract matrices
         cv::Mat work_mat;
@@ -225,9 +227,13 @@ void ipa_PeopleDetector::FaceRecognizer2D::calcDIFS(cv::Mat& probe_mat,int& minD
             minDIFS=(double)norm[0];
           }
         //calculate cost for classification to every class in database
+
 	  //        probabilities.at<float>(model_label_vec_[m])=std::min(probabilities.at<float>(model_label_vec_[m]),(float)norm[0]);
-        probabilities.at<float>(model_label_vec_[m])=(float)norm[0];	
+	  std::cout << "m: " << m << std::endl;
+	  std::cout << "model_label_vec_[m]: " << model_label_vec_[m] << std::endl;
+	  probabilities.at<float>(model_label_vec_[m])=(float)norm[0];	
         }
+      std::cout << "Passing set probabilities" << std::endl;
 
     //process class_cost
     double min_cost,max_cost;

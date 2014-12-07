@@ -13,6 +13,7 @@
   <depend package="audio_tracking"/>
   <depend package="gait_capture"/>
   <depend package="bluetooth_capture"/>
+  <depend package="cob_people_perception"/>
 
 </package>
 
