@@ -1,5 +1,7 @@
 <launch>
 
+    <param name="user_id" type="string" value="user01" />
+
     <!-- Start openni node? -->
     <include file="$(find openni_launch)/launch/openni.launch" />
 
