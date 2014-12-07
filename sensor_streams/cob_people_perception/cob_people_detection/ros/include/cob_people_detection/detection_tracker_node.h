@@ -171,7 +171,7 @@ protected:
   } CDImage;
 
   std::map<std::string, std::vector<CDImage> > face_captures_;
-  
+
 public:
 
 	DetectionTrackerNode(ros::NodeHandle nh);
