@@ -114,6 +114,8 @@ using namespace ipa_PeopleDetector;
 static int UnknownCount = 0;
 static int image_width = 640;
 static int image_height = 480;
+static std::string user_id_;
+  
 
 static std::string new_name() {
   std::stringstream ss;
@@ -178,7 +180,8 @@ DetectionTrackerNode::DetectionTrackerNode(ros::NodeHandle nh)
   std::cout<< "use depth: "<<use_depth<<"\n";
   node_handle_.param("nimages",nimages_,50);
   std::cout<< "number of images for one person: "<<nimages_<<"\n";  
-  
+
+
   // subscribers
   it_ = new image_transport::ImageTransport(node_handle_);
   people_segmentation_image_sub_.subscribe(*it_, "people_segmentation_image", 1);
@@ -976,6 +979,22 @@ void mySigintHandler(int sig)
   // Do some custom action.
   // For example, publish a stop message to some other nodes.
   std::cout << "I am shuting down" << std::endl;
+
+  // We have user name saved before
+  std::cout << "Copying out..." << std::endl;
+  std::string command = "cp -r ~/.ros/cob_people_detection/files/training_data  ~/.ros/cob_people_detection/files/" + user_id_;
+  std::cout << command << std::endl;
+  system(command.c_str());
+  std::cout << "Deleting..." << std::endl;
+  command = "rm -rf  ~/.ros/cob_people_detection/files/training_data"; 
+  system(command.c_str());
+  std::cout << "Copying back..." << std::endl;
+  command = "cp -r ~/training_data  ~/.ros/cob_people_detection/files/training_data"; 
+  system(command.c_str());
+  
+  // Override the default ros sigint handler.
+  // This must be set after the first NodeHandle is created.
+  signal(SIGINT, mySigintHandler);  
   
   // All the default sigint handler does is call shutdown()
   ros::shutdown();
@@ -995,7 +1014,14 @@ int main(int argc, char** argv)
   // Override the default ros sigint handler.
   // This must be set after the first NodeHandle is created.
   signal(SIGINT, mySigintHandler);
-  // Copy train
+  
+  // Global parameters from the param server
+  user_id_ = "user1";
+  
+  if (!ros::param::get("/user_id", user_id_)) {
+    std::cout << "NO USER_ID!" << std::endl;
+    exit(1);
+  }
   
   // Create FaceRecognizerNode class instance
   DetectionTrackerNode detection_tracker_node(nh);
