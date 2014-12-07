@@ -3,7 +3,7 @@
     <param name="user_id" type="string" value="user01" />
 
     <!-- Start openni node? -->
-    <include file="$(find openni_launch)/launch/openni.launch" />
+    <!--include file="$(find openni_launch)/launch/openni.launch" /-->
 
     <!-- Start audio capture -->
     <include file="$(find audio_tracking)/launch/publish_sensor.launch" />
