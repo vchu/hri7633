@@ -26,7 +26,7 @@ class BluetoothSniffer():
         rospy.Subscriber("bluetooth_sniffer_flag", Bool, self.bluetooth_callback)
 
         # Optional subscriber that figures out user name?
-        rospy.Subscriber("C6_Task_Description", LogControl, self.log_callback)
+        # rospy.Subscriber("C6_Task_Description", LogControl, self.log_callback)
 
         # Setup publisher to show when done writing the file?
         self.pub = rospy.Publisher("bluetooth_done_flag", Bool)
@@ -34,7 +34,7 @@ class BluetoothSniffer():
     def bluetooth_callback(self, msg):
 
         # Create the ubertooth command
-        ubertooth_cmd = "./ubertooth-scan"
+        ubertooth_cmd = "sudo ./ubertooth-scan"
         if self.userName != None:
             ubertooth_cmd = ubertooth_cmd + ' -f ' + self.userName + '.txt'
 

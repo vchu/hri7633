@@ -11,8 +11,7 @@
   <depend package="roscpp"/>
   <depend package="rospy"/>
   <depend package="std_msgs"/>
-
-  <!--depend package="data_logger_bag"/  -->
+  <depend package="data_logger_bag"/>
 
 </package>
 
