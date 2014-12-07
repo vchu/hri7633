@@ -2,6 +2,7 @@
 
     <!-- Startup the ubertooth sniffer node -->
     <node name="bluetooth_sniff" pkg="bluetooth_capture" type="sniffer.py" output="screen" />
-
+    <node name="bluetooth_pinger" pkg="bluetooth_capture" type="bluetooth_pinger" output="screen" />
 
 </launch>
+
