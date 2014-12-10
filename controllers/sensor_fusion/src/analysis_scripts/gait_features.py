@@ -21,7 +21,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from sklearn.lda import LDA
 from sklearn.metrics import classification_report
 from sklearn.svm import SVC
-
+from sklearn.neighbors import KNeighborsClassifier
 
 def load_pkl_type(filename):
 
@@ -44,25 +44,25 @@ def load_pkl_type(filename):
             torso_translation = run_data['torso']['translation']
             torso_rotation = run_data['torso']['translation']
 
-            # Pull out X and Z values for the head
-            head_translation = run_data['head']['translation']
-            feats.append(head_translation[:,0])
-            feats.append(head_translation[:,2])
-
             # compute sum squared diff between each joint to torso
             for body_part in body_part_list:
 
-                # Pull out translation and rotation
-                body_part_trans = run_data[body_part]['translation']
-                body_part_rot = run_data[body_part]['rotation']
+                if body_part == 'torso':
+                    # change across time...
+                    tb_trans_diff = np.mean(np.sqrt(np.square(np.diff(torso_translation))))
+                else:
+                    
+                    # Pull out translation and rotation
+                    body_part_trans = run_data[body_part]['translation']
+                    body_part_rot = run_data[body_part]['rotation']
 
-                # Difference between torso and body part
-                torso_body_trans = body_part_trans - torso_translation
-                torso_body_rot = body_part_rot - torso_rotation
+                    # Difference between torso and body part
+                    torso_body_trans = body_part_trans - torso_translation
+                    torso_body_rot = body_part_rot - torso_rotation
 
-                # change across time...
-                tb_trans_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_trans))))
-                tb_rot_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_rot))))
+                    # change across time...
+                    tb_trans_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_trans))))
+                    tb_rot_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_rot))))
 
                 # just care about translation for now?
                 feats.append(tb_trans_diff)
@@ -88,32 +88,48 @@ def load_pkl_usr(filename):
 
         for run_data in user_data:
 
+            feats = []
+
             # Pull out torso
             torso_translation = run_data['torso']['translation']
             torso_rotation = run_data['torso']['translation']
 
-            feats = []
+            # Pull out X and Z values for the head
+            head_translation = run_data['head']['translation']
+            mu = np.mean(head_translation, axis=1)
+            covar = np.cov(np.hstack((head_translation[:,0],head_translation[:,2])))
+            #feats.append(np.median(head_translation[:,0]))
+            #feats.append(np.median(head_translation[:,2]))
+            feats.append(np.vstack((head_translation[:,0],head_translation[:,2])).T)
+
+            '''
             # compute sum squared diff between each joint to torso
             for body_part in body_part_list:
 
-                # Pull out translation and rotation
-                body_part_trans = run_data[body_part]['translation']
-                body_part_rot = run_data[body_part]['rotation']
+                if body_part == 'torso':
+                    # change across time...
+                    tb_trans_diff = np.mean(np.sqrt(np.square(np.diff(torso_translation))))
+                else:
 
-                # Difference between torso and body part
-                torso_body_trans = body_part_trans - torso_translation
-                torso_body_rot = body_part_rot - torso_rotation
+                    # Pull out translation and rotation
+                    body_part_trans = run_data[body_part]['translation']
+                    body_part_rot = run_data[body_part]['rotation']
 
-                # change across time...
-                tb_trans_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_trans))))
-                tb_rot_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_rot))))
+                    # Difference between torso and body part
+                    torso_body_trans = body_part_trans - torso_translation
+                    torso_body_rot = body_part_rot - torso_rotation
+
+                    # change across time...
+                    tb_trans_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_trans))))
+                    tb_rot_diff = np.mean(np.sqrt(np.square(np.diff(torso_body_rot))))
 
                 # just care about translation for now?
                 feats.append(tb_trans_diff)
-
+            '''
             feat_store[user].append(feats)
             feats_all.append(feats)
-            labels.append(int(user.split('r')[-1]))
+            #labels.append(int(user.split('r')[-1]))
+            labels.append([int(user.split('r')[-1])]*len(head_translation[:,0]))
 
     return (feat_store, feats_all, labels)
 
@@ -191,9 +207,17 @@ def reduce_dimensions(features, feat_store, datatype=False):
 
 def train_simple_learner(features, labels):
 
-    clf = LDA(n_components=3)
-    clf = LDA()
-    clf.fit(features, labels)
+    # Try out KNN
+    clf = KNeighborsClassifier(n_neighbors=100)
+    clf.fit(np.hstack(features)[0], np.hstack(labels))
+
+    # Try out simple gaussian
+    import pdb; pdb.set_trace() 
+
+    # Try out LDA
+    #clf = LDA(n_components=3)
+    #clf = LDA()
+    #clf.fit(features, labels)
     pca = None
 
     '''
@@ -213,14 +237,17 @@ def train_simple_learner(features, labels):
 
 
 def test_simple_learner(learner, features, labels, pca=None):
-    import pdb; pdb.set_trace()
 
     if pca is not None:
         features = pca.transform(features)
-    Y_pred = learner.predict(features) 
+    # Merge features back down
+    feat = [np.median(x,axis=1) for x in features]
+    import pdb; pdb.set_trace()
+    Y_pred = learner.predict(np.vstack(feat))
     #Y_prob = learner.predict_proba(features)
 
-    print classification_report(labels,Y_pred)
+    label_feat = [x[0] for x in labels]
+    print classification_report(label_feat,Y_pred)
 
 def main():
 
